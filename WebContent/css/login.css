@@ -1,0 +1,14 @@
+.cardLayout {
+  margin: 50px 100px;
+  padding-top: 10px;
+  background: white;
+}
+.loginTitle {
+  margin-left: 90px;
+}
+.inputFormLaytout {
+  margin: 10px 90px;
+}
+.loginButton {
+  margin: 10px 0 20px 220px;
+}
