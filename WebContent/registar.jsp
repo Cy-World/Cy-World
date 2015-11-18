@@ -1,17 +1,21 @@
+<%@page contentType="text/html;charset=utf-8" language="java"%>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Registar|Cy-World</title>
+  <!-- FrameWorkImport -->
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <!-- CustomImport -->
   <link href="css/top.css" type="text/css" rel="stylesheet" media="screen,projection" />
   <link href="css/registar.css" type="text/css" rel="stylesheet" />
   <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
-  <script src="js/materialize.js"></script>
-  <script src="js/init.js"></script>
-  <title>新規ログイン画面</title>
+  <script src="js/materialize/materialize.js"></script>
+  <script src="js/materialize/init.js"></script>
+
 </head>
 
 <body class="grey lighten-4">
@@ -38,26 +42,26 @@
       <div class="inputFormLayout">
         <!--User Name  -->
         <div class="input-field col s12">
-          <input  type="text" class="validate">
+          <input type="text" class="validate">
           <label for="text">UserName</label>
         </div>
         <!-- Email addless -->
         <div class="input-field col s12">
-          <input  type="email" class="validate">
+          <input type="email" class="validate">
           <label for="email">Email Address</label>
         </div>
         <!-- Passwd -->
         <div class="input-field col s12">
-          <input  type="text" class="validate">
+          <input type="text" class="validate">
           <label for="text">Password</label>
         </div>
         <!-- RePasswd -->
         <div class="input-field col s12">
-          <input  type="text" class="validate">
+          <input type="text" class="validate">
           <label for="text">Conpirm your Password</label>
         </div>
       </div>
-      <a href="storming.html" class="waves-effect waves-light btn-large registarButton" ><i class="material-icons left">room</i>Create</a>
+      <a href="storming.html" class="waves-effect waves-light btn-large registarButton"><i class="material-icons left">room</i>Create</a>
     </form>
   </div>
 

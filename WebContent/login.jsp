@@ -1,81 +1,59 @@
-
+<%@page contentType="text/html;charset=utf-8" language="java"%>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Login|Cy-World</title>
+  <!-- FrameWorkImport -->
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <!-- CustomImport -->
   <link href="css/top.css" type="text/css" rel="stylesheet" media="screen,projection" />
-
+  <link href="css/login.css" type="text/css" rel="stylesheet" />
   <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
-  <script src="js/materialize.js"></script>
-  <script src="js/init.js"></script>
-  <title>新規ログイン画面</title>
+  <script src="js/materialize/materialize.js"></script>
+  <script src="js/materialize/init.js"></script>
 </head>
 
-<body>
+<body class="grey lighten-4">
+
+  <!-- GlobalNavi -->
   <nav>
     <div class="nav-wrapper white" style="border-bottom:solid 3px; border-color:gray;">
       <a href="index.html" class="brand-logo left" style="margin-left:50px">
         <span style="color:blue;font-weight:bold">Cy</span>
         <span style="color:grey;font-weight:bold">-World</span>
       </a>
-      <!--
-          <ul class="right side-nav" id="nav-mobile">
-           <li><a href="">Sass</a></li>
-           <li><a href="">Components</a></li>
-           <li><a href="">JavaScript</a></li>
-         </ul>
-         <a class="button-collapse" href="#" data-activates='nav-mobile'>
-          <i class ="mdi-navigation-menu"></i>
-         </a>
-  - -->
-
       <ul id="nav-mobile" class="right" style="margin-right:20px">
-        <li><a href="registar.html" class="grey-text text-darken-2">Login</a></li>
-        <li><a href="registar.html" class="grey-text text-darken-2">Sign Up</a></li>
+        <li><a href="registar.html" class="grey-text text-darken-2">Registar</a></li>
+        <li><a href="login.html" class="grey-text text-darken-2">Login</a></li>
       </ul>
     </div>
   </nav>
 
-  <h1>Create Your account</h1>
-  <br />
-  <form>
+  <!-- MainContents -->
+  <div class="contents">
+    <!-- Input forms -->
+    <form action="index.html" method="get" class="z-depth-3 cardLayout">
+      <h4 class="loginTitle">Login</h4>
+      <!--User Name  -->
+      <div class="inputFormLaytout">
+        <div class="input-field col s12">
+          <input id="roomName" type="email" class="validate">
+          <label for="email">Email Address</label>
+        </div>
+        <!-- Email addless -->
+        <div class="input-field col s12">
+          <input id="roomName" type="text" class="validate">
+          <label for="text">Password</label>
+        </div>
+      </div>
+      <a href="storming.html" class="waves-effect waves-light btn-large loginButton"><i class="material-icons left">room</i>Login</a>
+    </form>
+  </div>
 
-      Username
-
-    <p>
-      <input type="text" name="username" size="50" />
-    </p>
-  </form>
-  <form>
-    <p>
-      Email Address
-    </p>
-    <p>
-      <input type="email" name="username" size="50" />
-    </p>
-  </form>
-  <form>
-    <p>
-      Password
-    </p>
-    <p>
-      <input type="password" name="username" size="50" />
-    </p>
-  </form>
-  <form>
-    <p>
-      Conpirm your Password
-    </p>
-    <p>
-      <input type="password" name="username" size="50" />
-    </p>
-  </form>
-  <p>
-    <button type="submit" name="create" value="submit">Create</button>
-  </p>
+  <!-- footer -->
   <footer class="page-footer blue-grey darken-4">
     <div class="container">
       <div class="row">
@@ -86,9 +64,8 @@
         <div class="col l4 offset-l2 s12">
           <h5 class="white-text">Connect</h5>
           <ul class="">
-            <li><a class="waves-effect waves-light btn" style="margin:5px"><i class="material-icons left">input</i>Twitter</a></li>
+            <li><a class="waves-effect waves-light btn" style="margin:5px" href="https://twitter.com/Cy_World2015?lang=ja"><i class="material-icons left">input</i>Twitter</a></li>
             <li><a class="waves-effect waves-light btn" style="margin:5px"><i class="material-icons left">input</i>GitHub</a></li>
-
           </ul>
         </div>
       </div>
