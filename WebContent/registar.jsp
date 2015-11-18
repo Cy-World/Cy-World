@@ -1,19 +1,21 @@
+<%@page contentType="text/html;charset=utf-8" language="java"%>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>Login|Cy-World</title>
+  <title>Registar|Cy-World</title>
   <!-- FrameWorkImport -->
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
   <!-- CustomImport -->
   <link href="css/top.css" type="text/css" rel="stylesheet" media="screen,projection" />
-  <link href="css/login.css" type="text/css" rel="stylesheet" />
+  <link href="css/registar.css" type="text/css" rel="stylesheet" />
   <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
   <script src="js/materialize/materialize.js"></script>
   <script src="js/materialize/init.js"></script>
+
 </head>
 
 <body class="grey lighten-4">
@@ -35,25 +37,35 @@
   <!-- MainContents -->
   <div class="contents">
     <!-- Input forms -->
-    <form action="index.html" method="get" class="z-depth-3 cardLayout">
-      <h4 class="loginTitle">Login</h4>
-      <!--User Name  -->
-      <div class="inputFormLaytout">
+    <form action="index.html" method="get" class="z-depth-3 registarCard">
+      <h4 class="registarTitle">Registar</h4>
+      <div class="inputFormLayout">
+        <!--User Name  -->
         <div class="input-field col s12">
-          <input id="roomName" type="email" class="validate">
-          <label for="email">Email Address</label>
+          <input type="text" class="validate">
+          <label for="text">UserName</label>
         </div>
         <!-- Email addless -->
         <div class="input-field col s12">
-          <input id="roomName" type="text" class="validate">
+          <input type="email" class="validate">
+          <label for="email">Email Address</label>
+        </div>
+        <!-- Passwd -->
+        <div class="input-field col s12">
+          <input type="text" class="validate">
           <label for="text">Password</label>
         </div>
+        <!-- RePasswd -->
+        <div class="input-field col s12">
+          <input type="text" class="validate">
+          <label for="text">Conpirm your Password</label>
+        </div>
       </div>
-      <a href="storming.html" class="waves-effect waves-light btn-large loginButton"><i class="material-icons left">room</i>Login</a>
+      <a href="storming.html" class="waves-effect waves-light btn-large registarButton"><i class="material-icons left">room</i>Create</a>
     </form>
   </div>
 
-  <!-- footer -->
+  <!-- fotter -->
   <footer class="page-footer blue-grey darken-4">
     <div class="container">
       <div class="row">
@@ -66,6 +78,7 @@
           <ul class="">
             <li><a class="waves-effect waves-light btn" style="margin:5px" href="https://twitter.com/Cy_World2015?lang=ja"><i class="material-icons left">input</i>Twitter</a></li>
             <li><a class="waves-effect waves-light btn" style="margin:5px"><i class="material-icons left">input</i>GitHub</a></li>
+
           </ul>
         </div>
       </div>

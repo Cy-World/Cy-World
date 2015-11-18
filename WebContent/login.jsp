@@ -1,25 +1,24 @@
+<%@page contentType="text/html;charset=utf-8" language="java"%>
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-  <meta charset="UTF-8">
-  <title>MyPage|Cy-World</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Login|Cy-World</title>
   <!-- FrameWorkImport -->
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link type="text/css" rel="stylesheet" href="css/materialize.setting.css" />
-  <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
   <!-- CustomImport -->
-  <link type="text/css" rel="stylesheet" href="css/top.css" />
-  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js">
-  </script>
-  <script type="text/javascript" src="js/materialize/materialize.min.js">
-  </script>
+  <link href="css/top.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <link href="css/login.css" type="text/css" rel="stylesheet" />
+  <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="js/materialize/materialize.js"></script>
   <script src="js/materialize/init.js"></script>
-  <script type="text/javascript" src="js/materialize/test.js"></script>
 </head>
 
 <body class="grey lighten-4">
-  <!-- Gnav -->
+
+  <!-- GlobalNavi -->
   <nav>
     <div class="nav-wrapper white" style="border-bottom:solid 3px; border-color:gray;">
       <a href="index.html" class="brand-logo left" style="margin-left:50px">
@@ -33,32 +32,28 @@
     </div>
   </nav>
 
-  <!-- Contents -->
+  <!-- MainContents -->
   <div class="contents">
-    <h4 style="margin-left:90px">MyPage</h4>
     <!-- Input forms -->
-    <form action="index.html" method="get" class="z-depth-3" style="margin:50px 100px;padding-top:10px;background:white;">
-      <div style="margin:10px 90px">
-        <!--User Name  -->
+    <form action="index.html" method="get" class="z-depth-3 cardLayout">
+      <h4 class="loginTitle">Login</h4>
+      <!--User Name  -->
+      <div class="inputFormLaytout">
         <div class="input-field col s12">
-          <input type="text" class="validate">
-          <label for="text">UserName</label>
+          <input id="roomName" type="email" class="validate">
+          <label for="email">Email Address</label>
         </div>
         <!-- Email addless -->
         <div class="input-field col s12">
-          <input type="email" class="validate">
-          <label for="email">Email Address</label>
-        </div>
-        <!-- Passwd -->
-        <div class="input-field col s12">
-          <input type="text" class="validate">
+          <input id="roomName" type="text" class="validate">
           <label for="text">Password</label>
         </div>
       </div>
-      <a href="storming.html" class="waves-effect waves-light btn-large" style="margin:10px 0 20px 220px;"><i class="material-icons left">room</i>Create</a>
+      <a href="storming.html" class="waves-effect waves-light btn-large loginButton"><i class="material-icons left">room</i>Login</a>
     </form>
   </div>
-  <!-- footer-->
+
+  <!-- footer -->
   <footer class="page-footer blue-grey darken-4">
     <div class="container">
       <div class="row">
@@ -71,7 +66,6 @@
           <ul class="">
             <li><a class="waves-effect waves-light btn" style="margin:5px" href="https://twitter.com/Cy_World2015?lang=ja"><i class="material-icons left">input</i>Twitter</a></li>
             <li><a class="waves-effect waves-light btn" style="margin:5px"><i class="material-icons left">input</i>GitHub</a></li>
-
           </ul>
         </div>
       </div>
@@ -83,6 +77,7 @@
       </div>
     </div>
   </footer>
+
 
 </body>
 

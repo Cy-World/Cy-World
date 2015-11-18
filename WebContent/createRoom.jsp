@@ -1,3 +1,4 @@
+<%@page contentType="text/html;charset=utf-8" language="java"%>
 <!DOCTYPE html>
 <html>
 
@@ -9,7 +10,6 @@
 	<link type="text/css" rel="stylesheet" href="css/materialize.setting.css" />
 	<link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
 	<!-- CustomImport -->
-	<link type="text/css" rel="stylesheet" href="css/top.css" />
 	<link type="text/css" rel="stylesheet" href="css/createRoom.css" />
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js">
 	</script>
