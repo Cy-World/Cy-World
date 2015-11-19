@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import cyworld.model.DBHelper;
+import cyworld.model.User;
+
 /**
  * Servlet implementation class RegisterServlet
  */
@@ -25,10 +28,13 @@ public class RegisterServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
+			System.out.println("aaaaaa");
 			request.setCharacterEncoding("UTF-8");
 			String name = request.getParameter("username");
 			String address = request.getParameter("email");
-			String passwd = request.getParameter("passwd");	
+			String passwd = request.getParameter("passwd");
+			User user = new User();
+			user.createUser(name,address,passwd);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -36,6 +42,7 @@ public class RegisterServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		System.out.println("GET!!!!!!!!!!!!!!!!");
 		doGet(request, response);
 	}
 
