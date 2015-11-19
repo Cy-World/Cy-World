@@ -15,15 +15,13 @@ public class DBHelper {
 	 */
 	private Connection con = null;
 	private Statement stmt = null;
+	private ResultSet rs = null;
 	static final String URL = "jdbc:mysql://localhost:3306/cyworld";
 	static final String DBUSER = "cyworld";
 	static final String DBPASSWD = "cigucigu1919";
 
-	public DBHelper() {
-
-	}
-
-	public boolean DBinit() {
+	// Open SQL
+	public void openDB() {
 		try {
 			// DriverRoad
 			Class.forName("com.mysql.jdbc.Driver");
@@ -33,64 +31,78 @@ public class DBHelper {
 			System.out.println("connection : ok");
 		} catch (Exception e) {
 			System.out.println("connection : no");
-			return false;
 		}
-		return true;
 	}
 
-	public void register(String username, String mail, String passwd) {
-		if (DBinit()) {
-			System.out.println("insert start");
-			// String sql2 = "INSERT INTO User
-			// VALUES('0001','passwd','example@com','Cygure','0','0');";
-			String sql = String.format("INSERT INTO User VALUES('x13g10','%s','%s','%s','0','0');", passwd, mail,
-					username);
-			System.out.println("sql:" + sql);
+	// Close SQL
+	public void closeDB() {
+		if (rs != null) {
 			try {
-				int insert = stmt.executeUpdate(sql);
-				System.out.println("Complete");
-			} catch (Exception e) {
-				try {
-					con.close();
-				} catch (SQLException e1) {
-					System.out.println("close : bad");
-				}
-			} finally {
-				try {
-					con.close();
-				} catch (SQLException e1) {
-					System.out.println("close : bad");
-				}
-			}
-		}
-
-	}
-
-	public void select() {
-		if (DBinit()) {
-			String sql = "SELECT * FROM User;";
-			System.out.println(sql);
-			try {
-				ResultSet rs = stmt.executeQuery(sql);
-				while (rs.next()) {
-					System.out.println("name: " + rs.getString("MailAddress"));
-				}
+				rs.close();
 			} catch (SQLException e) {
-				try {
-					con.close();
-				} catch (SQLException e1) {
-					System.out.println("close : bad");
-				}
-			} finally {
-				try {
-					con.close();
-					System.out.println("close : ok");
-				} catch (SQLException e1) {
-					System.out.println("close : bad");
-				}
+				e.printStackTrace();
 			}
 		}
+		if (stmt != null) {
+			try {
+				stmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		if (con != null) {
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	// SelectSQL
+	public ResultSet selectSQL(String sql) {
+		try {
+			rs = stmt.executeQuery(sql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return rs;
+	}
+
+	// Insert SQL
+	public int insertSQL(String sql) {
+		int insertCont = 0;
+		System.out.println("sql:" + sql);
+		try {
+			insertCont = stmt.executeUpdate(sql);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return insertCont;
 
 	}
 
+	// Update SQL
+	public int updateSQL(String sql) {
+		int updateCount = 0;
+		try {
+			updateCount = stmt.executeUpdate(sql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return updateCount;
+	}
+
+	// Delete SQL
+	public int deleteSQL(String sql) {
+		int deleteCount = 0;
+		try {
+			deleteCount = stmt.executeUpdate(sql);
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return deleteCount;
+
+	}
 }
