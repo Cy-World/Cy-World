@@ -37,31 +37,31 @@
   <!-- MainContents -->
   <div class="contents">
     <!-- Input forms -->
-    <form action="index.html" method="get" class="z-depth-3 registarCard">
+    <form action="RegisterServlet" method="post" class="z-depth-3 registarCard">
       <h4 class="registarTitle">Registar</h4>
       <div class="inputFormLayout">
         <!--User Name  -->
         <div class="input-field col s12">
-          <input type="text" class="validate">
+          <input type="text" class="validate" name="username">
           <label for="text">UserName</label>
         </div>
         <!-- Email addless -->
         <div class="input-field col s12">
-          <input type="email" class="validate">
+          <input type="email" class="validate" name=email>
           <label for="email">Email Address</label>
         </div>
         <!-- Passwd -->
         <div class="input-field col s12">
-          <input type="text" class="validate">
+          <input type="text" class="validate" name="passwd">
           <label for="text">Password</label>
         </div>
         <!-- RePasswd -->
         <div class="input-field col s12">
-          <input type="text" class="validate">
+          <input type="text" class="validate" name="repasswd">
           <label for="text">Conpirm your Password</label>
         </div>
       </div>
-      <a href="storming.html" class="waves-effect waves-light btn-large registarButton"><i class="material-icons left">room</i>Create</a>
+      <button class="waves-effect waves-light btn-large registarButton" type="submit" name="action">Create<i class="material-icons left">room</i></button>
     </form>
   </div>
 
