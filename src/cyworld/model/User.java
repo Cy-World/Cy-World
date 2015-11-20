@@ -31,7 +31,15 @@ public class User {
 		dbHelper.openDB();
 		dbHelper.insertSQL(sql);
 		dbHelper.closeDB();
+		testRun(dbHelper, sql);
 
+	}
+
+	public void updateUser() {
+
+	}
+
+	private void testRun(DBHelper dbHelper, String sql) {
 		// TEST RUN---
 		sql = "SELECT * from User";
 		dbHelper.openDB();
@@ -50,9 +58,6 @@ public class User {
 		}
 		dbHelper.closeDB();
 		// TEST RUN---
-	}
-
-	public void updateUser() {
 
 	}
 
