@@ -26,7 +26,10 @@ public class User {
 	}
 
 	public void createUser(String name, String address, String passwd) {
-		String sql = String.format("INSERT INTO User VALUES('00005','%s','%s','%s','0','0');", passwd, address, name);
+		// String sql = String.format("INSERT INTO User
+		// VALUES('','%s','%s','%s','','0');", passwd, address, name);
+		String sql = String.format("INSERT INTO User VALUES(0,'%s','%s','%s','',0);", passwd, address, name);
+
 		DBHelper dbHelper = new DBHelper();
 		dbHelper.openDB();
 		dbHelper.insertSQL(sql);
