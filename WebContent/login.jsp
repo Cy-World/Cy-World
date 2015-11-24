@@ -35,21 +35,24 @@
   <!-- MainContents -->
   <div class="contents">
     <!-- Input forms -->
-    <form action="index.html" method="get" class="z-depth-3 cardLayout">
+    <form action="LoginServlet" method="post" class="z-depth-3 cardLayout">
       <h4 class="loginTitle">Login</h4>
       <!--User Name  -->
       <div class="inputFormLaytout">
         <div class="input-field col s12">
-          <input id="roomName" type="email" class="validate">
+          <input id="roomName" type="email" class="validate" name="address">
           <label for="email">Email Address</label>
         </div>
         <!-- Email addless -->
         <div class="input-field col s12">
-          <input id="roomName" type="text" class="validate">
+          <input id="roomName" type="password" class="validate" name="passwd">
           <label for="text">Password</label>
         </div>
       </div>
+      <button class="waves-effect waves-light btn-large registarButton" type="submit" name="action">Login<i class="material-icons left">room</i></button>
+    <%--
       <a href="storming.html" class="waves-effect waves-light btn-large loginButton"><i class="material-icons left">room</i>Login</a>
+--%>
     </form>
   </div>
 

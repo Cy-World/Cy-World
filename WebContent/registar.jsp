@@ -52,12 +52,12 @@
         </div>
         <!-- Passwd -->
         <div class="input-field col s12">
-          <input type="text" class="validate" name="passwd">
+          <input type="password" class="validate" name="passwd">
           <label for="text">Password</label>
         </div>
         <!-- RePasswd -->
         <div class="input-field col s12">
-          <input type="text" class="validate" name="repasswd">
+          <input type="password" class="validate" name="repasswd">
           <label for="text">Conpirm your Password</label>
         </div>
       </div>

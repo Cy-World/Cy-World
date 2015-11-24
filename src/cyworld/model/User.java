@@ -26,10 +26,7 @@ public class User {
 	}
 
 	public void createUser(String name, String address, String passwd) {
-		// String sql = String.format("INSERT INTO User
-		// VALUES('','%s','%s','%s','','0');", passwd, address, name);
 		String sql = String.format("INSERT INTO User VALUES(0,'%s','%s','%s','',0);", passwd, address, name);
-
 		DBHelper dbHelper = new DBHelper();
 		dbHelper.openDB();
 		dbHelper.insertSQL(sql);
@@ -38,12 +35,19 @@ public class User {
 
 	}
 
-	public void updateUser() {
-
+	public void loginAuth(String address, String passwd) {
+		DBHelper dbHelper = new DBHelper();
+		dbHelper.openDB();
+		if (dbHelper.existsSQL(address, passwd)) {
+			System.out.println("Login");
+		} else {
+			System.out.println("BAT");
+		}
+		dbHelper.closeDB();
 	}
 
+	// TEST RUN
 	private void testRun(DBHelper dbHelper, String sql) {
-		// TEST RUN---
 		sql = "SELECT * from User";
 		dbHelper.openDB();
 		ResultSet rs = dbHelper.selectSQL(sql);
@@ -53,15 +57,12 @@ public class User {
 				System.out.println("UserID : " + rs.getString("UserID"));
 				System.out.println("Name : " + rs.getString("UserName"));
 				System.out.println("Passwd : " + rs.getString("Password"));
-
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 			dbHelper.closeDB();
 		}
 		dbHelper.closeDB();
-		// TEST RUN---
-
 	}
 
 }
