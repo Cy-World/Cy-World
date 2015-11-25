@@ -1,22 +1,26 @@
+<%@page contentType="text/html;charset=utf-8" language="java"%>
 <!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta charset="UTF-8">
+  <title>MyPage|Cy-World</title>
+  <!-- FrameWorkImport -->
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
-  <link href="css/top.css" type="text/css" rel="stylesheet" media="screen,projection" />
-  <link href="css/registar.css" type="text/css" rel="stylesheet" />
-  <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
-  <script src="js/materialize.js"></script>
-  <script src="js/init.js"></script>
-  <title>新規ログイン画面</title>
+  <link type="text/css" rel="stylesheet" href="css/materialize.setting.css" />
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+  <!-- CustomImport -->
+  <link type="text/css" rel="stylesheet" href="css/top.css" />
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js">
+  </script>
+  <script type="text/javascript" src="js/materialize/materialize.min.js">
+  </script>
+  <script src="js/materialize/init.js"></script>
+  <script type="text/javascript" src="js/materialize/test.js"></script>
 </head>
 
 <body class="grey lighten-4">
-
-  <!-- GlobalNavi -->
+  <!-- Gnav -->
   <nav>
     <div class="nav-wrapper white" style="border-bottom:solid 3px; border-color:gray;">
       <a href="index.html" class="brand-logo left" style="margin-left:50px">
@@ -30,38 +34,32 @@
     </div>
   </nav>
 
-  <!-- MainContents -->
+  <!-- Contents -->
   <div class="contents">
+    <h4 style="margin-left:90px">MyPage</h4>
     <!-- Input forms -->
-    <form action="index.html" method="get" class="z-depth-3 registarCard">
-      <h4 class="registarTitle">Registar</h4>
-      <div class="inputFormLayout">
+    <form action="index.html" method="get" class="z-depth-3" style="margin:50px 100px;padding-top:10px;background:white;">
+      <div style="margin:10px 90px">
         <!--User Name  -->
         <div class="input-field col s12">
-          <input  type="text" class="validate">
+          <input type="text" class="validate">
           <label for="text">UserName</label>
         </div>
         <!-- Email addless -->
         <div class="input-field col s12">
-          <input  type="email" class="validate">
+          <input type="email" class="validate">
           <label for="email">Email Address</label>
         </div>
         <!-- Passwd -->
         <div class="input-field col s12">
-          <input  type="text" class="validate">
+          <input type="text" class="validate">
           <label for="text">Password</label>
         </div>
-        <!-- RePasswd -->
-        <div class="input-field col s12">
-          <input  type="text" class="validate">
-          <label for="text">Conpirm your Password</label>
-        </div>
       </div>
-      <a href="storming.html" class="waves-effect waves-light btn-large registarButton" ><i class="material-icons left">room</i>Create</a>
+      <a href="storming.html" class="waves-effect waves-light btn-large" style="margin:10px 0 20px 220px;"><i class="material-icons left">room</i>Create</a>
     </form>
   </div>
-
-  <!-- fotter -->
+  <!-- footer-->
   <footer class="page-footer blue-grey darken-4">
     <div class="container">
       <div class="row">
@@ -86,7 +84,6 @@
       </div>
     </div>
   </footer>
-
 
 </body>
 
