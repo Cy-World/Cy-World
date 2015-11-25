@@ -105,4 +105,21 @@ public class DBHelper {
 		return deleteCount;
 
 	}
+
+	public boolean existsSQL(String address, String passwd) {
+		String sql = String.format(
+				"SELECT * FROM User WHERE EXISTS(SELECT Mailaddress FROM User WHERE User.Password = '%s' and User.MailAddress = '%s');",
+				passwd, address);
+		System.out.println(sql);
+		try {
+			rs = stmt.executeQuery(sql);
+			if (rs.next()) {
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
 }

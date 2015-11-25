@@ -18,17 +18,15 @@ public class RegisterServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		try {
-			System.out.println("POST start");
-			request.setCharacterEncoding("UTF-8");
-			String name = request.getParameter("username");
-			String address = request.getParameter("email");
-			String passwd = request.getParameter("passwd");
-			User user = new User();
-			user.createUser(name, address, passwd);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+
+		System.out.println("POST start");
+		request.setCharacterEncoding("UTF-8");
+		String name = request.getParameter("username");
+		String address = request.getParameter("email");
+		String passwd = request.getParameter("passwd");
+		User user = new User();
+		user.createUser(name, address, passwd);
+
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
