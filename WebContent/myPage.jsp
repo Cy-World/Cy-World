@@ -28,8 +28,7 @@
         <span style="color:grey;font-weight:bold">-World</span>
       </a>
       <ul id="nav-mobile" class="right" style="margin-right:20px">
-        <li><a href="registar.html" class="grey-text text-darken-2">Registar</a></li>
-        <li><a href="login.html" class="grey-text text-darken-2">Login</a></li>
+        <li><a href="myPage.jsp" class="grey-text text-darken-2">MyPage</a></li>
       </ul>
     </div>
   </nav>
