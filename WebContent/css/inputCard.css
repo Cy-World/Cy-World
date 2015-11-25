@@ -1,14 +1,14 @@
-.registarCard{
+.cardLayout{
   margin:50px 100px;
   padding-top:10px;
   background:white;
 }
-.registarTitle{
+.titleLayout{
   margin-left:90px
 }
 .inputFormLayout{
   margin:10px 90px
 }
-.registarButton{
+.buttonLayout{
   margin:10px 0 20px 220px;
 }

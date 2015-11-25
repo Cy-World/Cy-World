@@ -11,7 +11,7 @@
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
   <!-- CustomImport -->
   <link href="css/top.css" type="text/css" rel="stylesheet" media="screen,projection" />
-  <link href="css/registar.css" type="text/css" rel="stylesheet" />
+  <link href="css/inputCard.css" type="text/css" rel="stylesheet" />
   <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
   <script src="js/materialize/materialize.js"></script>
   <script src="js/materialize/init.js"></script>
@@ -23,13 +23,13 @@
   <!-- GlobalNavi -->
   <nav>
     <div class="nav-wrapper white" style="border-bottom:solid 3px; border-color:gray;">
-      <a href="index.html" class="brand-logo left" style="margin-left:50px">
+      <a href="index.jsp" class="brand-logo left" style="margin-left:50px">
         <span style="color:blue;font-weight:bold">Cy</span>
         <span style="color:grey;font-weight:bold">-World</span>
       </a>
       <ul id="nav-mobile" class="right" style="margin-right:20px">
-        <li><a href="registar.html" class="grey-text text-darken-2">Registar</a></li>
-        <li><a href="login.html" class="grey-text text-darken-2">Login</a></li>
+        <li><a href="registar.jsp" class="grey-text text-darken-2">Registar</a></li>
+        <li><a href="login.jsp" class="grey-text text-darken-2">Login</a></li>
       </ul>
     </div>
   </nav>
@@ -37,8 +37,8 @@
   <!-- MainContents -->
   <div class="contents">
     <!-- Input forms -->
-    <form action="RegisterServlet" method="post" class="z-depth-3 registarCard">
-      <h4 class="registarTitle">Registar</h4>
+    <form action="RegisterServlet" method="post" class="z-depth-3 cardLayout">
+      <h4 class="titleLayout">Registar</h4>
       <div class="inputFormLayout">
         <!--User Name  -->
         <div class="input-field col s12">
@@ -61,7 +61,7 @@
           <label for="text">Conpirm your Password</label>
         </div>
       </div>
-      <button class="waves-effect waves-light btn-large registarButton" type="submit" name="action">Create<i class="material-icons left">room</i></button>
+      <button class="waves-effect waves-light btn-large buttonLayout" type="submit" name="action">Create<i class="material-icons left">room</i></button>
     </form>
   </div>
 
