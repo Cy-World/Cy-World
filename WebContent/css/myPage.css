@@ -1,0 +1,33 @@
+.avatar{
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+}
+.myPageCard{
+  margin:50px 100px;
+  padding:10px;
+  background:white;
+}
+.titleLayout{
+  margin-left:90px
+}
+.inputFormLayout{
+  margin:10px 90px
+}
+.buttonLayout{
+  margin:10px 0 20px 220px;
+}
+
+.roomContainer{
+height: 500px;
+
+}
+.nameFontSize{
+  font-size: 30px;
+  font-weight: bold;
+
+}
+.addressFontSize{
+  font-size: 25px;
+
+}

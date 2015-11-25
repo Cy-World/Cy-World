@@ -25,7 +25,7 @@
 	<nav>
 		<div class="nav-wrapper white"
 			style="border-bottom: solid 3px; border-color: gray;">
-			<a href="index.html" class="brand-logo left"
+			<a href="index.jsp" class="brand-logo left"
 				style="margin-left: 50px"> <span
 				style="color: blue; font-weight: bold">Cy</span> <span
 				style="color: grey; font-weight: bold">-World</span>
@@ -56,10 +56,10 @@
 		<a href="#"
 			class="col m3 waves-effect waves-light btn-large topButton z-depth-2"><i
 			class="material-icons left">cloud</i>Global Room</a> <a
-			href="createRoom.html"
+			href="createRoom.jsp"
 			class="col m3 waves-effect waves-light btn-large topButton z-depth-2"><i
 			class="material-icons left">settings</i>Create Room</a> <a
-			href="storming.html"
+			href="storming.jsp"
 			class="col m3 waves-effect waves-light btn-large topButton z-depth-2"><i
 			class="material-icons left">input</i>Entering Room</a>
 	</div>
