@@ -1,32 +1,35 @@
+<%@page contentType="text/html;charset=utf-8" language="java"%>
 <!DOCTYPE html>
 <html>
 
 <head>
 	<meta charset="UTF-8">
-	<title>ようこそ、Cyworldへ</title>
+	<title>CreateRoom|Cy-World</title>
+	<!-- FrameWorkImport -->
 	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link type="text/css" rel="stylesheet" href="css/materialize.setting.css" />
 	<link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
-	<link type="text/css" rel="stylesheet" href="css/top.css" />
+	<!-- CustomImport -->
 	<link type="text/css" rel="stylesheet" href="css/createRoom.css" />
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js">
 	</script>
-	<script type="text/javascript" src="js/materialize.min.js"></script>
+	<script type="text/javascript" src="js/materialize/materialize.min.js"></script>
 	<script src="js/init.js"></script>
-	<script type="text/javascript" src="js/test.js"></script>
+	<script type="text/javascript" src="js/materialize/test.js"></script>
 </head>
+
 <body class="grey lighten-4">
 
 	<!-- GlobalNavi -->
 	<nav>
 		<div class="nav-wrapper white" style="border-bottom:solid 3px; border-color:gray;">
-			<a href="index.html" class="brand-logo left" style="margin-left:50px">
+			<a href="index.jsp" class="brand-logo left" style="margin-left:50px">
 				<span style="color:blue;font-weight:bold">Cy</span>
 				<span style="color:grey;font-weight:bold">-World</span>
 			</a>
 			<ul id="nav-mobile" class="right" style="margin-right:20px">
-				<li><a href="registar.html" class="grey-text text-darken-2">Registar</a></li>
-				<li><a href="login.html" class="grey-text text-darken-2">Login</a></li>
+				<li><a href="registar.jsp" class="grey-text text-darken-2">Registar</a></li>
+				<li><a href="login.jsp" class="grey-text text-darken-2">Login</a></li>
 			</ul>
 		</div>
 	</nav>
@@ -34,7 +37,7 @@
 	<!-- MainContents -->
 	<div class="contents">
 		<!-- Input forms -->
-		<form action="index.html" method="get" class="z-depth-3 createRoomCard">
+		<form action="index.jsp" method="get" class="z-depth-3 createRoomCard">
 			<h4 class="createRoomTitle">Create Room</h4>
 			<!--User Name  -->
 			<div class="inputFormLayout">
@@ -55,7 +58,7 @@
 				</div>
 			</div>
 
-			<a href="storming.html" class="waves-effect waves-light btn-large createRoomButton"><i class="material-icons left">room</i>Create</a>
+			<a href="storming.jsp" class="waves-effect waves-light btn-large createRoomButton"><i class="material-icons left">room</i>Create</a>
 
 		</form>
 
