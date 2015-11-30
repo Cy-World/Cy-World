@@ -35,15 +35,16 @@ public class User {
 
 	}
 
-	public void loginAuth(String address, String passwd) {
+	public boolean loginAuth(String address, String passwd) {
 		DBHelper dbHelper = new DBHelper();
 		dbHelper.openDB();
 		if (dbHelper.existsSQL(address, passwd)) {
-			System.out.println("Login");
+			dbHelper.closeDB();
+			return true;
 		} else {
-			System.out.println("BAT");
+			dbHelper.closeDB();
+			return false;
 		}
-		dbHelper.closeDB();
 	}
 
 	// TEST RUN

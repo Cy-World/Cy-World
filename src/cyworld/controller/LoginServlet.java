@@ -19,7 +19,12 @@ public class LoginServlet extends HttpServlet {
 		String address = request.getParameter("address");
 		String passwd = request.getParameter("passwd");
 		User user = new User();
-		user.loginAuth(address, passwd);
+
+		if (user.loginAuth(address, passwd)) {
+			System.out.println("LOGIN");
+		} else {
+			System.out.println("BAT");
+		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
