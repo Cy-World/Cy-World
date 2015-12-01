@@ -1,0 +1,14 @@
+.cardLayout{
+  margin:50px 100px;
+  padding-top:10px;
+  background:white;
+}
+.titleLayout{
+  margin-left:90px
+}
+.inputFormLayout{
+  margin:10px 90px
+}
+.buttonLayout{
+  margin:10px 0 20px 220px;
+}

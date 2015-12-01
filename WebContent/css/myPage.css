@@ -1,0 +1,46 @@
+
+.prifleTitle {}
+.avatar {
+  border-radius: 5px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+}
+.myPageCard {
+  margin-top: 20px;
+  padding: 20px 10px 20px 10px;
+  min-width: 800px;
+  background: white;
+}
+.titleLayout {
+  margin-left: 90px
+}
+.inputFormLayout {
+  margin: 10px 90px
+}
+.buttonLayout {
+  margin: 10px 0 20px 220px;
+}
+.roomContainer {
+  height: 300px;
+}
+.nameFont {
+  font-size: 30px;
+  font-weight: bold;
+  color: #464646;
+  margin-left: 1px;
+}
+.addressFont {
+  font-size: 20px;
+  color: #464646;
+  margin-left: 5px;
+}
+.editFont {
+  margin-left: 5px;
+}
+.roomList {
+  background: #e6e6e6;
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: left;
+}
