@@ -43,13 +43,13 @@
     <div class="z-depth-3 myPageCard row">
       <!-- Profile Container -->
       <div class="col s4">
-        <img src="img/shigure.jpg" class="avatar" width="230" height="230" />
+        <img src="img/profilePool/0000.jpg" class="avatar" width="230" height="230" />
         <br>
         <span class="nameFont">Cygure</span>
         <br>
         <span class="addressFont">x13g029</span>
         <br>
-        <span class="editFont"><a href="#">Edit Profiele</a></span>
+        <span class="editFont"><a href="edit.jsp">Edit Profiele</a></span>
       </div>
       <!-- Rooom Container -->
       <div class="col s8">
