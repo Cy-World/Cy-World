@@ -1,11 +1,9 @@
 package cyworld.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,17 +18,21 @@ public class LoginServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
+		//sessionの取得
+		HttpSession session = request.getSession();
+		
 		String address = request.getParameter("address");
 		String passwd = request.getParameter("passwd");
 		User user = new User();
 		if (user.loginAuth(address, passwd)) {
 			System.out.println("LOGIN");
-			HttpSession session = request.getSession();
 			session.setAttribute("loginUser",user);
+			request.getRequestDispatcher("/index.jsp").forward(request, response);
 		} else {
 			System.out.println("BAT");
+			session.setAttribute("stats","LOGIN INCORRECT");
+			request.getRequestDispatcher("/login.jsp").forward(request, response);
 		}
-		request.getRequestDispatcher("/index.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

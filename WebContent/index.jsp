@@ -1,4 +1,5 @@
 <%@page contentType="text/html;charset=utf-8" language="java" %>
+<%@page import="cyworld.model.*" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -29,12 +30,12 @@
                                 <a class="grey-text text-darken-2" href="registar.jsp">Registar</a>
                             </li>
                             <li>
-                            <%  Object loginUser =session.getAttribute("loginUser");
-                            if (loginUser==null) {%>
+                            <%  User user =(User)session.getAttribute("loginUser");
+                            if (user==null) {%>
                                 <a class="grey-text text-darken-2" href="login.jsp">Login</a>
                             <%
                             }else{ %>
-                                <span style="color: grey; font-weight: bold">LoginNow</span>
+                                <a class="grey-text text-darken-2" href="LoginServlet">Logout</a>
                             <%
                             } %>
                             </li>
