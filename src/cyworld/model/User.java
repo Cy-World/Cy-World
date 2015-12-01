@@ -29,8 +29,6 @@ public class User {
 		String sql = String.format("INSERT INTO User VALUES(0,'%s','%s','%s','NULL',0);", passwd, address, name);
 		DBHelper dbHelper = new DBHelper();
 		dbHelper.openDB();
-		
-		dbHelper.selectSQL(sql);
 		dbHelper.insertSQL(sql);
 		dbHelper.closeDB();
 		// testRun(dbHelper, sql);
