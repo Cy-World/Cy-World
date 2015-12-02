@@ -1,4 +1,5 @@
-.prifleTitle{}
+
+.prifleTitle {}
 .avatar {
   border-radius: 5px;
   -webkit-border-radius: 10px;
@@ -6,7 +7,8 @@
 }
 .myPageCard {
   margin-top: 20px;
-  padding: 0px 10px 10px 10px;
+  padding: 20px 10px 20px 10px;
+  min-width: 800px;
   background: white;
 }
 .titleLayout {
@@ -32,9 +34,13 @@
   color: #464646;
   margin-left: 5px;
 }
-.editFont{
+.editFont {
   margin-left: 5px;
 }
-.font{
-font-size: 50px;
+.roomList {
+  background: #e6e6e6;
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: left;
 }

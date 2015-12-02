@@ -6,8 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import com.sun.org.apache.xml.internal.security.Init;
-
 public class DBHelper {
 	/*
 	 * VPS Server[cywrold.pgw.jp]にて [tail -f /var/log/message] で
@@ -75,7 +73,9 @@ public class DBHelper {
 		System.out.println("sql:" + sql);
 		try {
 			insertCont = stmt.executeUpdate(sql);
+			System.out.println("sql OK");
 		} catch (Exception e) {
+			System.out.println("NULLLLLLLLLL!!!!!!");
 			e.printStackTrace();
 		}
 		return insertCont;
