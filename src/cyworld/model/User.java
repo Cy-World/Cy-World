@@ -29,8 +29,6 @@ public class User {
 		String sql = String.format("INSERT INTO User VALUES(0,'%s','%s','%s','NULL',0);", passwd, address, name);
 		DBHelper dbHelper = new DBHelper();
 		dbHelper.openDB();
-		
-		dbHelper.selectSQL(sql);
 		dbHelper.insertSQL(sql);
 		dbHelper.closeDB();
 	}
@@ -48,7 +46,7 @@ public class User {
 	}
 
 	public boolean updateUser(String address, String passwd, String name) {
-		
+
 		String sql = String.format(
 				"UPDATE User SET Password='%s' MailAddress='%s' UserName='%s' ImgPath='NULL' WHERE MailAddress='%s';",
 				passwd, address, name);

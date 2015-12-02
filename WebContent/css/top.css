@@ -14,3 +14,8 @@ body {
 .minWidth{
   min-width: 800px;
 }
+.cardLayout {
+  margin: 50px 100px;
+  padding-top: 10px;
+  background: white;
+}
