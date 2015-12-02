@@ -35,7 +35,7 @@
                                 <a class="grey-text text-darken-2" href="login.jsp">Login</a>
                             <%
                             }else{ %>
-                                <a class="grey-text text-darken-2" href="LoginServlet">Logout</a>
+                                <a class="grey-text text-darken-2" href="LogoutServlet">Logout</a>
                             <%
                             } %>
                             </li>

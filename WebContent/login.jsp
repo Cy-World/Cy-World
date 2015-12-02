@@ -1,4 +1,5 @@
 <%@page contentType="text/html;charset=utf-8" language="java"%>
+<%@page import="cyworld.controller.*"%>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
@@ -37,9 +38,6 @@
         <!-- MainContents -->
         <div class="contents">
             <!-- Input forms -->
-            <% if("LOGIN INCORRECT".equals(session.getAttribute("stats"))){ %>
-                <span style="color:blue;font-weight:bold">login incorrect</span>
-             <% }%> 
             <form action="LoginServlet" class="z-depth-3 cardLayout" method="post">
                 <h4 class="titleLayout">Login</h4>
                 <!--User Name  -->
