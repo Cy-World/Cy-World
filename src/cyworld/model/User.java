@@ -31,8 +31,6 @@ public class User {
 		dbHelper.openDB();
 		dbHelper.insertSQL(sql);
 		dbHelper.closeDB();
-		// testRun(dbHelper, sql);
-
 	}
 
 	public boolean loginAuth(String address, String passwd) {
