@@ -40,16 +40,16 @@
             <!-- Input forms -->
             <form action="LoginServlet" class="z-depth-3 cardLayout" method="post">
                 <h4 class="titleLayout">Login</h4>
-                <!--User Name  -->
+                <!-- Email Address  -->
                 <div class="inputFormLaytout">
-                    <div class="input-field col s12">
-                        <input class="validate" id="roomName" name="address" type="email"/>
-                        <label for="email">Email Address</label>
+                    <div class="input-field ">
+                        <input class="validate" id="mail" name="address" type="email"/>
+                        <label for="mail">Email Address</label>
                     </div>
-                    <!-- Email addless -->
-                    <div class="input-field col s12">
-                        <input class="validate" id="roomName" name="passwd" type="password"/>
-                        <label for="text">Password</label>
+                    <!-- Password -->
+                    <div class="input-field">
+                        <input class="validate" id="passwd" name="passwd" type="password"/>
+                        <label for="passwd">Password</label>
                     </div>
                 </div>
                 <button class="waves-effect waves-light btn-large buttonLayout" name="action" type="submit">Login

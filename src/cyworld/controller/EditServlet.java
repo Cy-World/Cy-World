@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import cyworld.model.User;
 
@@ -22,11 +23,13 @@ public class EditServlet extends HttpServlet {
 			throws ServletException, IOException {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		request.setCharacterEncoding("UTF-8");
+		HttpSession httpSession = request.getSession();
+		User user = (User) httpSession.getAttribute("loginUser");
+		String authAddress = user.getAddress();
 		String name = request.getParameter("username");
 		String address = request.getParameter("email");
 		String passwd = request.getParameter("passwd");
-		User user = new User();
-		user.updateUser(address, passwd, name);
+		//user.updateUser(address, passwd, name,authAddress);
 
 	}
 
