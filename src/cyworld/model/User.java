@@ -54,13 +54,16 @@ public class User {
 		}
 	}
 
-	public boolean updateUser(String address, String passwd, String name) {
+	public boolean updateUser(String address, String passwd, String name, String auth) {
 		this.address = address;
 		this.passwd = passwd;
 		this.name = name;
+		this.imgPath = address + ".jpg";
+		String addressAuth = auth;
 		String sql = String.format(
-				"UPDATE User SET Password='%s' MailAddress='%s' UserName='%s' ImgPath='NULL' WHERE MailAddress='%s';",
-				passwd, address, name);
+				"UPDATE User SET Password='%s' MailAddress='%s' UserName='%s' ImgPath='%s' WHERE MailAddress='%s';",
+				passwd, address, name, address+".jpg", addressAuth);
+		System.out.println(sql);
 		DBHelper dbHelper = new DBHelper();
 		dbHelper.openDB();
 		int upCount = 0;
