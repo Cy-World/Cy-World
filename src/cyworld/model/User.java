@@ -26,12 +26,12 @@ public class User {
 	}
 
 	public void createUser(String name, String address, String passwd) {
-		String sql = String.format("INSERT INTO User VALUES(0,'%s','%s','%s','',0);", passwd, address, name);
+		String sql = String.format("INSERT INTO User VALUES(0,'%s','%s','%s','NULL',0);", passwd, address, name);
 		DBHelper dbHelper = new DBHelper();
 		dbHelper.openDB();
 		dbHelper.insertSQL(sql);
 		dbHelper.closeDB();
-		testRun(dbHelper, sql);
+		// testRun(dbHelper, sql);
 
 	}
 
@@ -39,11 +39,26 @@ public class User {
 		DBHelper dbHelper = new DBHelper();
 		dbHelper.openDB();
 		if (dbHelper.existsSQL(address, passwd)) {
-			System.out.println("Login");
 			dbHelper.closeDB();
 			return true;
 		} else {
-			System.out.println("BAT");
+			dbHelper.closeDB();
+			return false;
+		}
+	}
+
+	public boolean updateUser(String address, String passwd, String name) {
+
+		String sql = String.format(
+				"UPDATE User SET Password='%s' MailAddress='%s' UserName='%s' ImgPath='NULL' WHERE MailAddress='%s';",
+				passwd, address, name);
+		DBHelper dbHelper = new DBHelper();
+		dbHelper.openDB();
+		int upCount = 0;
+		if (upCount < dbHelper.updateSQL(sql)) {
+			dbHelper.closeDB();
+			return true;
+		} else {
 			dbHelper.closeDB();
 			return false;
 		}
