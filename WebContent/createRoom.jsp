@@ -57,11 +57,11 @@
                         <label for="textarea1">Comment</label>
                     </div>
                     <p>
-                        <input class="with-gap" name="roomConf" type="radio" id="0" name="0"/>
+                        <input class="with-gap" name="roomConf" type="radio" id="0" value="0"/>
                         <label for="0">Public</label>
                     </p>
                     <p>
-                        <input class="with-gap" name="roomConf" type="radio" id="1" name="1"/>
+                        <input class="with-gap" name="roomConf" type="radio" id="1" value="1"/>
                         <label for="1">Private</label>
                     </p>
                     <button class="waves-effect waves-light btn-large buttonLayout" name="action" type="submit">Login
