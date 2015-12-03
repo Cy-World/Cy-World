@@ -2,6 +2,7 @@
 <%@page contentType="text/html;charset=utf-8" language="java"%>
 -->
 <!DOCTYPE html>
+<%@page import="sun.net.www.content.image.png"%>
 <%@page import="java.io.File"%>
 <%@page import="cyworld.model.User"%>
 <html>
@@ -53,13 +54,13 @@
 		HttpSession httpSession = request.getSession();
 		User user = (User) httpSession.getAttribute("loginUser");
 		String path = getServletContext().getRealPath("img/profilePool");
-		System.out.println(path);
-		File file = new File(path + "/" + user.getAddress() + ".jpg");
-		System.out.println(file.toString());
+		File jpgFile = new File(path + "/" + user.getAddress() + ".jpg");
+		File pngFile = new File(path + "/" + user.getAddress() + ".png");
 		String imgPath = "0000.jpg";
-		if (file.exists()) {
+		if (jpgFile.exists())
 			imgPath = user.getAddress() + ".jpg";
-		}
+		if (pngFile.exists())
+			imgPath = user.getAddress() + ".png";
 	%>
 	<div class="contents">
 

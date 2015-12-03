@@ -17,7 +17,6 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import cyworld.model.User;
-import sun.net.www.content.image.png;
 
 /**
  * Servlet implementation class UpLoadServlet
@@ -50,7 +49,6 @@ public class UpLoadServlet extends HttpServlet {
 	// UpLoad
 	private boolean upLoad(HttpSession httpSession, HttpServletRequest request, User user) {
 		String path = getServletContext().getRealPath("img/profilePool");
-		System.out.println("PATH" + path);
 		// オブジェクト生成
 		DiskFileItemFactory factory = new DiskFileItemFactory();
 		ServletFileUpload upload = new ServletFileUpload(factory);
@@ -66,12 +64,20 @@ public class UpLoadServlet extends HttpServlet {
 				if (!(item.isFormField())) {
 					String fileName = item.getName();
 					if ((fileName != null) && (!fileName.equals(""))) {
+						String[] fileExt = fileName.split("\\.");
+						if (!("png".equals(fileExt[1]) || "jpg".equals(fileExt[1]))) {
+							break;
+						}
+
 						fileName = user.getAddress();
 						File jpgFile = new File(path + "/" + fileName + ".jpg");
-						File pngFile = new File(path + "/" + fileName + ".jpg");
-						if(jpgFile.exists())jpgFile.delete();
-						if(pngFile.exists())pngFile.delete();
-						item.write(new File(path + "/" + fileName + ".jpg"));
+						File pngFile = new File(path + "/" + fileName + ".png");
+						if (jpgFile.exists())
+							jpgFile.delete();
+						if (pngFile.exists())
+							pngFile.delete();
+						System.out.println(path + "-->" + fileName + "." + fileExt[1]);
+						item.write(new File(path + "/" + fileName + "." + fileExt[1]));
 					}
 				}
 			}
