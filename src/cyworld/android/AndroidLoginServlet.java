@@ -20,13 +20,16 @@ public class AndroidLoginServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		String address = request.getParameter("address");
+		System.out.println(address);
 		String passwd = request.getParameter("passwd");
+		System.out.println(passwd);
 		User user = new User();
 		out = response.getWriter();
-		if(user.loginAuth(address, passwd)){
-			out.println("True");
+		
+		if(user.loginAuth(address,passwd)){
+			out.print("True");
 		}else{
-			out.println("False");
+			out.print("False");
 		}
 	}
 	
