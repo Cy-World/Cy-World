@@ -22,10 +22,10 @@ public class RoomBean {
 			if(loopcnt>5)break;
 			randInt=random.nextInt(99999999);
 			ID=ID+ randInt;
-		}while(dbHelper.existsSQL("Room","RoomID","RoomID LIKE '_"+randInt));//存在チェック
+		}while(dbHelper.existsSQL("Room","RoomID","RoomID LIKE '_"+randInt+"'"));//存在チェック
 
 		System.out.println(loopcnt);
-		String sql = String.format("INSERT INTO Room VALUES('%s','%s','%s',%d);", ID, name, comment,roomConf);
+		String sql = String.format("INSERT INTO Room(RoomID,RoomName,Comment,Flag) VALUES('%s','%s','%s',%d);", ID, name, comment,roomConf);
 		dbHelper.insertSQL(sql);
 		dbHelper.closeDB();
 		return new RoomBean(ID, name, comment, roomConf);
