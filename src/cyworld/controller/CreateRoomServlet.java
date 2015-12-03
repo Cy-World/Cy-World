@@ -23,7 +23,7 @@ public class CreateRoomServlet extends HttpServlet {
 		String roomName = request.getParameter("roomName");
 		String comment = request.getParameter("comment");
 		int roomConf = Integer.parseInt(request.getParameter("roomConf"));
-		RoomBean.room(roomName, comment, roomConf);
+		RoomBean.roomCreate(roomName, comment, roomConf);
 		request.getRequestDispatcher("storming.jsp").forward(request, response);
 
 	}
