@@ -38,8 +38,16 @@
         <!-- MainContents -->
         <div class="contents">
             <!-- Input forms -->
+            
             <form action="LoginServlet" class="z-depth-3 cardLayout" method="post">
                 <h4 class="titleLayout">Login</h4>
+                <%
+     	  	     if("LOGIN_INCORRECT".equals((String)session.getAttribute("stats"))){
+    	  	      	session.setAttribute("stats","NORMAL");
+    	  	      %>
+        	    <span class="blue-text text-darken-2 center-align">	Login incorrect</span>
+     		       <%
+      	 	     }%>
                 <!--User Name  -->
                 <div class="inputFormLaytout">
                     <div class="input-field col s12">

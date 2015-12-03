@@ -106,10 +106,13 @@ public class DBHelper {
 
 	}
 
-	public boolean existsSQL(String address, String passwd) {
-		String sql = String.format(
-				"SELECT * FROM User WHERE EXISTS(SELECT Mailaddress FROM User WHERE User.Password = '%s' and User.MailAddress = '%s');",
-				passwd, address);
+//	public boolean existsSQL(String address, String passwd) {
+
+	public boolean existsSQL(String where) {
+//		String sql = String.format(
+//				"SELECT * FROM User WHERE EXISTS(SELECT Mailaddress FROM User WHERE User.Password = '%s' and User.MailAddress = '%s');",
+//				passwd, address);
+		String sql = "SELECT * FROM User WHERE EXISTS(SELECT Mailaddress FROM User WHERE "+where+")";
 		System.out.println(sql);
 		try {
 			rs = stmt.executeQuery(sql);

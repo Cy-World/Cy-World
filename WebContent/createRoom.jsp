@@ -53,7 +53,7 @@
                     </div>
                     <!-- Email addless -->
                     <div class="input-field col s12">
-                        <textarea class="materialize-textarea" id="comment" name="comment" type="text"></textarea>
+                        <textarea class="materialize-textarea" id="comment" name="comment"></textarea>
                         <label for="textarea1">Comment</label>
                     </div>
                     <p>

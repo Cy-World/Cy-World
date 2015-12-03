@@ -14,8 +14,6 @@ import cyworld.model.User;
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	public static final int LOGIN=4001;
-	public static final int LOGIN_INCORRECT=4002;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -29,11 +27,11 @@ public class LoginServlet extends HttpServlet {
 		if (user.loginAuth(address, passwd)) {
 			System.out.println("LOGIN");
 			session.setAttribute("loginUser",user);
-			session.setAttribute("stats",LOGIN);
+			session.setAttribute("stats","LOGIN");
 			request.getRequestDispatcher("/index.jsp").forward(request, response);
 		} else {
 			System.out.println("BAT");
-			session.setAttribute("stats",LOGIN_INCORRECT);
+			session.setAttribute("stats","LOGIN_INCORRECT");
 			request.getRequestDispatcher("/login.jsp").forward(request, response);
 		}
 	}
