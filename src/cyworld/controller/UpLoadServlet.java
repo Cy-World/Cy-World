@@ -17,6 +17,7 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import cyworld.model.User;
+import sun.net.www.content.image.png;
 
 /**
  * Servlet implementation class UpLoadServlet
@@ -66,6 +67,10 @@ public class UpLoadServlet extends HttpServlet {
 					String fileName = item.getName();
 					if ((fileName != null) && (!fileName.equals(""))) {
 						fileName = user.getAddress();
+						File jpgFile = new File(path + "/" + fileName + ".jpg");
+						File pngFile = new File(path + "/" + fileName + ".jpg");
+						if(jpgFile.exists())jpgFile.delete();
+						if(pngFile.exists())pngFile.delete();
 						item.write(new File(path + "/" + fileName + ".jpg"));
 					}
 				}

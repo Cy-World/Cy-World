@@ -16,7 +16,7 @@
         <script src="https://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>
         <script src="js/materialize/materialize.min.js" type="text/javascript"></script>
         <script src="js/materialize/init.js" type="text/javascript"></script>
-        <script src="js/cyworldjs/storming.js.js" type="text/javascript"></script>
+        <script src="js/cyworldjs/storming.js" type="text/javascript"></script>
         <nav>
             <div class="nav-wrapper white" style="border-bottom: solid 3px; border-color: gray;">
                 <a class="brand-logo left" href="index.html" style="margin-left: 50px">
@@ -24,10 +24,13 @@
                     <span style="color: grey; font-weight: bold">-World</span>
                 </a>
                 <ul class="right" id="nav-mobile" style="margin-right: 20px">
-                    <li>
-                        <a class="grey-text text-darken-2" href="myPage.html">MyPage</a>
-                    </li>
-                </ul>
+					<li>
+						<a class="grey-text text-darken-2" href="LogoutServlet">Logout</a>
+					</li>
+					<li>
+						<a class="grey-text text-darken-2" href="myPage.jsp">MyPage</a>
+					</li>
+				</ul>
             </div>
         </nav>
         <!-- template -->
