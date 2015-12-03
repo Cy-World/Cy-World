@@ -59,10 +59,9 @@ public class User {
 		this.passwd = passwd;
 		this.name = name;
 		this.imgPath = address + ".jpg";
-		String addressAuth = auth;
 		String sql = String.format(
 				"UPDATE User SET Password='%s' MailAddress='%s' UserName='%s' ImgPath='%s' WHERE MailAddress='%s';",
-				passwd, address, name, address+".jpg", addressAuth);
+				passwd, address, name, address + ".jpg", auth);
 		System.out.println(sql);
 		DBHelper dbHelper = new DBHelper();
 		dbHelper.openDB();
@@ -70,10 +69,9 @@ public class User {
 		if (upCount < dbHelper.updateSQL(sql)) {
 			dbHelper.closeDB();
 			return true;
-		} else {
-			dbHelper.closeDB();
-			return false;
 		}
+		dbHelper.closeDB();
+		return false;
 	}
 
 	public boolean setUserData(String address) {
@@ -103,6 +101,8 @@ public class User {
 		dbHelper.closeDB();
 		return true;
 	}
+
+	
 
 	// TEST RUN
 	private void testRun(DBHelper dbHelper, String sql) {

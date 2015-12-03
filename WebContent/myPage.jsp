@@ -2,6 +2,7 @@
 <%@page contentType="text/html;charset=utf-8" language="java"%>
 -->
 <!DOCTYPE html>
+<%@page import="java.io.File"%>
 <%@page import="cyworld.model.User"%>
 <html>
 
@@ -51,15 +52,23 @@
 	<%
 		HttpSession httpSession = request.getSession();
 		User user = (User) httpSession.getAttribute("loginUser");
+		String path = getServletContext().getRealPath("img/profilePool");
+		System.out.println(path);
+		File file = new File(path + "/" + user.getAddress() + ".jpg");
+		System.out.println(file.toString());
+		String imgPath = "0000.jpg";
+		if (file.exists()) {
+			imgPath = user.getAddress() + ".jpg";
+		}
 	%>
 	<div class="contents">
 
 		<div class="z-depth-3 myPageCard row">
 			<!-- Profile Container -->
 			<div class="col s4">
-				<img src="img/profilePool/<%=user.getImgPath()%>" class="avatar"
-					width="230" height="230" /> <br> <span class="nameFont">Cygure</span>
-				<br> <span class="addressFont">x13g029</span> <br> <span
+				<img src="img/profilePool/<%=imgPath%>" class="avatar" width="230"
+					height="230" /> <br> <span class="nameFont">Cygure</span> <br>
+				<span class="addressFont">x13g029</span> <br> <span
 					class="editFont"><a href="edit.jsp">Edit Profiele</a></span>
 			</div>
 			<!-- Rooom Container -->

@@ -82,7 +82,7 @@
 		
 		
 		<!-- Imgae UpLoad -->
-		<form action="EditServlet" class="z-depth-3 cardLayout"
+		<form action="UpLoadServlet" class="z-depth-3 cardLayout"
 			enctype="multipart/form-data" method="post">
 			<div class="inputFormLayout">
 				<img class="avatar" height="230"

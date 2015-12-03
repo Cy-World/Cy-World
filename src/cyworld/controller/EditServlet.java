@@ -31,44 +31,13 @@ public class EditServlet extends HttpServlet {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		request.setCharacterEncoding("UTF-8");
 		HttpSession httpSession = request.getSession();
+		System.out.println("UserEditServlert start");
 		User user = (User) httpSession.getAttribute("loginUser");
-		String path = getServletContext().getRealPath("img/profilePool");
-		System.out.println("PATH" + path);
-		// オブジェクト生成
-		DiskFileItemFactory factory = new DiskFileItemFactory();
-		ServletFileUpload upload = new ServletFileUpload(factory);
-		System.out.println("P1");
-		// 基準値
-		factory.setSizeThreshold(1024);
-		upload.setSizeMax(-1);
-		upload.setHeaderEncoding("Windows-31J");
-		System.out.println("P2");
-		try {
-			List list = upload.parseRequest(request);
-			Iterator iterator = list.iterator();
-			System.out.println("P3");
-			while (iterator.hasNext()) {
-				System.out.println("P4");
-				FileItem item = (FileItem) iterator.next();
-
-				if (!(item.isFormField())) {
-					System.out.println("P5");
-					String fileName = item.getName();
-					if ((fileName != null) && (!fileName.equals(""))) {
-						System.out.println("P6");
-						fileName = user.getAddress();
-						item.write(new File(path + "/" + fileName + ".jpg"));
-					}
-				}
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 
 		String authAddress = user.getAddress();
 		String name = request.getParameter("name");
 		String address = request.getParameter("mail");
-		String passwd = request.getParameter("passwd");
+		String passwd = user.getPasswd();
 		user.updateUser(address, passwd, name, authAddress);
 	}
 
