@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class RoomBean {
 
-	public static void room(String name, String comment, int roomConf) {
+	public static void roomCreate(String name, String comment, int roomConf) {
 		DBHelper dbHelper = new DBHelper();
 		dbHelper.openDB();
 		Random random = new Random();
@@ -16,7 +16,7 @@ public class RoomBean {
 			if(loopcnt>99)break;
 			randInt=random.nextInt(99999999);
 			ID=ID+ randInt;
-		}while(dbHelper.existsSQL("LIKE '_"+randInt));
+		}while(dbHelper.existsSQL("Room","RoomID","RoomID LIKE '_"+randInt));
 		System.out.println(loopcnt);
 		String sql = String.format("INSERT INTO Room VALUES('%s','%s','%s',%d);", ID, name, comment,roomConf);
 		dbHelper.insertSQL(sql);
