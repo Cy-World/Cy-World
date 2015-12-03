@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import cyworld.model.RoomBean;
 
@@ -13,17 +14,15 @@ import cyworld.model.RoomBean;
 public class CreateRoomServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public CreateRoomServlet() {
-		super();
-	}
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		String roomName = request.getParameter("roomName");
 		String comment = request.getParameter("comment");
 		int roomConf = Integer.parseInt(request.getParameter("roomConf"));
-		RoomBean.roomCreate(roomName, comment, roomConf);
+		RoomBean room = new RoomBean(roomName, comment, roomConf);
+		HttpSession session = request.getSession();
+		session.setAttribute("joinRoom",room);
 		request.getRequestDispatcher("storming.jsp").forward(request, response);
 
 	}
