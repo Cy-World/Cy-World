@@ -1,3 +1,4 @@
+<%@page import="java.io.File"%>
 <%@page import="cyworld.model.User"%>
 <%@page contentType="text/html;charset=utf-8" language="java"%>
 <!DOCTYPE html>
@@ -43,6 +44,14 @@
 	<%
 		HttpSession httpSession = request.getSession();
 		User user = (User) httpSession.getAttribute("loginUser");
+		String path = getServletContext().getRealPath("img/profilePool");
+		File jpgFile = new File(path + "/" + user.getAddress() + ".jpg");
+		File pngFile = new File(path + "/" + user.getAddress() + ".png");
+		String imgPath = "0000.jpg";
+		if (jpgFile.exists())
+			imgPath = user.getAddress() + ".jpg";
+		if (pngFile.exists())
+			imgPath = user.getAddress() + ".png";
 	%>
 	<!-- MainContents -->
 	<div class="contents">
@@ -79,14 +88,14 @@
 			Create <i class="material-icons left">room</i>
 			</button>
 		</form>
-		
-		
+
+
 		<!-- Imgae UpLoad -->
 		<form action="UpLoadServlet" class="z-depth-3 cardLayout"
 			enctype="multipart/form-data" method="post">
 			<div class="inputFormLayout">
 				<img class="avatar" height="230"
-					src="img/profilePool/<%=user.getImgPath()%>" width="230" />
+					src="img/profilePool/<%=imgPath%>" width="230" />
 				<!-- Image -->
 				<div class="file-field input-field">
 					<div class="btn">
