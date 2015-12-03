@@ -24,10 +24,13 @@
                     <span style="color: grey; font-weight: bold">-World</span>
                 </a>
                 <ul class="right" id="nav-mobile" style="margin-right: 20px">
-                    <li>
-                        <a class="grey-text text-darken-2" href="myPage.html">MyPage</a>
-                    </li>
-                </ul>
+					<li>
+						<a class="grey-text text-darken-2" href="LogoutServlet">Logout</a>
+					</li>
+					<li>
+						<a class="grey-text text-darken-2" href="myPage.jsp">MyPage</a>
+					</li>
+				</ul>
             </div>
         </nav>
         <!-- template -->
