@@ -112,7 +112,7 @@ public class DBHelper {
 //		String sql = String.format(
 //				"SELECT * FROM User WHERE EXISTS(SELECT Mailaddress FROM User WHERE User.Password = '%s' and User.MailAddress = '%s');",
 //				passwd, address);
-		String sql = "SELECT * FROM "+table+" WHERE EXISTS(SELECT Mailaddress FROM "+table+" WHERE "+where+")";
+		String sql = "SELECT * FROM "+table+" WHERE EXISTS(SELECT Mailaddress FROM "+table+" WHERE "+where+");";
 		System.out.println(sql);
 		try {
 			rs = stmt.executeQuery(sql);

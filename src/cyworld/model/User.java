@@ -41,7 +41,7 @@ public class User {
 	public boolean loginAuth(String address, String passwd) {
 		DBHelper dbHelper = new DBHelper();
 		dbHelper.openDB();
-		if (dbHelper.existsSQL("User","MailAddress",String.format("User.Password = '%s' and User.MailAddress = '%s');",passwd, address))) {
+		if (dbHelper.existsSQL("User","MailAddress",String.format("User.Password = '%s' and User.MailAddress = '%s'",passwd, address))) {
 			dbHelper.closeDB();
 			if (!setUserData(address)) {
 				return false;
