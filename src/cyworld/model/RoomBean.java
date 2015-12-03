@@ -6,9 +6,9 @@ public class RoomBean {
 	private String roomID;
 	private String roomName;
 	private String comment;
-	private short flag=0;
+	private byte flag=0;
 	
-	public RoomBean(String name, String comment, int roomConf) {
+	public static RoomBean roomCreate(String name, String comment, byte roomConf) {
 		DBHelper dbHelper = new DBHelper();
 		dbHelper.openDB();
 
@@ -28,6 +28,13 @@ public class RoomBean {
 		String sql = String.format("INSERT INTO Room VALUES('%s','%s','%s',%d);", ID, name, comment,roomConf);
 		dbHelper.insertSQL(sql);
 		dbHelper.closeDB();
+		return new RoomBean(ID, name, comment, roomConf);
+	}	
+	private RoomBean(String roomID,String name, String comment, byte roomConf) {
+		this.roomID=roomID;
+		this.roomName=name;
+		this.comment=comment;
+		this.flag=roomConf;
 	}
 
 	public String getRoomID() {

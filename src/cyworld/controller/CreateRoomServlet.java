@@ -19,12 +19,11 @@ public class CreateRoomServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String roomName = request.getParameter("roomName");
 		String comment = request.getParameter("comment");
-		int roomConf = Integer.parseInt(request.getParameter("roomConf"));
-		RoomBean room = new RoomBean(roomName, comment, roomConf);
+		byte roomConf = Byte.parseByte(request.getParameter("roomConf"));
+		RoomBean room = RoomBean.roomCreate(roomName, comment, roomConf);
 		HttpSession session = request.getSession();
 		session.setAttribute("joinRoom",room);
 		request.getRequestDispatcher("storming.jsp").forward(request, response);
-
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
