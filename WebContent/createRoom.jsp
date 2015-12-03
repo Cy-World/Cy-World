@@ -49,12 +49,12 @@
                 <div class="inputFormLayout">
                     <div class="input-field col s12">
                         <input class="validate" id="roomName" name="roomName" type="text" />
-                        <label for="text">Room Name</label>
+                        <label for="roomName">Room Name</label>
                     </div>
-                    <!-- Email addless -->
+                    <!-- Comment -->
                     <div class="input-field col s12">
                         <textarea class="materialize-textarea" id="comment" name="comment" type="text"></textarea>
-                        <label for="textarea1">Comment</label>
+                        <label for="comment">Comment</label>
                     </div>
                     <p>
                         <input class="with-gap" name="roomConf" type="radio" id="0" value="0"/>
@@ -64,7 +64,7 @@
                         <input class="with-gap" name="roomConf" type="radio" id="1" value="1"/>
                         <label for="1">Private</label>
                     </p>
-                    <button class="waves-effect waves-light btn-large buttonLayout" name="action" type="submit">Login
+                    <button class="waves-effect waves-light btn-large createRoomButton" name="action" type="submit">Login
                         <i class="material-icons left">room</i>
                     </button>
                 </div>
