@@ -30,8 +30,8 @@ public class User {
 		return imgPath;
 	}
 
-	public void createUser(String name, String address, String passwd) {
-		String sql = String.format("INSERT INTO User VALUES(0,'%s','%s','%s','0000',0);", passwd, address, name);
+	public static void createUser(String name, String address, String passwd) {
+		String sql = String.format("INSERT INTO User VALUES(0,'%s','%s','%s','%s',0);", passwd, address, name, address);
 		DBHelper dbHelper = new DBHelper();
 		dbHelper.openDB();
 		dbHelper.insertSQL(sql);
@@ -41,7 +41,8 @@ public class User {
 	public boolean loginAuth(String address, String passwd) {
 		DBHelper dbHelper = new DBHelper();
 		dbHelper.openDB();
-		if (dbHelper.existsSQL("User","MailAddress",String.format("User.Password = '%s' and User.MailAddress = '%s'",passwd, address))) {
+		if (dbHelper.existsSQL("User", "MailAddress",
+				String.format("User.Password = '%s' and User.MailAddress = '%s'", passwd, address))) {
 			dbHelper.closeDB();
 			if (!setUserData(address)) {
 				return false;
@@ -54,14 +55,14 @@ public class User {
 		}
 	}
 
-	public boolean updateUser(String address, String passwd, String name, String auth) {
+	public boolean updateUser(String address, String passwd, String name, String id, String auth) {
 		this.address = address;
 		this.passwd = passwd;
 		this.name = name;
 		this.imgPath = address;
 		String sql = String.format(
-				"UPDATE User SET Password='%s' MailAddress='%s' UserName='%s' ImgPath='%s' WHERE MailAddress='%s';",
-				passwd, address, name, address, auth);
+				"UPDATE User SET Password='%s',MailAddress='%s',UserName='%s',ImgPath='%s' WHERE MailAddress='%s';",
+				passwd, address, name, id, auth);
 		System.out.println(sql);
 		DBHelper dbHelper = new DBHelper();
 		dbHelper.openDB();
@@ -101,8 +102,6 @@ public class User {
 		dbHelper.closeDB();
 		return true;
 	}
-
-
 
 	// TEST RUN
 	private void testRun(DBHelper dbHelper, String sql) {

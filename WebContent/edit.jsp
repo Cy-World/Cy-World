@@ -45,13 +45,13 @@
 		HttpSession httpSession = request.getSession();
 		User user = (User) httpSession.getAttribute("loginUser");
 		String path = getServletContext().getRealPath("img/profilePool");
-		File jpgFile = new File(path + "/" + user.getAddress() + ".jpg");
-		File pngFile = new File(path + "/" + user.getAddress() + ".png");
+		File jpgFile = new File(path + "/" + user.userID() + ".jpg");
+		File pngFile = new File(path + "/" + user.userID() + ".png");
 		String imgPath = "0000.jpg";
 		if (jpgFile.exists())
-			imgPath = user.getAddress() + ".jpg";
+			imgPath = user.userID() + ".jpg";
 		if (pngFile.exists())
-			imgPath = user.getAddress() + ".png";
+			imgPath = user.userID() + ".png";
 	%>
 	<!-- MainContents -->
 	<div class="contents">
@@ -94,8 +94,8 @@
 		<form action="UpLoadServlet" class="z-depth-3 cardLayout"
 			enctype="multipart/form-data" method="post">
 			<div class="inputFormLayout">
-				<img class="avatar" height="230"
-					src="img/profilePool/<%=imgPath%>" width="230" />
+				<img class="avatar" height="230" src="img/profilePool/<%=imgPath%>"
+					width="230" />
 				<!-- Image -->
 				<div class="file-field input-field">
 					<div class="btn">
