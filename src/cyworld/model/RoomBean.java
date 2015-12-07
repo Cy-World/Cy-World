@@ -1,5 +1,8 @@
 package cyworld.model;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Random;
 
 public class RoomBean {
@@ -36,6 +39,60 @@ public class RoomBean {
 		this.comment=comment;
 		this.flag=roomConf;
 	}
+	
+	public static ArrayList<RoomBean> privateRoomView(String address){
+		ArrayList<RoomBean> roomData = new ArrayList<>();
+		String sql = String.format("SELECT RoomName,Comment FROM "
+				+ "Room JOIN JoinInfo ON Room.RoomID = JoinInfo.RoomID"
+				+ "JOIN User ON User.UserID = JoinInfo.UserID"
+				+ " WHERE MailAddress=%s AND Flag = '1'", address);
+		DBHelper helper = new DBHelper();
+		helper.openDB();
+		
+		ResultSet rs = helper.selectSQL(sql);
+		
+		try {
+			while(rs.next()){
+				RoomBean bean = new RoomBean(rs.getString("roomID"),
+											 rs.getString("RoomName"), 
+						                     rs.getString("Comment"), 
+						                     (Byte)null);
+				roomData.add(bean);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		helper.closeDB();
+		return roomData;
+	}
+	
+	public static ArrayList<RoomBean> publicRoomView(){
+		ArrayList<RoomBean> roomData = new ArrayList<>();
+		String sql ="SELECT RoomName,Comment FROM "
+				+ "Room JOIN JoinInfo ON Room.RoomID = JoinInfo.RoomID"
+				+ " WHERE Flag = '0'";
+		DBHelper helper = new DBHelper();
+		helper.openDB();
+		
+		ResultSet rs = helper.selectSQL(sql);
+		
+		try {
+			while(rs.next()){
+				RoomBean bean = new RoomBean(rs.getString("roomID"),
+											 rs.getString("RoomName"), 
+						                     rs.getString("Comment"), 
+						                     (Byte)null);
+				roomData.add(bean);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		helper.closeDB();
+		return roomData;
+	}
+
 
 	public String getRoomID() {
 		return roomID;
