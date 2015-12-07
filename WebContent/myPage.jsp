@@ -2,6 +2,7 @@
 <%@page contentType="text/html;charset=utf-8" language="java"%>
 -->
 <!DOCTYPE html>
+<%@page import="cyworld.model.RoomBean"%>
 <%@page import="sun.net.www.content.image.png"%>
 <%@page import="java.io.File"%>
 <%@page import="cyworld.model.User"%>
@@ -80,18 +81,13 @@
 						<tr>
 							<td><a href="#"><i class="material-icons tiny">library_books</i>
 									Room1</a></td>
-						</tr>
-						<tr>
+															<%
+							for(RoomBean roomList : RoomBean.getRoomList(user.userID())){
+								%>	
 							<td><a href="#"><i class="material-icons tiny">library_books</i>
-									Room2</a></td>
-						</tr>
-						<tr>
-							<td><a href="#"><i class="material-icons tiny">library_books</i>
-									Room3</a></td>
-						</tr>
-						<tr>
-							<td><a href="#"><i class="material-icons tiny">library_books</i>
-									Room4</a></td>
+										<%=roomList %></a></td>
+							<%}
+								%>
 						</tr>
 					</table>
 				</div>
