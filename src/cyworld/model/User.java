@@ -31,7 +31,7 @@ public class User {
 	}
 
 	public void createUser(String name, String address, String passwd) {
-		String sql = String.format("INSERT INTO User VALUES(0,'%s','%s','%s','0000.jpg',0);", passwd, address, name);
+		String sql = String.format("INSERT INTO User VALUES(0,'%s','%s','%s','0000',0);", passwd, address, name);
 		DBHelper dbHelper = new DBHelper();
 		dbHelper.openDB();
 		dbHelper.insertSQL(sql);
@@ -58,10 +58,10 @@ public class User {
 		this.address = address;
 		this.passwd = passwd;
 		this.name = name;
-		this.imgPath = address + ".jpg";
+		this.imgPath = address;
 		String sql = String.format(
 				"UPDATE User SET Password='%s' MailAddress='%s' UserName='%s' ImgPath='%s' WHERE MailAddress='%s';",
-				passwd, address, name, address + ".jpg", auth);
+				passwd, address, name, address, auth);
 		System.out.println(sql);
 		DBHelper dbHelper = new DBHelper();
 		dbHelper.openDB();
