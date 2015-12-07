@@ -24,8 +24,8 @@ public class RegisterServlet extends HttpServlet {
 		String name = request.getParameter("username");
 		String address = request.getParameter("email");
 		String passwd = request.getParameter("passwd");
-		User user = new User();
-		user.createUser(name, address, passwd);
+		User.createUser(name, address, passwd);
+		request.getRequestDispatcher("index.jsp").forward(request, response);
 
 	}
 

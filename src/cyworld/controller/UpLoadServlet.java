@@ -69,7 +69,7 @@ public class UpLoadServlet extends HttpServlet {
 							break;
 						}
 
-						fileName = user.getAddress();
+						fileName = user.userID();
 						File jpgFile = new File(path + "/" + fileName + ".jpg");
 						File pngFile = new File(path + "/" + fileName + ".png");
 						if (jpgFile.exists())

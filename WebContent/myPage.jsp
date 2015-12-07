@@ -54,13 +54,13 @@
 		HttpSession httpSession = request.getSession();
 		User user = (User) httpSession.getAttribute("loginUser");
 		String path = getServletContext().getRealPath("img/profilePool");
-		File jpgFile = new File(path + "/" + user.getAddress() + ".jpg");
-		File pngFile = new File(path + "/" + user.getAddress() + ".png");
+		File jpgFile = new File(path + "/" + user.userID() + ".jpg");
+		File pngFile = new File(path + "/" + user.userID() + ".png");
 		String imgPath = "0000.jpg";
 		if (jpgFile.exists())
-			imgPath = user.getAddress() + ".jpg";
+			imgPath = user.userID() + ".jpg";
 		if (pngFile.exists())
-			imgPath = user.getAddress() + ".png";
+			imgPath = user.userID() + ".png";
 	%>
 	<div class="contents">
 

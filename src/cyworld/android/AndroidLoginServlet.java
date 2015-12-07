@@ -27,7 +27,13 @@ public class AndroidLoginServlet extends HttpServlet{
 		out = response.getWriter();
 		
 		if(user.loginAuth(address,passwd)){
-			out.print("True");
+			user.setUserData(address);
+			out.println("True");
+			out.println(user.getAddress());
+			out.println(user.getName());
+			out.println(user.getPasswd());
+			out.println(user.getImgPath());
+			
 		}else{
 			out.print("False");
 		}
