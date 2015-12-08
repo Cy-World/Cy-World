@@ -2,6 +2,7 @@
 <%@page contentType="text/html;charset=utf-8" language="java"%>
 -->
 <!DOCTYPE html>
+<%@page import="java.util.List"%>
 <%@page import="cyworld.model.RoomBean"%>
 <%@page import="sun.net.www.content.image.png"%>
 <%@page import="java.io.File"%>
@@ -55,13 +56,14 @@
 		HttpSession httpSession = request.getSession();
 		User user = (User) httpSession.getAttribute("loginUser");
 		String path = getServletContext().getRealPath("img/profilePool");
-		File jpgFile = new File(path + "/" + user.userID() + ".jpg");
-		File pngFile = new File(path + "/" + user.userID() + ".png");
+		File jpgFile = new File(path + "/" + user.getUserID() + ".jpg");
+		File pngFile = new File(path + "/" + user.getUserID() + ".png");
 		String imgPath = "0000.jpg";
 		if (jpgFile.exists())
-			imgPath = user.userID() + ".jpg";
+			imgPath = user.getUserID() + ".jpg";
 		if (pngFile.exists())
-			imgPath = user.userID() + ".png";
+			imgPath = user.getUserID() + ".png";
+		List<RoomBean> roomList = (List) httpSession.getAttribute("myRoom");
 	%>
 	<div class="contents">
 
@@ -79,16 +81,18 @@
 					<table class="bordered highlight avatar">
 						<caption class="roomList">Room List</caption>
 						<tr>
-							<td><a href="#"><i class="material-icons tiny">library_books</i>
-									Room1</a></td>
-															<%
-							for(RoomBean roomList : RoomBean.getRoomList(user.userID())){
-								%>	
-							<td><a href="#"><i class="material-icons tiny">library_books</i>
-										<%=roomList %></a></td>
-							<%}
-								%>
+							<td><a href="#"><i class="material-icons tiny">library_books</i>Room1</a></td>
 						</tr>
+						<%
+							for (RoomBean list : roomList) {
+						%>
+						<tr>
+						<td><a href="#"><i class="material-icons tiny">library_books</i><%=list.getRoomName()%></a></td>
+						</tr>t
+						<%
+							}
+						%>
+
 					</table>
 				</div>
 			</div>
