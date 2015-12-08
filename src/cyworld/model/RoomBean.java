@@ -3,6 +3,7 @@ package cyworld.model;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import org.apache.commons.lang3.RandomStringUtils;
@@ -45,12 +46,10 @@ public class RoomBean {
 		this.flag = roomConf;
 	}
 	
-	public static ArrayList<RoomBean> privateRoomView(String address){
+	public static List<RoomBean> getRoomList(String LoginUser){
 		ArrayList<RoomBean> roomData = new ArrayList<>();
-		String sql = String.format("SELECT RoomName,Comment FROM "
-				+ "Room JOIN JoinInfo ON Room.RoomID = JoinInfo.RoomID"
-				+ "JOIN User ON User.UserID = JoinInfo.UserID"
-				+ " WHERE MailAddress=%s AND Flag = '1'", address);
+		String sql ="SELECT * FROM Room WHERE exist "
+				+ "(SELECT RoomID FROM JoinInfo WHERE JoinInfo.UserID = '"+LoginUser+"'";
 		DBHelper helper = new DBHelper();
 		helper.openDB();
 		
@@ -58,47 +57,18 @@ public class RoomBean {
 		
 		try {
 			while(rs.next()){
-				RoomBean bean = new RoomBean(rs.getString("roomID"),
+				RoomBean bean = new RoomBean(rs.getString("RoomID"),
 											 rs.getString("RoomName"), 
 						                     rs.getString("Comment"), 
-						                     (Byte)null);
+						                     Byte.parseByte(rs.getString("Flag")));
 				roomData.add(bean);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
 		helper.closeDB();
 		return roomData;
 	}
-	
-	public static ArrayList<RoomBean> publicRoomView(){
-		ArrayList<RoomBean> roomData = new ArrayList<>();
-		String sql ="SELECT RoomName,Comment FROM "
-				+ "Room JOIN JoinInfo ON Room.RoomID = JoinInfo.RoomID"
-				+ " WHERE Flag = '0'";
-		DBHelper helper = new DBHelper();
-		helper.openDB();
-		
-		ResultSet rs = helper.selectSQL(sql);
-		
-		try {
-			while(rs.next()){
-				RoomBean bean = new RoomBean(rs.getString("roomID"),
-											 rs.getString("RoomName"), 
-						                     rs.getString("Comment"), 
-						                     (Byte)null);
-				roomData.add(bean);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
-		helper.closeDB();
-		return roomData;
-	}
-
-
 	public String getRoomID() {
 		return roomID;
 	}
@@ -114,5 +84,6 @@ public class RoomBean {
 	public short getFlag() {
 		return flag;
 	}
+
 
 }
