@@ -12,7 +12,7 @@ public class User {
 	private String passwd;
 	private String imgPath;
 
-	public String userID() {
+	public String getUserID() {
 		return userID;
 	}
 

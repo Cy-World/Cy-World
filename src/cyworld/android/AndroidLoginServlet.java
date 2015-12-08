@@ -13,9 +13,9 @@ import cyworld.model.User;
 
 @WebServlet("/AndroidLoginServlet")
 public class AndroidLoginServlet extends HttpServlet{
-	
+
 	PrintWriter out;
-	
+
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
@@ -25,7 +25,7 @@ public class AndroidLoginServlet extends HttpServlet{
 		System.out.println(passwd);
 		User user = new User();
 		out = response.getWriter();
-		
+
 		if(user.loginAuth(address,passwd)){
 			user.setUserData(address);
 			out.println("True");
@@ -38,7 +38,7 @@ public class AndroidLoginServlet extends HttpServlet{
 			out.print("False");
 		}
 	}
-	
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		doGet(req, resp);
