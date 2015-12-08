@@ -23,6 +23,7 @@ public class CreateRoomServlet extends HttpServlet {
 		RoomBean room = RoomBean.roomCreate(roomName, comment, roomConf);
 		HttpSession session = request.getSession();
 		session.setAttribute("joinRoom",room);
+		request.getRequestDispatcher("StormingServlet").include(request, response);
 		request.getRequestDispatcher("storming.jsp").forward(request, response);
 	}
 

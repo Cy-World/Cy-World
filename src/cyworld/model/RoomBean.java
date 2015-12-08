@@ -49,7 +49,7 @@ public class RoomBean {
 	public static List<RoomBean> getRoomList(String LoginUser){
 		ArrayList<RoomBean> roomData = new ArrayList<>();
 		String sql ="SELECT * FROM Room WHERE exist "
-				+ "(SELECT RoomID FROM JoinInfo WHERE JoinInfo.UserID = '"+LoginUser+"'";
+				+ "(SELECT RoomID FROM JoinInfo WHERE JoinInfo.UserID = '"+LoginUser+"')";
 		DBHelper helper = new DBHelper();
 		helper.openDB();
 		

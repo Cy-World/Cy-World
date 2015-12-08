@@ -2,6 +2,8 @@ package cyworld.model;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class User {
 	private String userID;
@@ -30,6 +32,28 @@ public class User {
 		return imgPath;
 	}
 
+	public static List<User> getRoomMember(String roomID){
+
+		DBHelper dbHelper=new DBHelper();
+		ResultSet rs = dbHelper.selectSQL("SELECT * FROM User WHERE exist "
+				+ "(SELECT UserID FROM JoinInfo WHERE JoinInfo.RoomID = '"+roomID+"')");
+		List<User> roomMember=new ArrayList<>();
+		try {
+			if(rs!=null)while(rs.next()){
+				User joinUser= new User();
+				joinUser.userID=rs.getString("UserID");
+				joinUser.address=rs.getString("MailAddress");
+				joinUser.name=rs.getString("UserName");
+				roomMember.add(joinUser);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			dbHelper.closeDB();
+		}
+		return roomMember;
+	}
+	
 	public static void createUser(String name, String address, String passwd) {
 		String sql = String.format("INSERT INTO User VALUES(0,'%s','%s','%s','%s',0);", passwd, address, name, address);
 		DBHelper dbHelper = new DBHelper();

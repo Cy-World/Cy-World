@@ -1,3 +1,5 @@
+<%@page import="cyworld.model.User"%>
+<%@page import="java.util.List"%>
 <%@page contentType="text/html;charset=utf-8" language="java"%>
 <!DOCTYPE html>
 <html>
@@ -64,23 +66,17 @@
             </div>
             <!-- main content -->
             <div class="row" id="main-content">
-                <form class="col s3">
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <textarea class="materialize-textarea" id="textarea1"></textarea>
-                            <label for="textarea1">Textarea</label>
-                        </div>
-                    </div>
-                </form>
+
             </div>
             <!-- Modal Structure -->
             <div class="modal bottom-sheet" id="modal1">
                 <div class="modal-content">
-                    <h4>Modal Header</h4>
-                    <p>A bunch of text</p>
-                </div>
-                <div class="modal-footer">
-                    <a class=" modal-action modal-close waves-effect waves-green btn-flat" href="#!">Agree</a>
+                    <%
+                    List<User> joinUserList=(List<User>)session.getAttribute("joinUserList");
+                    if(joinUserList!=null)for(User joinUser:joinUserList){%>
+                    	<%=joinUser.getName() %>
+                    <%
+                    }%>
                 </div>
             </div>
         </div>
