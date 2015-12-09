@@ -79,15 +79,14 @@
                     <div class="modal-content">
                         <%
                     List<User> joinUserList=(List<User>)session.getAttribute("joinUserList");
-                    if(joinUserList!=null)for(User joinUser:joinUserList){%>
-                    	<%=joinUser.getName() %>
-                    <%
+                    if(joinUserList!=null)for(User joinUser:joinUserList){
+                        out.println(joinUser.getName());
                     }%>
                     </div>
                 </div>
-            <!-- Modal Trigger -->
+                <!-- Modal Trigger -->
                 <div class="row">
-      class="col offset-s10 s1">
+                    <div class="col offset-s10 s1">
                         <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Member</a>
                     </div>
                 </div>
