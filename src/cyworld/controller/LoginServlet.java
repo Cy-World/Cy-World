@@ -32,8 +32,6 @@ public class LoginServlet extends HttpServlet {
 		if (user.loginAuth(address, passwd)) {
 			System.out.println("LOGIN");
 			session.setAttribute("loginUser", user);
-			List<RoomBean> roomList = RoomBean.getRoomList(user.getUserID());
-			session.setAttribute("myRoom", roomList);
 			session.setAttribute("stats", "LOGIN");
 			request.getRequestDispatcher("/index.jsp").forward(request, response);
 		} else {
