@@ -44,6 +44,7 @@ public class User {
 				joinUser.userID=rs.getString("UserID");
 				joinUser.address=rs.getString("MailAddress");
 				joinUser.name=rs.getString("UserName");
+				System.out.println(joinUser.name);
 				roomMember.add(joinUser);
 			}
 		} catch (Exception e) {

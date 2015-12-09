@@ -20,7 +20,7 @@
             <script src="js/cyworldjs/storming.js" type="text/javascript"></script>
             <nav>
                 <div class="nav-wrapper white" style="border-bottom: solid 3px; border-color: gray;">
-                    <a class="brand-logo left" href="index.html" style="margin-left: 50px">
+                    <a class="brand-logo left" href="index.jsp" style="margin-left: 50px">
                         <span style="color: blue; font-weight: bold">Cy</span>
                         <span style="color: grey; font-weight: bold">-World</span>
                     </a>
@@ -38,11 +38,10 @@
             <div id="bg-overlay"></div>
             <div id="card-tmp">
                 <div class="z-depth-3 cardLayout">
-
                     <h4 class="titleLayout">Input Idea</h4>
-                    <div class="inputFormLaytout">
-                        <!-- Password -->
-                        <div class="input-field">
+                    <div class="inputFormLaytout row">
+                        <a class="btn-floating btn-large waves-effect waves-light red col offset-s11"><i class="material-icons">add</i></a>
+                        <div class="input-field col s12">
                             <textarea class="materialize-textarea" id="value" name="value" type="text"></textarea>
                             <label for="value">Your Idea</label>
                         </div>
@@ -77,11 +76,12 @@
                 <!-- Modal Structure -->
                 <div class="modal bottom-sheet" id="modal1">
                     <div class="modal-content">
+                        <h4>Member List</h4>
                         <%
-                    List<User> joinUserList=(List<User>)session.getAttribute("joinUserList");
-                    if(joinUserList!=null)for(User joinUser:joinUserList){
-                        out.println(joinUser.getName());
-                    }%>
+                        List<User> joinUserList=(List<User>)session.getAttribute("joinUserList");
+                        if(joinUserList!=null)for(User joinUser:joinUserList){
+                            out.println(joinUser.getName());
+                        }%>
                     </div>
                 </div>
                 <!-- Modal Trigger -->

@@ -83,6 +83,7 @@ public class RoomBean {
 				roomData.add(bean);
 			}
 		} catch (SQLException e) {
+			helper.closeDB();
 			e.printStackTrace();
 		}
 		helper.closeDB();
