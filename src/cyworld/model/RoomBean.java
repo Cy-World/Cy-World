@@ -38,7 +38,8 @@ public class RoomBean {
 				name, comment, roomConf);
 		dbHelper.insertSQL(sql);
 		dbHelper.closeDB();
-		sql = String.format("INSERT INTO JoinInfo(UserID,RoomID) VALUES('%s','%s');", userID, roomID);
+
+		sql = String.format("INSERT INTO JoinInfo VALUES(0,%s,'%s');", userID, roomID);
 		joinInfoCreate(sql);
 		return new RoomBean(roomID, name, comment, roomConf);
 	}
@@ -46,6 +47,7 @@ public class RoomBean {
 	// Insert JpinInfo
 	private static void joinInfoCreate(String sql) {
 		DBHelper dbHelper = new DBHelper();
+		dbHelper.openDB();
 		dbHelper.insertSQL(sql);
 		dbHelper.closeDB();
 	}
@@ -61,8 +63,14 @@ public class RoomBean {
 	// Get RoomList
 	public static List<RoomBean> getRoomList(String LoginUser) {
 		ArrayList<RoomBean> roomData = new ArrayList<>();
-		String sql = "SELECT * FROM Room WHERE exists " + "(SELECT RoomID FROM JoinInfo WHERE JoinInfo.UserID = '"
-				+ LoginUser + "');";
+		// String sql2 = "SELECT * FROM Room WHERE exists " + "(SELECT RoomID
+		// FROM JoinInfo WHERE JoinInfo.UserID = '"
+		// + LoginUser + "');";
+		System.out.println("GET ROOM LIST USER ID :" + LoginUser);
+		String sql = String.format(
+				"SELECT  Room.RoomID,Room.RoomName,Room.Comment,Room.Flag FROM Room,JoinInfo WHERE Room.RoomID=JoinInfo.RoomID AND JoinInfo.UserID = '%s';",
+				LoginUser);
+		System.out.println("SQL : "+sql);
 		DBHelper helper = new DBHelper();
 		helper.openDB();
 
