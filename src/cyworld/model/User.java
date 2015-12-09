@@ -35,8 +35,8 @@ public class User {
 	public static List<User> getRoomMember(String roomID){
 
 		DBHelper dbHelper=new DBHelper();
-		ResultSet rs = dbHelper.selectSQL("SELECT * FROM User WHERE exist "
-				+ "(SELECT UserID FROM JoinInfo WHERE JoinInfo.RoomID = '"+roomID+"')");
+		dbHelper.openDB();
+		ResultSet rs = dbHelper.selectSQL("SELECT * FROM User WHERE User.UserID=JoinInfo.UserID AND JoinInfo.RoomID = '"+roomID+"')");
 		List<User> roomMember=new ArrayList<>();
 		try {
 			if(rs!=null)while(rs.next()){

@@ -87,7 +87,7 @@
                 </div>
             <!-- Modal Trigger -->
                 <div class="row">
-                    <div class="col offset-s10 s1">
+      class="col offset-s10 s1">
                         <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Member</a>
                     </div>
                 </div>
