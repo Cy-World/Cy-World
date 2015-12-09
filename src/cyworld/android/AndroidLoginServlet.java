@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import cyworld.model.User;
+import jdk.nashorn.api.scripting.JSObject;
+import net.sf.json.JSONObject;
 
 @WebServlet("/AndroidLoginServlet")
 public class AndroidLoginServlet extends HttpServlet{
@@ -28,11 +30,12 @@ public class AndroidLoginServlet extends HttpServlet{
 		
 		if(user.loginAuth(address,passwd)){
 			user.setUserData(address);
-			out.println("True");
-			out.println(user.getAddress());
-			out.println(user.getName());
-			out.println(user.getPasswd());
-			out.println(user.getImgPath());
+			out.print("True,");
+			out.print(user.userID()+",");
+			out.print(user.getAddress()+",");
+			out.print(user.getName()+",");
+			out.print(user.getPasswd()+",");
+			out.print(user.getImgPath());
 			
 		}else{
 			out.print("False");
