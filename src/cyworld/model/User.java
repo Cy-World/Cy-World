@@ -53,7 +53,7 @@ public class User {
 		}
 		return roomMember;
 	}
-	
+
 	public static void createUser(String name, String address, String passwd) {
 		String sql = String.format("INSERT INTO User VALUES(0,'%s','%s','%s','%s',0);", passwd, address, name, address);
 		DBHelper dbHelper = new DBHelper();
