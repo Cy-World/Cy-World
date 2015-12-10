@@ -40,6 +40,9 @@
                                     <a class="grey-text text-darken-2" href="myPage.jsp">MyPage</a>
                                 </li>
                             </ul>
+                            <form action="index.html" class="right" method="post" style="margin-right:30%">
+                                <input id="search" type="sarch" placeholder="Search user or room" style="height:30px;"size="60"/>
+                            </form>
                         </div>
                     </nav>
 
@@ -70,7 +73,7 @@
                                         <span class="addressFont"><%=spritAddress[0]%></span>
                                         <br>
                                             <span class="editFont">
-                                                <a href="edit.jsp">Edit Profiele</a>
+                                                <a href="edit.jsp">Edit Profile</a>
                                             </span>
                                         </div>
                                         <!-- Rooom Container -->
@@ -99,7 +102,7 @@
 								}
 							} else {
 
-								out.print("<tr><td>You don't have to make a room.<br /><a href=\"creatRoom.jsp\">Create a Room</a></td></tr>");
+								out.print("<tr><td>You don't have to make a room.<br /><a href=\"createRoom.jsp\">Create a Room</a></td></tr>");
 							}
 						%>
                                                     </tbody>
