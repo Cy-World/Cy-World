@@ -47,9 +47,13 @@
 				<li><a class="grey-text text-darken-2" href="myPage.jsp">MyPage</a>
 				</li>
 			</ul>
+			<form action="index.html" class="right" method="post" style="margin-right:30%">
+				<input id="search" type="sarch" placeholder="Search user or room" style="height:30px;"size="60"/>
+			</form>
 			<%
 				}
 			%>
+
 		</div>
 	</nav>
 

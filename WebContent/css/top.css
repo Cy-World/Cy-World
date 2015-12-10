@@ -1,24 +1,31 @@
 body {
-  //font-family: 'Open Sans', sans-serif;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
-.contents{
-  margin: 10px auto;
-  max-width: 800px;]
+main {
+    flex: 1 0 auto;
 }
-
-.topButton{
-  margin: 20px;
+input[type="sarch"] {
+    color: black;
 }
-
-
-.minWidth{
-  min-width: 800px;
+.contents {
+    margin: 10px auto;
+    max-width: 800px;
+    ]
+}
+.topButton {
+    margin: 20px;
+}
+.minWidth {
+    min-width: 800px;
 }
 .cardLayout {
-  margin: 50px 100px;
-  padding-top: 10px;
-  background: white;
+    margin: 50px 100px;
+    padding-top: 10px;
+    background: white;
+    width: 600px;
 }
 .inputFormLaytout {
-  margin: 10px 90px;
+    margin: 10px 90px;
 }

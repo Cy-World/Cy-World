@@ -1,5 +1,8 @@
 .createRoomCard{
-margin:50px 100px;padding-top:10px;background:white;
+margin:50px 100px;
+padding-top:10px;
+background:white;
+width: 600px;
 }
 .createRoomTitle{
   margin-left:90px;

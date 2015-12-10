@@ -45,58 +45,59 @@
      	  	     if("LOGIN_INCORRECT".equals((String)session.getAttribute("stats"))){
     	  	      	session.setAttribute("stats","NORMAL");
     	  	      %>
-        	    <span class="blue-text text-darken-2 center-align">	Login incorrect</span>
-     		       <%
+                <span class="blue-text text-darken-2 center-align">
+                    Login incorrect</span>
+            <%
       	 	     }%>
-                <!--User Name  -->
-                <div class="inputFormLaytout">
-                    <div class="input-field ">
-                        <input class="validate" id="mail" name="address" type="email"/>
-                        <label for="mail">Email Address</label>
-                    </div>
-                    <!-- Password -->
-                    <div class="input-field">
-                        <input class="validate" id="passwd" name="passwd" type="password"/>
-                        <label for="passwd">Password</label>
-                    </div>
+            <!--User Name  -->
+            <div class="inputFormLaytout">
+                <div class="input-field ">
+                    <input class="validate" id="mail" name="address" type="email"/>
+                    <label for="mail">Email Address</label>
                 </div>
-                <button class="waves-effect waves-light btn-large buttonLayout" name="action" type="submit">Login
-                    <i class="material-icons left">room</i>
-                </button>
-            </form>
+                <!-- Password -->
+                <div class="input-field">
+                    <input class="validate" id="passwd" name="passwd" type="password"/>
+                    <label for="passwd">Password</label>
+                </div>
+            </div>
+            <button class="waves-effect waves-light btn-large buttonLayout" name="action" type="submit">Login
+                <i class="material-icons left">room</i>
+            </button>
+        </form>
+    </div>
+
+    <!-- footer -->
+    <footer class="page-footer blue-grey darken-4">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Help</h5>
+                    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Connect</h5>
+                    <ul class="">
+                        <li>
+                            <a class="waves-effect waves-light btn" href="https://twitter.com/Cy_World2015?lang=ja" style="margin:5px">
+                                <i class="material-icons left">input</i>Twitter</a>
+                        </li>
+                        <li>
+                            <a class="waves-effect waves-light btn" style="margin:5px">
+                                <i class="material-icons left">input</i>GitHub</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
-
-        <!-- footer -->
-        <footer class="page-footer blue-grey darken-4">
+        <div class="footer-copyright">
             <div class="container">
-                <div class="row">
-                    <div class="col l6 s12">
-                        <h5 class="white-text">Help</h5>
-                        <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-                    </div>
-                    <div class="col l4 offset-l2 s12">
-                        <h5 class="white-text">Connect</h5>
-                        <ul class="">
-                            <li>
-                                <a class="waves-effect waves-light btn" href="https://twitter.com/Cy_World2015?lang=ja" style="margin:5px">
-                                    <i class="material-icons left">input</i>Twitter</a>
-                            </li>
-                            <li>
-                                <a class="waves-effect waves-light btn" style="margin:5px">
-                                    <i class="material-icons left">input</i>GitHub</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                © 2014 Copyright Cy-World
+                <!-- <a class="grey-text text-lighten-4 right" href="#!">More Links</a> -->
             </div>
-            <div class="footer-copyright">
-                <div class="container">
-                    © 2014 Copyright Cy-World
-                    <!-- <a class="grey-text text-lighten-4 right" href="#!">More Links</a> -->
-                </div>
-            </div>
-        </footer>
+        </div>
+    </footer>
 
-    </body>
+</body>
 
 </html>
