@@ -10,8 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import cyworld.model.User;
-import jdk.nashorn.api.scripting.JSObject;
-import net.sf.json.JSONObject;
 
 @WebServlet("/AndroidLoginServlet")
 public class AndroidLoginServlet extends HttpServlet{
