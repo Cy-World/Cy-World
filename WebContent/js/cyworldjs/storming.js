@@ -21,7 +21,6 @@ $("docment").ready(function() {
                 } else {
                     $("#bg-overlay").fadeOut();
                     $("#card-input").fadeOut();
-                    cardAdd();
                 }
             }
         });

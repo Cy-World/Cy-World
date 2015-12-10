@@ -1,6 +1,9 @@
 package cyworld.model;
 
 import java.sql.ResultSet;
+import java.util.HashMap;
+
+import net.arnx.jsonic.JSON;
 
 public class TicketBean {
 	private String ticketData;
@@ -10,8 +13,23 @@ public class TicketBean {
 	public String getTicketBeans(String roomID){
 		DBHelper helper = new DBHelper();
 		helper.openDB();
-		ResultSet rs=helper.selectSQL("select * from Ticket where RoomID='"+roomID+"';");
-		JSON
+		HashMap<String,String> ticketMap = new HashMap<>();
+		try {
+			ResultSet rs=helper.selectSQL("select TicketData,TicketID from Ticket where RoomID='"+roomID+"';");
+			while(rs.next()){
+				ticketMap.put(rs.getString("TicketID"),rs.getString("TicketData"));
+			}
+			helper.closeDB();
+		} catch (Exception e) {
+			e.printStackTrace();
+			helper.closeDB();
+			return null;
+		}
+		return JSON.encode("");
+	}
+	public boolean ticketAdd(String ticketData,String roomID){
+		
+		return false;
 	}
 	public String getTicketData() {
 		return ticketData;
