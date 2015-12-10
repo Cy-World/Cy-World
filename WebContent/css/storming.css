@@ -1,3 +1,11 @@
+footer{
+    position: absolute;
+    bottom: 0px;
+    width: auto;
+    margin-right: auto;
+    margin-left: auto;
+
+}
 .content-body{
   min-height:600px;
   margin-bottom: 0px;
@@ -6,26 +14,20 @@
   font-size: 14px;
   font-weight: 300;
 }
-.activator-icon{
-
-}
 
 .cardLayout{
     padding: 10px;
     background: white;
 }
-#cardadd{
+.cardadd{
   z-index: 103;
 }
-#card-tmp-tille{
-  height: 100%;
-  width: 80%;
-}
-#card-tmp-detail{
-  height: 100%
-  width: 80%;
-}
 #card-tmp{
+  display: none;
+  position: absolute;
+  z-index: 102;
+}
+#card-input{
   display: none;
   position: absolute;
   top:20%;

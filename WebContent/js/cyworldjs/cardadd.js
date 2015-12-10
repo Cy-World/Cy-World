@@ -15,13 +15,12 @@ $("docment").ready(function() {
       //fadein
       if ($("#bg-overlay").css("display") == "none") {
         $("#bg-overlay").fadeIn();
-        $("#card-tmp").fadeIn();
+        $("card-input").fadeIn();
         //fadeout
       } else {
-        var cardclone = $("#card-tmp").clone(true);
         $("#bg-overlay").fadeOut();
-        $("#card-tmp").fadeOut();
-        addCard(cardclone);
+        $("card-input").fadeOut();
+        addcard();
       }
     }
   });
@@ -29,33 +28,39 @@ $("docment").ready(function() {
   //cardを追加せずにoverlayを切る
   $("#bg-overlay").on("click", function() {
     $("#bg-overlay").fadeOut();
-    $("#card-tmp").fadeOut();
-  })
+    $("#card-input").fadeOut();
+});
 });
 //------------------------------------------------------------------------------
-//tmpcardドのcloneをstorming部分に追加する
-function addCard(cardclone) {
-  addText(cardclone, 'input');
-  addText(cardclone, 'Textarea');
-  paramMod(cardclone);
-  $("#main-content").append(cardclone);[]
+function addcard(){
+    var clone = $("#card-tmp").clone.find("p");
+    clone.append($("#card-input").find("#value").val());
+    paramMod(clone);
+    $("main-content").append(clone);
 }
+// //tmpcardドのをstorming部分に追加する
+// function addCard(card) {
+//   addText(card, 'input');
+//   addText(card, 'Textarea');
+//   paramMod(card);
+//   $("#main-content").append(card);
+// }
+//
+// //入力された文字を追加するcardへコピーする
+// function addText(card, selecter) {
+//   var selecet = card.find(selecter);
+//   selecet.after(card.find(selecter).val());
+//   selecet.remove();
+// }
 
-//入力された文字を追加するcardへコピーする
-function addText(cardclone, selecter) {
-  var selecet = cardclone.find(selecter);
-  selecet.after(cardclone.find(selecter).val());
-  selecet.remove();
-}
-
-//cardcloneのパラメータを追加修正
-function paramMod(cardclone) {
-  cardclone.addClass("col");
-  cardclone.addClass("s3");
-  cardclone.removeAttr("id"); //Duplicate measures
+//cardのパラメータを追加修正
+function paramMod(card) {
+  card.addClass("col");
+  card.addClass("s3");
+  card.removeAttr("id"); //Duplicate measures
 }
 
 //overlayのonoff処理中かどうかのチェック
 function chkOverlayProcess() {
-  return $("#bg-overlay").css('opacity') == 0||$("#bg-overlay").css('opacity') == 1;
+  return $("#bg-overlay").css('opacity') === 0||$("#bg-overlay").css('opacity') === 1;
 }
