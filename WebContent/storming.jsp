@@ -40,24 +40,19 @@
         <div id="bg-overlay"></div>
         <!--input-->
         <div class="z-depth-3 cardLayout" id="card-input">
-            <div class="row">
-                <h5 class="titleLayout s6">please input Idea</h5>
+            <form class="row" action="cardaddServlet" method="post">
                 <div class="inputFormLaytout">
-                    <div class="input-field col s12">
-                        <textarea class="materialize-textarea" id="value" name="value" type="text"></textarea>
-                        <label for="value">Your Idea</label>
-                    </div>
-                    <button class="btn waves-effect waves-light s4 offset-2 cardadd" name="action" type="submit">Submit
+                    <input class="input-field col s12" class="validate" id="first_name" placeholder="please input your idea" type="text"/>
+                    <button class="btn waves-effect waves-light s4 offset-2 cardadd" name="action" type="submit">ADD!!
                         <i class="material-icons right">send</i>
                     </button>
                 </div>
-            </div>
+            </form>
         </div>
         <!--tmp-->
         <div class="z-depth-3 card-panel white small" id="card-tmp">
             <div class="card-content gray-text">
-                <p>
-                </p>
+                <p></p>
             </div>
             <div class="card-action row">
                 <a class="col s3" href="#">DEL</a>
@@ -73,11 +68,16 @@
                         <i class="material-icons">add</i>
                     </a>
                 </div>
+                <div class="col s9">
+                    <h4 class="titleLayout" style="color:blue">Title</h4>
+                </div>
+                <!-- Modal Trigger -->
+                <div class="col s2">
+                    <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Member</a>
+                </div>
             </div>
             <!-- main content -->
-            <div class="row" id="main-content">
-
-            </div>
+            <div class="row" id="main-content"></div>
             <!-- Modal Structure -->
             <div class="modal bottom-sheet" id="modal1">
                 <div class="modal-content">
@@ -87,12 +87,6 @@
                         if(joinUserList!=null)for(User joinUser:joinUserList){
                             out.println(joinUser.getName());
                         }%>
-                </div>
-            </div>
-            <!-- Modal Trigger -->
-            <div class="row">
-                <div class="col offset-s10 s1">
-                    <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Member</a>
                 </div>
             </div>
             <!-- footer -->
