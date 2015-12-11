@@ -13,17 +13,22 @@ $("docment").ready(function() {
         $(box).on("click", function() {
             //overlayの処理中かチェック
             if (chkOverlayProcess()) {
-                if ($("#bg-overlay").css("display") == "none") {//fadein
+                if ($("#bg-overlay").css("display") == "none") { //fadein
                     $("#bg-overlay").fadeIn();
                     $("#card-input").fadeIn();
-                } else {//fadeout
+                } else { //fadeout
                     $.ajax({
-                        type:"POST",
-                        url:"/cardaddServlet",
-                        dataType:"json",
-                        data:{carddata:$("#card-input").val()},
-                        success:function(data){
+                        type: "POST",
+                        url: "cyworld.pgw.jp:1919/test/CardaddServlet",
+                        dataType: "json",
+                        data: {
+                            carddata: $("#card-input").val()
+                        },
+                        success: function(data) {
                             alert(data);
+                        },
+                        error: function(XMLHttpRequest, textStatus, errorThrown) {
+                            alert("エラーが発生しました：" + textStatus + ":\n" + errorThrown);
                         }
                     });
                     $("#bg-overlay").fadeOut();
