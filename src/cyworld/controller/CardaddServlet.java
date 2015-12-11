@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 import cyworld.model.RoomBean;
 import cyworld.model.TicketBean;
 
-@WebServlet("/cardaddServlet")
+@WebServlet("/CardaddServlet")
 public class CardaddServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
