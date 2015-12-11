@@ -40,14 +40,14 @@
         <div id="bg-overlay"></div>
         <!--input-->
         <div class="z-depth-3 cardLayout" id="card-input">
-            <form class="row" action="cardaddServlet" method="post">
+            <div class="row">
                 <div class="inputFormLaytout">
-                    <input class="input-field col s12" class="validate" id="first_name" placeholder="please input your idea" type="text"/>
+                    <input class="input-field col s12" class="validate" name="idea" placeholder="please input your idea" type="text"/>
                     <button class="btn waves-effect waves-light s4 offset-2 cardadd" name="action" type="submit">ADD!!
                         <i class="material-icons right">send</i>
                     </button>
                 </div>
-            </form>
+            </div>
         </div>
         <!--tmp-->
         <div class="z-depth-3 card-panel white small" id="card-tmp">

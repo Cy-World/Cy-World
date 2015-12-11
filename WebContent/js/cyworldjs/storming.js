@@ -13,18 +13,26 @@ $("docment").ready(function() {
         $(box).on("click", function() {
             //overlayの処理中かチェック
             if (chkOverlayProcess()) {
-                //fadein
-                if ($("#bg-overlay").css("display") == "none") {
+                if ($("#bg-overlay").css("display") == "none") {//fadein
                     $("#bg-overlay").fadeIn();
                     $("#card-input").fadeIn();
-                    //fadeout
-                } else {
+                } else {//fadeout
+                    $.ajax({
+                        type:"POST",
+                        url:"/cardaddServlet",
+                        dataType:"json",
+                        data:{carddata:$("#card-input").val()},
+                        success:function(data){
+                            alert(data);
+                        }
+                    });
                     $("#bg-overlay").fadeOut();
                     $("#card-input").fadeOut();
                 }
             }
         });
     });
+
     //notadd overlay off
     //cardを追加せずにoverlayを切る
     $("#bg-overlay").on("click", function() {
@@ -33,29 +41,6 @@ $("docment").ready(function() {
     });
 });
 //------------------------------------------------------------------------------
-function cardAdd(){
-    var clone =$("#card-tmp").clone(true);
-    clone.find("p").append($("#card-input").find("value").val());
-    clone.paramMod();
-    $("#main-content").append(clone);
-}
-
-
-
-//tmpcardドのをstorming部分に追加する
-// function addCard(card) {
-//     addText(card, 'input');
-//     addText(card, 'Textarea');
-//     paramMod(card);
-//     $("#main-content").append(card);
-// }
-//
-// //入力された文字を追加するcardへコピーする
-// function addText(card, selecter) {
-//     var selecet = card.find(selecter);
-//     selecet.after(card.find(selecter).val());
-//     selecet.remove();
-// }
 
 //cardのパラメータを追加修正
 function paramMod(card) {

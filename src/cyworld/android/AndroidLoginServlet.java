@@ -13,7 +13,7 @@ import cyworld.model.User;
 
 @WebServlet("/AndroidLoginServlet")
 public class AndroidLoginServlet extends HttpServlet{
-
+	private static final long serialVersionUID = 1L;
 	PrintWriter out;
 
 	@Override
