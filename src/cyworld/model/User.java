@@ -96,10 +96,12 @@ public class User {
 			}
 		} catch (SQLException e) {
 			dbHelper.closeDB();
+			System.out.println("closeDBcatch");
 			e.printStackTrace();
 			return false;
 		}
 		dbHelper.closeDB();
+		System.out.println("closeDB");
 		return true;
 	}
 

@@ -10,31 +10,31 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import cyworld.model.User;
+import net.arnx.jsonic.JSON;
+
 
 @WebServlet("/AndroidLoginServlet")
 public class AndroidLoginServlet extends HttpServlet{
+	private static final long serialVersionUID = 1L;
 	
 	PrintWriter out;
+	String json;
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		String address = request.getParameter("address");
-		System.out.println(address);
+		System.out.println(address+",als");
 		String passwd = request.getParameter("passwd");
-		System.out.println(passwd);
+		System.out.println(passwd+",als");
+		
 		User user = new User();
 		out = response.getWriter();
 		
 		if(user.loginAuth(address,passwd)){
-			user.setUserData(address);
-			out.print("True,");
-			out.print(user.userID()+",");
-			out.print(user.getAddress()+",");
-			out.print(user.getName()+",");
-			out.print(user.getPasswd()+",");
-			out.print(user.getImgPath());
 			
+			json = JSON.encode(user);
+			out.print(json);
 		}else{
 			out.print("False");
 		}
