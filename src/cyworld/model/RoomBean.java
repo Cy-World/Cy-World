@@ -27,15 +27,14 @@ public class RoomBean {
 				break;
 			randID = RandomStringUtils.randomAlphanumeric(9);
 			roomID = roomID + randID;
-		} while (dbHelper.existsSQL("Room", "RoomID", "RoomID LIKE '_" + randID + "'"));// 存在チェック
+		} while (dbHelper.existsSQL("Room", "RoomID LIKE '_" + randID + "'"));// 存在チェック
 
 		System.out.println(loopcnt);
 		String sql = String.format("INSERT INTO Room(RoomID,RoomName,Comment,Flag) VALUES('%s','%s','%s',%d);", roomID,
 				name, comment, roomConf);
 		dbHelper.insertSQL(sql);
 		dbHelper.closeDB();
-
-		sql = String.format("INSERT INTO JoinInfo VALUES(0,%s,'%s');", userID, roomID);
+		sql = String.format("INSERT INTO JoinInfo(UserID,RoomID) VALUES(%s,%s);", userID, roomID);
 		joinInfoCreate(sql);
 		return new RoomBean(roomID, name, comment, roomConf);
 	}

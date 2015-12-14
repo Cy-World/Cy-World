@@ -17,9 +17,12 @@ $("docment").ready(function() {
                     $("#bg-overlay").fadeIn();
                     $("#card-input").fadeIn();
                 } else { //fadeout
+
+                    alert($("#input-val").val()); //testcode
+
                     $.ajax({
-                        type: "POST",
-                        url: "cyworld.pgw.jp:1919/test/CardaddServlet",
+                        url: "http://cyworld.pgw.jp:1919/test/CardaddServlet",
+                        scriptCharset: 'utf-8',
                         dataType: "json",
                         data: {
                             carddata: $("#card-input").val()
