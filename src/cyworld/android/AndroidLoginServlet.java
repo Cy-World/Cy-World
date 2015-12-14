@@ -17,6 +17,7 @@ import net.arnx.jsonic.JSON;
 public class AndroidLoginServlet extends HttpServlet{
 
 	PrintWriter out;
+	String json;
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
