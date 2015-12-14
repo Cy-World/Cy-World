@@ -9,6 +9,11 @@
 .activator-icon{
 
 }
+
+.cardLayout{
+    padding: 10px;
+    background: white;
+}
 #cardadd{
   z-index: 103;
 }

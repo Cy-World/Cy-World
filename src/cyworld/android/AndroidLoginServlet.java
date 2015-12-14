@@ -15,11 +15,9 @@ import net.arnx.jsonic.JSON;
 
 @WebServlet("/AndroidLoginServlet")
 public class AndroidLoginServlet extends HttpServlet{
-	private static final long serialVersionUID = 1L;
-	
+
 	PrintWriter out;
-	String json;
-	
+
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
@@ -27,19 +25,19 @@ public class AndroidLoginServlet extends HttpServlet{
 		System.out.println(address+",als");
 		String passwd = request.getParameter("passwd");
 		System.out.println(passwd+",als");
-		
+
 		User user = new User();
 		out = response.getWriter();
-		
+
 		if(user.loginAuth(address,passwd)){
-			
+
 			json = JSON.encode(user);
 			out.print(json);
 		}else{
 			out.print("False");
 		}
 	}
-	
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		doGet(req, resp);

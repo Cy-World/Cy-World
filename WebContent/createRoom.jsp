@@ -1,17 +1,17 @@
 <%@page contentType="text/html;charset=utf-8" language="java"%>
-    <!DOCTYPE html>
-    <html>
+<!DOCTYPE html>
+<html>
 
     <head>
-        <meta charset="UTF-8" />
+        <meta charset="UTF-8"/>
         <title>CreateRoom|Cy-World</title>
         <!-- FrameWorkImport -->
-        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-        <link href="css/materialize.setting.css" rel="stylesheet" type="text/css" />
-        <link href="css/materialize.min.css" media="screen,projection" rel="stylesheet" type="text/css" />
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <link href="css/materialize.setting.css" rel="stylesheet" type="text/css"/>
+        <link href="css/materialize.min.css" media="screen,projection" rel="stylesheet" type="text/css"/>
         <!-- CustomImport -->
-        <link href="css/createRoom.css" rel="stylesheet" type="text/css" />
-        <link href="css/top.css" rel="stylesheet" type="text/css" />
+        <link href="css/createRoom.css" rel="stylesheet" type="text/css"/>
+        <link href="css/top.css" rel="stylesheet" type="text/css"/>
 
         <script src="https://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>
         <script src="js/materialize/materialize.min.js" type="text/javascript"></script>
@@ -36,6 +36,9 @@
                         <a class="grey-text text-darken-2" href="login.jsp">Login</a>
                     </li>
                 </ul>
+                <form action="index.html" class="right" method="post" style="margin-right:30%">
+                    <input id="search" placeholder="Search user or room" size="60" style="height:30px;" type="sarch"/>
+                </form>
             </div>
         </nav>
 
@@ -43,12 +46,12 @@
         <div class="contents">
 
             <!-- Input forms -->
-            <form action="CreateRoomServlet" class="z-depth-3 cardLayout" method="post">
+            <form action="CreateRoomServlet" class="z-depth-3 createRoomCard" method="post">
                 <h4 class="createRoomTitle">Create Room</h4>
                 <!--User Name  -->
                 <div class="inputFormLayout">
                     <div class="input-field col s12">
-                        <input class="validate" id="roomName" name="roomName" type="text" />
+                        <input class="validate" id="roomName" name="roomName" type="text"/>
                         <label for="roomName">Room Name</label>
                     </div>
                     <!-- Comment -->
@@ -57,17 +60,17 @@
                         <label for="comment">Comment</label>
                     </div>
                     <p>
-                        <input class="with-gap" name="roomConf" type="radio" id="0" value="0"/>
+                        <input class="with-gap" id="0" name="roomConf" type="radio" value="0"/>
                         <label for="0">Public</label>
                     </p>
                     <p>
-                        <input class="with-gap" name="roomConf" type="radio" id="1" value="1"/>
+                        <input class="with-gap" id="1" name="roomConf" type="radio" value="1"/>
                         <label for="1">Private</label>
                     </p>
-                    <button class="waves-effect waves-light btn-large createRoomButton" name="action" type="submit">Login
-                        <i class="material-icons left">room</i>
-                    </button>
                 </div>
+                <button class="waves-effect waves-light btn-large createRoomButton" name="action" type="submit">Login
+                    <i class="material-icons left">room</i>
+                </button>
             </form>
         </div>
 
@@ -105,4 +108,4 @@
 
     </body>
 
-    </html>
+</html>

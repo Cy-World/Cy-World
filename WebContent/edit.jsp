@@ -39,19 +39,22 @@
 				<li><a class="grey-text text-darken-2" href="login.jsp">Login</a>
 				</li>
 			</ul>
+			<form action="index.html" class="right" method="post" style="margin-right:30%">
+				<input id="search" type="sarch" placeholder="Search user or room" style="height:30px;"size="60"/>
+			</form>
 		</div>
 	</nav>
 	<%
 		HttpSession httpSession = request.getSession();
 		User user = (User) httpSession.getAttribute("loginUser");
 		String path = getServletContext().getRealPath("img/profilePool");
-		File jpgFile = new File(path + "/" + user.userID() + ".jpg");
-		File pngFile = new File(path + "/" + user.userID() + ".png");
+		File jpgFile = new File(path + "/" + user.getUserID() + ".jpg");
+		File pngFile = new File(path + "/" + user.getUserID() + ".png");
 		String imgPath = "0000.jpg";
 		if (jpgFile.exists())
-			imgPath = user.userID() + ".jpg";
+			imgPath = user.getUserID() + ".jpg";
 		if (pngFile.exists())
-			imgPath = user.userID() + ".png";
+			imgPath = user.getUserID() + ".png";
 	%>
 	<!-- MainContents -->
 	<div class="contents">

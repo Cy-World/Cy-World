@@ -38,7 +38,7 @@ public class EditServlet extends HttpServlet {
 		String name = request.getParameter("name");
 		String address = request.getParameter("mail");
 		String passwd = user.getPasswd();
-		String id = user.userID();
+		String id = user.getUserID();
 		user.updateUser(address, passwd, name, id, authAddress);
 	}
 
