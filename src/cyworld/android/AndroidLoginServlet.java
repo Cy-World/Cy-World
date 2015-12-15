@@ -12,36 +12,34 @@ import javax.servlet.http.HttpServletResponse;
 import cyworld.model.User;
 import net.arnx.jsonic.JSON;
 
-
 @WebServlet("/AndroidLoginServlet")
-public class AndroidLoginServlet extends HttpServlet{
+public class AndroidLoginServlet extends HttpServlet {
 
 	PrintWriter out;
 	String json;
 
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		String address = request.getParameter("address");
-		System.out.println(address+",als");
 		String passwd = request.getParameter("passwd");
-		System.out.println(passwd+",als");
-
+		
 		User user = new User();
 		out = response.getWriter();
 
-		if(user.loginAuth(address,passwd)){
-
+		if (user.loginAuth(address, passwd)) {
 			json = JSON.encode(user);
 			out.print(json);
-		}else{
+		} else {
 			out.print("False");
 		}
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.setCharacterEncoding("UTF-8");
 		doGet(req, resp);
+		resp.setCharacterEncoding("UTF-8");
 	}
 
 }
