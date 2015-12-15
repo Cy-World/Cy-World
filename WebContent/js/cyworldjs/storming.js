@@ -17,21 +17,25 @@ $("docment").ready(function() {
                     $("#bg-overlay").fadeIn();
                     $("#card-input").fadeIn();
                 } else { //fadeout
-
-                    alert($("#input-val").val()); //testcode
-
+                    var input=$("#input-val").val();
+                    alert(input); //testcode
+                    var requestObj = {
+                        data: input
+                    };
+                    var requestJson = $.toJSON(requestObj);
+                    alert(requestJson);
                     $.ajax({
+                        type: "GET",
                         url: "http://cyworld.pgw.jp:1919/test/CardaddServlet",
-                        scriptCharset: 'utf-8',
-                        dataType: "json",
                         data: {
-                            carddata: $("#card-input").val()
+                            carddata: requestJson
                         },
                         success: function(data) {
-                            alert(data);
+                            alert(data.responseMessage);
+                            //$("#result").append(data.responseMessage);
                         },
                         error: function(XMLHttpRequest, textStatus, errorThrown) {
-                            alert("エラーが発生しました：" + textStatus + ":\n" + errorThrown);
+                            alert("リクエスト時になんらかのエラーが発生しました：" + textStatus + ":\n" + errorThrown);
                         }
                     });
                     $("#bg-overlay").fadeOut();

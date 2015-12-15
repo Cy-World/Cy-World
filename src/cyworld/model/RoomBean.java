@@ -34,7 +34,7 @@ public class RoomBean {
 				name, comment, roomConf);
 		dbHelper.insertSQL(sql);
 		dbHelper.closeDB();
-		sql = String.format("INSERT INTO JoinInfo(UserID,RoomID) VALUES(%s,%s);", userID, roomID);
+		sql = String.format("INSERT INTO JoinInfo(UserID,RoomID) VALUES(%s,'%s');", userID, roomID);
 		joinInfoCreate(sql);
 		return new RoomBean(roomID, name, comment, roomConf);
 	}

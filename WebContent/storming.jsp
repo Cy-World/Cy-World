@@ -20,6 +20,7 @@
         <script src="js/materialize/materialize.min.js" type="text/javascript"></script>
         <script src="js/materialize/init.js" type="text/javascript"></script>
         <script src="js/cyworldjs/storming.js" type="text/javascript"></script>
+        <script src="js/cyworldjs/jquery.json.js" type="text/javascript"></script>
         <nav>
             <div class="nav-wrapper white" style="border-bottom: solid 3px; border-color: gray;">
                 <a class="brand-logo left" href="index.jsp" style="margin-left: 50px">

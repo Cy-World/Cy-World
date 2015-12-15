@@ -17,23 +17,27 @@ import cyworld.model.TicketBean;
 public class CardaddServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//エンコーディング
 		request.setCharacterEncoding("UTF-8");
-		response.setContentType("chaset=utf-8");
-		
+		response.setContentType("application/json;charset=UTF-8");
+		//セッション取得
 		HttpSession session = request.getSession();
-		RoomBean room =(RoomBean)session.getAttribute("joinRoom");
-		String carddata=request.getParameter("carddata");
-		String callback=request.getParameter("callback");
+		//参加中の部屋を取得
+		RoomBean room=(RoomBean) session.getAttribute("joinRoom");
+		//部屋情報があるか確認、なければログアウト
 		if(room!=null){
-			TicketBean.ticketAdd(carddata,room.getRoomID());
+			//jsから送られてきたデータを取得
+			String carddata = request.getParameter("carddata");
+			System.out.println(carddata);
+			//Ticketテーブルに行を追加
+			TicketBean.ticketAdd(carddata, room.getRoomID());
+			//jsへ返信
+			String responseJson = "{\"responseMessage\" : \""+carddata+"を追加しました\"}";
 			PrintWriter out = response.getWriter();
-			System.out.println(callback+"("+carddata+")");
-			out.println(callback+"("+carddata+")");		
+			out.print(responseJson);
 		}else{
 			request.getRequestDispatcher("LogoutServlet").forward(request, response);
 		}
-		
-		request.getRequestDispatcher("storming.jsp").forward(request, response);
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);

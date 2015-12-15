@@ -36,7 +36,7 @@ public class User {
 
 		DBHelper dbHelper=new DBHelper();
 		dbHelper.openDB();
-		ResultSet rs = dbHelper.selectSQL("SELECT * FROM User WHERE User.UserID=JoinInfo.UserID AND JoinInfo.RoomID = '"+roomID+"')");
+		ResultSet rs = dbHelper.selectSQL("SELECT * FROM User,JoinInfo WHERE User.UserID=JoinInfo.UserID AND JoinInfo.RoomID = '"+roomID+"';");
 		List<User> roomMember=new ArrayList<>();
 		try {
 			if(rs!=null)while(rs.next()){
