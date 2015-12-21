@@ -34,13 +34,16 @@
                         <a class="grey-text text-darken-2" href="myPage.jsp">MyPage</a>
                     </li>
                 </ul>
+                <form action="SearchServlet" class="right" method="post" style="margin-right:30%">
+                    <input name="keyworld" placeholder="Search user or room" size="60" style="height:30px;" type="sarch"/>
+                </form>
             </div>
         </nav>
         <!-- template -->
         <div id="bg-overlay"></div>
         <!--input-->
         <div class="z-depth-3 cardLayout" id="card-input">
-            <form class="row" action="cardaddServlet" method="post">
+            <form action="cardaddServlet" class="row" method="post">
                 <div class="inputFormLaytout">
                     <input class="input-field col s12" class="validate" id="first_name" placeholder="please input your idea" type="text"/>
                     <button class="btn waves-effect waves-light s4 offset-2 cardadd" name="action" type="submit">ADD!!

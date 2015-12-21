@@ -36,8 +36,8 @@
                         <a class="grey-text text-darken-2" href="login.jsp">Login</a>
                     </li>
                 </ul>
-                <form action="index.html" class="right" method="post" style="margin-right:30%">
-                    <input id="search" placeholder="Search user or room" size="60" style="height:30px;" type="sarch"/>
+                <form action="SearchServlet" class="right" method="post" style="margin-right:30%">
+                    <input name="keyworld" placeholder="Search user or room" size="60" style="height:30px;" type="sarch"/>
                 </form>
             </div>
         </nav>
