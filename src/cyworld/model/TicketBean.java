@@ -10,7 +10,7 @@ public class TicketBean {
 	private String ticketID;
 	private String roomID;
 	//参加中の部屋のTicketBeanのJsonパース
-	public String getTicketBeans(String roomID){
+	public static String getTicketBeans(String roomID){
 		DBHelper helper = new DBHelper();
 		helper.openDB();
 		HashMap<String,String> ticketMap = new HashMap<>();
@@ -25,7 +25,7 @@ public class TicketBean {
 			helper.closeDB();
 			return null;
 		}
-		return JSON.encode("");
+		return JSON.encode(ticketMap);
 	}
 	public boolean ticketAdd(String ticketData,String roomID){
 		
