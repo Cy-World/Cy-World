@@ -32,20 +32,56 @@ public class User {
 		return imgPath;
 	}
 
-	public static List<User> getRoomMember(String roomID){
-
-		DBHelper dbHelper=new DBHelper();
+	public List<User> getUserList(String key1) {
+		System.out.println("SEARCH");
+		System.out.println(key1);
+		DBHelper dbHelper = new DBHelper();
+		String sql = String.format("SELECT * FROM User WHERE UserName LIKE '%s%%'", key1);
+		
+		System.out.println(sql);
 		dbHelper.openDB();
-		ResultSet rs = dbHelper.selectSQL("SELECT * FROM User WHERE User.UserID=JoinInfo.UserID AND JoinInfo.RoomID = '"+roomID+"')");
-		List<User> roomMember=new ArrayList<>();
+		ResultSet rs = dbHelper.selectSQL(sql);
+		List<User> userList = new ArrayList<>();
 		try {
-			if(rs!=null)while(rs.next()){
-				User joinUser= new User();
-				joinUser.userID=rs.getString("UserID");
-				joinUser.address=rs.getString("MailAddress");
-				joinUser.name=rs.getString("UserName");
-				roomMember.add(joinUser);
+			if (rs != null) {
+				while (rs.next()) {
+					User user = new User();
+					user.name = rs.getString("UserName");
+					user.address = rs.getString("MailAddress");
+					user.imgPath = rs.getString("ImgPath");
+					System.out.println(user.name);
+					userList.add(user);
+				}
 			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			dbHelper.closeDB();
+
+		} finally {
+			dbHelper.closeDB();
+		}
+
+		return userList;
+	}
+
+	public static List<User> getRoomMember(String roomID) {
+
+		DBHelper dbHelper = new DBHelper();
+		dbHelper.openDB();
+		ResultSet rs = dbHelper.selectSQL(
+				"SELECT * FROM User WHERE User.UserID=JoinInfo.UserID AND JoinInfo.RoomID = '" + roomID + "')");
+		List<User> roomMember = new ArrayList<>();
+		try {
+			if (rs != null)
+				while (rs.next()) {
+					User joinUser = new User();
+					joinUser.userID = rs.getString("UserID");
+					joinUser.address = rs.getString("MailAddress");
+					joinUser.name = rs.getString("UserName");
+					System.out.println(joinUser.name);
+					roomMember.add(joinUser);
+				}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -53,7 +89,7 @@ public class User {
 		}
 		return roomMember;
 	}
-	
+
 	public static void createUser(String name, String address, String passwd) {
 		String sql = String.format("INSERT INTO User VALUES(0,'%s','%s','%s','%s',0);", passwd, address, name, address);
 		DBHelper dbHelper = new DBHelper();

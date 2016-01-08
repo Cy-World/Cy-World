@@ -57,8 +57,8 @@ public class UpLoadServlet extends HttpServlet {
 		upload.setSizeMax(-1);
 		upload.setHeaderEncoding("Windows-31J");
 		try {
-			List list = upload.parseRequest(request);
-			Iterator iterator = list.iterator();
+			List<FileItem> list = upload.parseRequest(request);
+			Iterator<FileItem> iterator = list.iterator();
 			while (iterator.hasNext()) {
 				FileItem item = (FileItem) iterator.next();
 				if (!(item.isFormField())) {

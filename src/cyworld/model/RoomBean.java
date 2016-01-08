@@ -4,10 +4,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
-
-import javax.servlet.http.HttpSession;
-
 import org.apache.commons.lang3.RandomStringUtils;
 
 public class RoomBean {
@@ -83,6 +79,7 @@ public class RoomBean {
 				roomData.add(bean);
 			}
 		} catch (SQLException e) {
+			helper.closeDB();
 			e.printStackTrace();
 		}
 		helper.closeDB();
