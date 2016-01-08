@@ -3,6 +3,7 @@ package cyworld.android;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -10,6 +11,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.mysql.fabric.xmlrpc.base.Array;
 
 import cyworld.model.RoomBean;
 import net.arnx.jsonic.JSON;
@@ -23,7 +26,6 @@ public class RoomViewServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
 		
 		String userId = req.getParameter("userId");
 		out = resp.getWriter();
