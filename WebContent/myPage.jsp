@@ -25,6 +25,8 @@
                     <script src="js/materialize/materialize.min.js" type="text/javascript"></script>
                     <script src="js/materialize/init.js"></script>
                     <script src="js/materialize/test.js" type="text/javascript"></script>
+                    <script src="js/cyworldjs/footerFixed.js"></script>
+
                 </head>
 
                 <body class="grey lighten-4">
@@ -40,7 +42,7 @@
                                     <a class="grey-text text-darken-2" href="myPage.jsp">MyPage</a>
                                 </li>
                             </ul>
-                            <form action="SearchServlet" class="right" method="post" style="margin-right:30%">
+                            <form action="search.jsp" class="right" method="post" style="margin-right:30%">
                                 <input name="keyworld" type="sarch" placeholder="Search user or room" style="height:30px;"size="60"/>
                             </form>
                         </div>
@@ -114,7 +116,7 @@
                                     </div>
                                 </div>
                                 <!-- footer-->
-                                <footer class="page-footer blue-grey darken-4 minWidth">
+                                <footer class="page-footer blue-grey darken-4 minWidth" id="footer">
                                     <div class="container">
                                         <div class="row">
                                             <div class="col l6 s12">
@@ -141,7 +143,7 @@
                                     </div>
                                     <div class="footer-copyright">
                                         <div class="container">
-                                            © 2014 Copyright Cy-World
+                                            © 2016 Copyright Cy-World
                                             <!-- <a class="grey-text text-lighten-4 right" href="#!">More Links</a> -->
                                         </div>
                                     </div>

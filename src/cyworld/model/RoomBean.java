@@ -55,6 +55,36 @@ public class RoomBean {
 		this.comment = comment;
 		this.flag = roomConf;
 	}
+	//getPrf Roomlist
+	public static List<RoomBean> getProfRoomList(String LoginUser) {
+		ArrayList<RoomBean> roomData = new ArrayList<>();
+		// String sql2 = "SELECT * FROM Room WHERE exists " + "(SELECT RoomID
+		// FROM JoinInfo WHERE JoinInfo.UserID = '"
+		// + LoginUser + "');";
+		System.out.println("GET ROOM LIST USER ID :" + LoginUser);
+		String sql = String.format(
+				"SELECT  Room.RoomID,Room.RoomName,Room.Comment,Room.Flag FROM Room,JoinInfo WHERE Room.RoomID=JoinInfo.RoomID AND JoinInfo.UserID = '%s' AND Room.Flag = 0;",
+				LoginUser);
+		System.out.println("SQL : "+sql);
+		DBHelper helper = new DBHelper();
+		helper.openDB();
+
+		ResultSet rs = helper.selectSQL(sql);
+
+		try {
+			while (rs.next()) {
+				RoomBean bean = new RoomBean(rs.getString("RoomID"), rs.getString("RoomName"), rs.getString("Comment"),
+						Byte.parseByte(rs.getString("Flag")));
+				roomData.add(bean);
+			}
+		} catch (SQLException e) {
+			helper.closeDB();
+			e.printStackTrace();
+		}
+		helper.closeDB();
+		return roomData;
+	}
+	
 
 	// Get RoomList
 	public static List<RoomBean> getRoomList(String LoginUser) {
