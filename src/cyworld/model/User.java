@@ -32,12 +32,38 @@ public class User {
 		return imgPath;
 	}
 
+	public static User getUserInfo(String userID) {
+		String sql = String.format("SELECT * FROM User WHERE UserID = '%s';", userID);
+		DBHelper dbHelper = new DBHelper();
+		dbHelper.openDB();
+		ResultSet rs = dbHelper.selectSQL(sql);
+		User user = new User();
+		try {
+			if (rs != null) {
+				while (rs.next()) {
+					user.userID = rs.getString("UserID");
+					user.name = rs.getString("UserName");
+					user.address = rs.getString("MailAddress");
+					user.imgPath = rs.getString("ImgPath");
+				}
+			}
+			dbHelper.closeDB();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			dbHelper.closeDB();
+		}
+		return user;
+
+	}
+
 	public List<User> getUserList(String key1) {
 		System.out.println("SEARCH");
 		System.out.println(key1);
 		DBHelper dbHelper = new DBHelper();
 		String sql = String.format("SELECT * FROM User WHERE UserName LIKE '%s%%'", key1);
-		
+
 		System.out.println(sql);
 		dbHelper.openDB();
 		ResultSet rs = dbHelper.selectSQL(sql);
@@ -46,6 +72,7 @@ public class User {
 			if (rs != null) {
 				while (rs.next()) {
 					User user = new User();
+					user.userID = rs.getString("UserID");
 					user.name = rs.getString("UserName");
 					user.address = rs.getString("MailAddress");
 					user.imgPath = rs.getString("ImgPath");

@@ -15,6 +15,8 @@
         <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
         <script src="js/materialize/materialize.js"></script>
         <script src="js/materialize/init.js"></script>
+        <script src="js/cyworldjs/footerFixed.js"></script>
+
     </head>
     <body class="grey lighten-4">
         <!-- GlobalNavi -->
@@ -68,7 +70,7 @@
     </div>
 
     <!-- footer -->
-    <footer class="page-footer blue-grey darken-4">
+    <footer class="page-footer blue-grey darken-4" id="footer">
         <div class="container">
             <div class="row">
                 <div class="col l6 s12">
@@ -92,7 +94,7 @@
         </div>
         <div class="footer-copyright">
             <div class="container">
-                © 2014 Copyright Cy-World
+                © 2016 Copyright Cy-World
                 <!-- <a class="grey-text text-lighten-4 right" href="#!">More Links</a> -->
             </div>
         </div>

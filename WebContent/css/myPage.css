@@ -21,7 +21,8 @@
   margin: 10px 0 20px 220px;
 }
 .roomContainer {
-  height: 300px;
+    clear: left;
+  height: auto;
 }
 .nameFont {
   font-size: 30px;
