@@ -78,7 +78,7 @@
 				</div>
 				<!-- Passwd -->
 				<div class="input-field col s12">
-					<input class="validate" id="passwd" name="passwd" type="password" />
+					<input class="validate" value="<%=user.getPasswd() %>>" id="passwd" name="passwd" type="password" />
 					<label for="passwd">Password</label>
 				</div>
 				<!-- RePasswd -->
