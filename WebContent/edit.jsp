@@ -20,6 +20,7 @@
 <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src="js/materialize/materialize.js"></script>
 <script src="js/materialize/init.js"></script>
+<script src="js/cyworldjs/footerFixed.js"></script>
 
 </head>
 
@@ -34,13 +35,14 @@
 				style="color: grey; font-weight: bold">-World</span>
 			</a>
 			<ul class="right" id="nav-mobile" style="margin-right: 20px">
-				<li><a class="grey-text text-darken-2" href="registar.jsp">Registar</a>
+				<li><a class="grey-text text-darken-2" href="LogoutServlet">Logout</a>
+
 				</li>
-				<li><a class="grey-text text-darken-2" href="login.jsp">Login</a>
+				<li><a class="grey-text text-darken-2" href="myPage.jsp">MyPage</a>
 				</li>
 			</ul>
-			<form action="index.html" class="right" method="post" style="margin-right:30%">
-				<input id="search" type="sarch" placeholder="Search user or room" style="height:30px;"size="60"/>
+			<form action="search.jsp" class="left navSearch" method="post">
+				<input name="keyworld" placeholder="Search user" type="sarch"/>
 			</form>
 		</div>
 	</nav>
@@ -118,7 +120,7 @@
 	</div>
 
 	<!-- fotter -->
-	<footer class="page-footer blue-grey darken-4">
+	<footer class="page-footer blue-grey darken-4" id="footer">
 		<div class="container">
 			<div class="row">
 				<div class="col l6 s12">
@@ -143,7 +145,7 @@
 		</div>
 		<div class="footer-copyright">
 			<div class="container">
-				© 2014 Copyright Cy-World
+				© 2016 Copyright Cy-World
 				<!-- <a class="grey-text text-lighten-4 right" href="#!">More Links</a> -->
 			</div>
 		</div>

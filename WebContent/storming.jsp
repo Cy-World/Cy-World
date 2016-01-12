@@ -36,6 +36,9 @@
                         <a class="grey-text text-darken-2" href="myPage.jsp">MyPage</a>
                     </li>
                 </ul>
+                <form action="SearchServlet" class="right" method="post" style="margin-right:30%">
+                    <input name="keyworld" placeholder="Search user or room" size="60" style="height:30px;" type="sarch"/>
+                </form>
             </div>
         </nav>
         <!-- overlay -->

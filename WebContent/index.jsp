@@ -47,8 +47,8 @@
 				<li><a class="grey-text text-darken-2" href="myPage.jsp">MyPage</a>
 				</li>
 			</ul>
-			<form action="index.html" class="right" method="post" style="margin-right:30%">
-				<input id="search" type="sarch" placeholder="Search user or room" style="height:30px;"size="60"/>
+			<form action="search.jsp" class="left navSearch" method="post">
+				<input name="keyworld" placeholder="Search user" type="sarch"/>
 			</form>
 			<%
 				}
@@ -132,7 +132,7 @@
 			</div>
 		</div>
 		<div class="footer-copyright">
-			<div class="container">© 2015 Copyright Cy-World</div>
+			<div class="container">© 2016 Copyright Cy-World</div>
 		</div>
 	</footer>
 </body>
