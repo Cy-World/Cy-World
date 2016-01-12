@@ -67,7 +67,7 @@
 		System.out.println("MYPAGE ///////////////////////////////");
 	%>
                     <div class="contents">
-
+                        <h3>My Page</h3>
                         <div class="z-depth-3 myPageCard row">
                             <!-- Profile Container -->
                             <div class="col s4">

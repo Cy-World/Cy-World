@@ -72,7 +72,7 @@
 		String spritAddress[] = user.getAddress().toString().split("@", 0);
 	%>
 	<div class="contents">
-
+		<h3>User Profile</h3>
 		<div class="z-depth-3 myPageCard row">
 			<!-- Profile Container -->
 			<div class="col s4">

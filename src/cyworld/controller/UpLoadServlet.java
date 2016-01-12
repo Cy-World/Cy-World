@@ -53,8 +53,8 @@ public class UpLoadServlet extends HttpServlet {
 		DiskFileItemFactory factory = new DiskFileItemFactory();
 		ServletFileUpload upload = new ServletFileUpload(factory);
 		// 基準値
-		factory.setSizeThreshold(1024);
-		upload.setSizeMax(-1);
+		//factory.setSizeThreshold(1024);
+		//upload.setSizeMax(-1);
 		upload.setHeaderEncoding("Windows-31J");
 		try {
 			List<FileItem> list = upload.parseRequest(request);
