@@ -22,13 +22,9 @@ public class SearchServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private final String REQUEST_STRING = "requestJs";
 
-	public SearchServlet() {
-		super();
-	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
 		HttpSession session = request.getSession();
 		System.out.println("SearchServlet RUN");
 		request.setCharacterEncoding("UTF-8");
@@ -36,6 +32,7 @@ public class SearchServlet extends HttpServlet {
 		User user = new User();
 		user = user.getUserInfo(id);
 		session.setAttribute("userInfo", user);
+		response.setContentType("text/html;charset=utf-8");
 		response.getWriter().append("<br>name" + id);
 		request.getRequestDispatcher("/prof.jsp").forward(request, response);
 

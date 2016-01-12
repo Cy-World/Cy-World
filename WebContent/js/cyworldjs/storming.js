@@ -10,8 +10,9 @@
 
 var cardList = new CardList();
 $(function() {
+    cardUpdate();
     //関数cardUpdateを10秒間隔で呼び出す
-    setInterval(cardUpdate, 10000);
+    setInterval(cardUpdate, 1000);
     //addbuttonがおされたときの処理
     $(".cardadd").each(addButtonEvent);
     //cardを追加せずにoverlayを切る
@@ -32,7 +33,7 @@ function addButtonEvent(i, box) {
                 var inputrow = $("#input-val").val();
                 var input = encodeURI(inputrow);
                 $.ajax({
-                    url: "http://cyworld.pgw.jp:1919/test/CardaddServlet",
+                    url: "http://cyworld.pgw.jp:1919/cyworld/CardaddServlet",
                     data: { //サーバーにGETで渡す情報。渡す必要がなければ省略可。
                         "carddata": input
                     }
@@ -68,7 +69,7 @@ function Card(key, data) {
 
 function cardUpdate() { //現在の部屋のカード一覧を取得
     $.ajax({
-        url: "http://cyworld.pgw.jp:1919/test/CardShowServlet",
+        url: "http://cyworld.pgw.jp:1919/cyworld/CardShowServlet",
     }).done(function(data, textStatus, jqXHR) { //成功時の処理
         for (var key in data) {
             cardList.setCard(new Card(key, data[key]));

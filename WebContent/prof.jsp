@@ -10,29 +10,31 @@
 <%@page import="cyworld.model.User"%>
 <html>
 
-<head>
-<meta charset="UTF-8">
-<title>MyPage|Cy-World</title>
-<!-- FrameWorkImport -->
-<link href="http://fonts.googleapis.com/icon?family=Material+Icons"
-	rel="stylesheet">
-<link href="css/materialize.setting.css" rel="stylesheet"
-	type="text/css" />
-<link href="css/materialize.min.css" media="screen,projection"
-	rel="stylesheet" type="text/css" />
-<link href='https://fonts.googleapis.com/css?family=Open+Sans'
-	rel='stylesheet' type='text/css'>
-<!-- CustomImport -->
-<link href="css/myPage.css" rel="stylesheet" type="text/css" />
-<link href="css/inputCard.css" rel="stylesheet" type="text/css" />
-<link href="css/top.css" rel="stylesheet" type="text/css" />
-<script src="https://code.jquery.com/jquery-2.1.1.min.js"
-	type="text/javascript"></script>
-<script src="js/materialize/materialize.min.js" type="text/javascript"></script>
-<script src="js/materialize/init.js"></script>
-<script src="js/materialize/test.js" type="text/javascript"></script>
-<script src="js/cyworldjs/footerFixed.js"></script>
-</head>
+	<head>
+	<meta charset="UTF-8">
+	<title>MyPage|Cy-World</title>
+	<!-- FrameWorkImport -->
+	<link href="http://fonts.googleapis.com/icon?family=Material+Icons"
+		rel="stylesheet">
+	<link href="css/materialize.setting.css" rel="stylesheet"
+		type="text/css" />
+	<link href="css/materialize.min.css" media="screen,projection"
+		rel="stylesheet" type="text/css" />
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans'
+		rel='stylesheet' type='text/css'>
+	<!-- CustomImport -->
+	<link href="css/myPage.css" rel="stylesheet" type="text/css" />
+	<link href="css/inputCard.css" rel="stylesheet" type="text/css" />
+	<link href="css/top.css" rel="stylesheet" type="text/css" />
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"
+		type="text/javascript"></script>
+	<script src="js/materialize/materialize.min.js" type="text/javascript"></script>
+	<script src="js/materialize/init.js"></script>
+	<script src="js/materialize/test.js" type="text/javascript"></script>
+	<script src="js/cyworldjs/footerFixed.js"></script>
+	<script src="js/cyworldjs/profile.js"></script>
+
+	</head>
 
 <body class="grey lighten-4">
 	<!-- Gnav -->
@@ -91,7 +93,7 @@
 						%>
 						<li class="collection-item dismissable">
 							<div>
-								<%=list.getRoomName()%> <a class="secondary-content users" href="#!"><i
+								<%=list.getRoomName()%> <a class="secondary-content users" href="JoinRoomServlet?roomid=<%=list.getRoomID()%>"><i
 									class="material-icons">input</i></a>
 							</div>
 						</li>

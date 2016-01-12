@@ -53,6 +53,21 @@ public class RoomBean {
 		this.roomName = name;
 		this.comment = comment;
 		this.flag = roomConf;
+	}	// setRoomBean
+	public RoomBean(String roomID) {
+		this.roomID = roomID;
+		DBHelper dbHelper = new DBHelper();
+		dbHelper.openDB();
+		ResultSet rs = dbHelper.selectSQL("SELECT * FROM Room WHERE Room.RoomID='"+roomID+"'");
+		try {
+			rs.next();
+			this.roomName=rs.getString("RoomName");
+			this.comment=rs.getString("Comment");
+			this.flag=Byte.parseByte(rs.getString("Flag"));
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		dbHelper.closeDB();
 	}
 	//getPrf Roomlist
 	public static List<RoomBean> getProfRoomList(String LoginUser) {

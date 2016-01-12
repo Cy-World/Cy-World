@@ -31,6 +31,7 @@
 <script src="js/materialize/init.js"></script>
 <script src="js/materialize/test.js" type="text/javascript"></script>
 <script src="js/cyworldjs/footerFixed.js"></script>
+<script src="js/cyworldjs/profile.js"></script>
 
 </head>
 
@@ -96,7 +97,7 @@
 						<li class="collection-item dismissable">
 							<div>
 								<%=list.getRoomName()%>
-								<a class="secondary-content users roomJoin" href="#!"><i
+								<a class="secondary-content users "href="JoinRoomServlet?roomid=<%=list.getRoomID()%>"><i
 									class="material-icons">input</i></a>
 							</div>
 						</li>

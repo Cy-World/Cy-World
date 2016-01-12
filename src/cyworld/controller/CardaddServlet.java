@@ -35,7 +35,7 @@ public class CardaddServlet extends HttpServlet {
 			//jsへ返信
 			String responseJson = "{\"responseMessage\" : \""+carddata+"\"}";
 			PrintWriter out = response.getWriter();
-			out.print(responseJson);		System.out.println("テスト出力です");
+			out.print(responseJson);
 		}else{
 			request.getRequestDispatcher("LogoutServlet").forward(request, response);
 		}
