@@ -36,9 +36,9 @@
                         <a class="grey-text text-darken-2" href="myPage.jsp">MyPage</a>
                     </li>
                 </ul>
-                <form action="SearchServlet" class="right" method="post" style="margin-right:30%">
-                    <input name="keyworld" placeholder="Search user or room" size="60" style="height:30px;" type="sarch"/>
-                </form>
+                <form action="search.jsp" class="left navSearch" method="post">
+				<input name="keyworld" placeholder="Search user" type="sarch"/>
+			</form>
             </div>
         </nav>
         <!-- overlay -->
@@ -47,7 +47,7 @@
         <div class="z-depth-3 cardLayout" id="card-input">
             <div class="row">
                 <div class="inputFormLaytout">
-                    <input class="input-field col s12" class="validate" id="input-val" name="idea" placeholder="please input your idea" type="text"/>
+                    <input class="input-field col s12" class="validate" id="input-val" name="idea" placeholder="please input your idea" type="text" required="required"/>
                     <button class="btn waves-effect waves-light s4 offset-2 cardadd" name="action" type="submit">ADD!!
                         <i class="material-icons right">send</i>
                     </button>
@@ -102,7 +102,7 @@
                 </div>
             </div>
             <!-- footer -->
-            <footer class="page-footer blue-grey darken-4">
+            <footer class="page-footer blue-grey darken-4" id="footer">
                 <div class="container">
                     <div class="row">
                         <div class="col l6 s12">
@@ -126,7 +126,7 @@
                 </div>
                 <div class="footer-copyright">
                     <div class="container">
-                        © 2014 Copyright Cy-World
+                        © 2016 Copyright Cy-World
                         <!-- <a class="grey-text text-lighten-4 right" href="#!">More Links</a> -->
                     </div>
                 </div>
