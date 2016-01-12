@@ -52,7 +52,7 @@
                 <!--User Name  -->
                 <div class="inputFormLayout">
                     <div class="input-field col s12">
-                        <input class="validate" id="roomName" name="roomName" type="text"/>
+                        <input class="validate" id="roomName" name="roomName" type="text" required/>
                         <label for="roomName">Room Name</label>
                     </div>
                     <!-- Comment -->
@@ -61,7 +61,7 @@
                         <label for="comment">Comment</label>
                     </div>
                     <p>
-                        <input class="with-gap" id="0" name="roomConf" type="radio" value="0"/>
+                        <input class="with-gap" id="0" name="roomConf" type="radio" value="0" checked/>
                         <label for="0">Public</label>
                     </p>
                     <p>
