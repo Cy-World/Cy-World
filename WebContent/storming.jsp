@@ -1,3 +1,4 @@
+<%@page import="cyworld.model.RoomBean"%>
 <%@page import="cyworld.model.User"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html;charset=utf-8" language="java"%>
@@ -19,7 +20,7 @@
         <script src="https://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>
         <script src="js/materialize/materialize.min.js" type="text/javascript"></script>
         <script src="js/materialize/init.js" type="text/javascript"></script>
-        <script src="js/cyworldjs/storming.js" charset="UTF-8" type="text/javascript"></script>
+        <script charset="UTF-8" src="js/cyworldjs/storming.js" type="text/javascript"></script>
         <script src="js/cyworldjs/jquery.json.js" type="text/javascript"></script>
         <nav>
             <div class="nav-wrapper white" style="border-bottom: solid 3px; border-color: gray;">
@@ -40,7 +41,7 @@
         <!-- overlay -->
         <div id="bg-overlay"></div>
         <!--input-->
-        <div class="z-depth-3 cardLayout" id="card-input" >
+        <div class="z-depth-3 cardLayout" id="card-input">
             <div class="row">
                 <div class="inputFormLaytout">
                     <input class="input-field col s12" class="validate" id="input-val" name="idea" placeholder="please input your idea" type="text"/>
@@ -55,11 +56,13 @@
             <div class="card-content gray-text">
                 <p></p>
             </div>
+            <!--
             <div class="card-action row">
                 <a class="col s3" href="#">DEL</a>
                 <a class="col s3" href="#">TAG</a>
                 <a class="col s3" href="#">NICE</a>
             </div>
+            -->
         </div>
         <!-- content-body -->
         <div class="content-body">
@@ -70,7 +73,12 @@
                     </a>
                 </div>
                 <div class="col s9">
-                    <h4 class="titleLayout" style="color:blue">Title</h4>
+                    <h4 class="titleLayout" style="color:blue">
+                    <%
+                    RoomBean joinRoom=(RoomBean)session.getAttribute("joinRoom");
+                    out.print(joinRoom.getRoomName());
+                    %>
+                    </h4>
                 </div>
                 <!-- Modal Trigger -->
                 <div class="col s2">

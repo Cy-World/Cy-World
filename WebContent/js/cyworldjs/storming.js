@@ -8,10 +8,10 @@
 //main
 //------------------------------------------------------------------------------
 
-var cardList = {
-
-};
+var cardList = new CardList();
 $(function() {
+    //関数cardUpdateを10秒間隔で呼び出す
+    setInterval(cardUpdate, 10000);
     //addbuttonがおされたときの処理
     $(".cardadd").each(addButtonEvent);
     //cardを追加せずにoverlayを切る
@@ -21,7 +21,7 @@ $(function() {
     });
 });
 //------------------------------------------------------------------------------
-var cardlist= new cardlist();
+
 function addButtonEvent(i, box) {
     $(box).on("click", function() {
         if (chkOverlayProcess()) { //overlayの処理中かチェック
@@ -29,21 +29,15 @@ function addButtonEvent(i, box) {
                 $("#bg-overlay").fadeIn();
                 $("#card-input").fadeIn();
             } else { //fadeout
-                cardUpdate();
                 var inputrow = $("#input-val").val();
-                alert(inputrow);
                 var input = encodeURI(inputrow);
-                alert(input);
                 $.ajax({
                     url: "http://cyworld.pgw.jp:1919/test/CardaddServlet",
                     data: { //サーバーにGETで渡す情報。渡す必要がなければ省略可。
                         "carddata": input
                     }
                 }).done(function(data, textStatus, jqXHR) { //成功時の処理
-                    alert(data.responseMessage);
-                    var newCard = $("#card-tmp").clone().removeAttr("id");
-                    newCard.find(".card-content p").append(data.responseMessage);
-                    $("#main-content").append(newCard);
+                    cardUpdate();
                 });
                 $("#bg-overlay").fadeOut();
                 $("#card-input").fadeOut();
@@ -52,23 +46,32 @@ function addButtonEvent(i, box) {
     });
 }
 
-function cardList(){
-    this.cardlist={};
-    function setCard(card){
-        cardlist[card.key]=card;
-    }
-}
-function card(key,data){
-    this.key=key;
-    this.data=data;
+function CardList() {
+    this.cardList = {};
+    this.setCard = function(card) {
+        var key = String(card.key);
+        if (!(card.key in this.cardList)) {
+            this.cardList[key] = card;
+            var newCard = $("#card-tmp").clone().removeAttr("id");
+            newCard.find(".card-content p").append(card.data);
+            $("#main-content").append(newCard);
+        } else {
+            this.cardList[key] = card;
+        }
+    };
 }
 
-function cardUpdate(){//現在の部屋のカード一覧を取得
+function Card(key, data) {
+    this.key = key;
+    this.data = data;
+}
+
+function cardUpdate() { //現在の部屋のカード一覧を取得
     $.ajax({
         url: "http://cyworld.pgw.jp:1919/test/CardShowServlet",
     }).done(function(data, textStatus, jqXHR) { //成功時の処理
-        for(var key in data){
-            cardlist.setCard(new card(key,data[key]));
+        for (var key in data) {
+            cardList.setCard(new Card(key, data[key]));
         }
     });
 }
