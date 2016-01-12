@@ -31,15 +31,14 @@
                     <span style="color: grey; font-weight: bold">-World</span>
                 </a>
                 <ul class="right" id="nav-mobile" style="margin-right: 20px">
-                    <li>
-                        <a class="grey-text text-darken-2" href="registar.jsp">Registar</a>
-                    </li>
-                    <li>
-                        <a class="grey-text text-darken-2" href="login.jsp">Login</a>
-                    </li>
+                    <li><a class="grey-text text-darken-2" href="LogoutServlet">Logout</a>
+
+    				</li>
+    				<li><a class="grey-text text-darken-2" href="myPage.jsp">MyPage</a>
+    				</li>
                 </ul>
-                <form action="search.jsp" class="right" method="post" style="margin-right:30%">
-                    <input name="keyworld" placeholder="Search user or room" size="60" style="height:30px;" type="sarch"/>
+                <form action="search.jsp" class="left navSearch" method="post">
+                    <input name="keyworld" placeholder="Search user" type="sarch"/>
                 </form>
             </div>
         </nav>

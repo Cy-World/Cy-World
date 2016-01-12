@@ -44,13 +44,14 @@
 				style="color: grey; font-weight: bold">-World</span>
 			</a>
 			<ul class="right" id="nav-mobile" style="margin-right: 20px">
+				<li><a class="grey-text text-darken-2" href="LogoutServlet">Logout</a>
+
+				</li>
 				<li><a class="grey-text text-darken-2" href="myPage.jsp">MyPage</a>
 				</li>
 			</ul>
-			<form action="search.jsp" class="right" method="post"
-				style="margin-right: 30%">
-				<input name="keyworld" placeholder="Search user or room" size="60"
-					style="height: 30px;" type="sarch" />
+			<form action="search.jsp" class="left navSearch" method="post">
+				<input name="keyworld" placeholder="Search user" type="sarch"/>
 			</form>
 		</div>
 	</nav>
@@ -75,14 +76,14 @@
 		<div class="z-depth-3 myPageCard row">
 			<!-- Profile Container -->
 			<div class="col s4">
-				<img class="avatar" height="230" src="img/profilePool/<%=imgPath%>"
+				<img class="profAvatar" height="230" src="img/profilePool/<%=imgPath%>"
 					width="230" /> <br /> <span class="nameFont"><%=user.getName()%></span>
 				<br /> <span class="addressFont"><%=spritAddress[0]%></span> <br />
 			</div>
 			<!-- Rooom Container -->
 			<div class="col s8">
 				<div class="roomContainer">
-
+					Room List
 					<ul class="collection" style="width: 100%;">
 						<%
 							if (roomList != null && roomList.size() != 0) {
@@ -90,12 +91,14 @@
 						%>
 						<li class="collection-item dismissable">
 							<div>
-								hoge <a class="secondary-content users" href="#!"><i
+								<%=list.getRoomName()%> <a class="secondary-content users" href="#!"><i
 									class="material-icons">input</i></a>
 							</div>
 						</li>
 						<%
 							}
+							}else {
+								out.print("<tr><td>Not Room<br /></td></tr>");
 							}
 						%>
 					</ul>

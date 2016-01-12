@@ -38,12 +38,14 @@
                                 <span style="color: grey; font-weight: bold">-World</span>
                             </a>
                             <ul class="right" id="nav-mobile" style="margin-right: 20px">
-                                <li>
-                                    <a class="grey-text text-darken-2" href="myPage.jsp">MyPage</a>
-                                </li>
+                                <li><a class="grey-text text-darken-2" href="LogoutServlet">Logout</a>
+
+                				</li>
+                				<li><a class="grey-text text-darken-2" href="myPage.jsp">MyPage</a>
+                				</li>
                             </ul>
-                            <form action="search.jsp" class="right" method="post" style="margin-right:30%">
-                                <input name="keyworld" type="sarch" placeholder="Search user or room" style="height:30px;"size="60"/>
+                            <form action="search.jsp" class="left navSearch" method="post">
+                                <input name="keyworld" placeholder="Search user" type="sarch"/>
                             </form>
                         </div>
                     </nav>
@@ -62,13 +64,14 @@
 			imgPath = user.getUserID() + ".png";
 		List<RoomBean> roomList = RoomBean.getRoomList(user.getUserID());
 		String spritAddress[] = user.getAddress().toString().split("@", 0);
+		System.out.println("MYPAGE ///////////////////////////////");
 	%>
                     <div class="contents">
 
                         <div class="z-depth-3 myPageCard row">
                             <!-- Profile Container -->
                             <div class="col s4">
-                                <img class="avatar" height="230" src="img/profilePool/<%=imgPath%>" width="230"/>
+                                <img class="profAvatar" height="230" src="img/profilePool/<%=imgPath%>" width="230"/>
                                 <br>
                                     <span class="nameFont"><%=user.getName()%></span>
                                     <br>
@@ -81,35 +84,25 @@
                                         <!-- Rooom Container -->
                                         <div class="col s8">
                                             <div class="roomContainer">
-                                                <table class="bordered">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Room List</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <%
-							if (roomList != null && roomList.size() != 0) {
-								for (RoomBean list : roomList) {
-						%>
-						<style media="screen">
-					 		.hoge {
-								margin-left: 80%;
-							}
-					 	</style>
-									<tr>
-                                        <td style="padding:20px;"><%=list.getRoomName()%><a href="storming.jsp"><i class="material-icons hoge">input</i></a></td>
-                                 	</tr>
-                                                        <%
-								}
-							} else {
-
-								out.print("<tr><td>You don't have to make a room.<br /><a href=\"createRoom.jsp\">Create a Room</a></td></tr>");
-							}
-						%>
-                                                    </tbody>
-
-                                                </table>
+                                                Room List
+                                                <ul class="collection" style="width: 100%;">
+                            						<%
+                            							if (roomList != null && roomList.size() != 0) {
+                            								for (RoomBean list : roomList) {
+                            						%>
+                            						<li class="collection-item dismissable">
+                            							<div>
+                            								<%=list.getRoomName()%> <a class="secondary-content users" href="#!"><i
+                            									class="material-icons">input</i></a>
+                            							</div>
+                            						</li>
+                            						<%
+                            							}
+                            							}else {
+                            								out.print("<tr><td>You don't have to make a room.<br /><a href=\"createRoom.jsp\">Create a Room</a></td></tr>");
+                            							}
+                            						%>
+                            					</ul>
                                             </div>
                                         </div>
 

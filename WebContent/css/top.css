@@ -29,3 +29,12 @@ input[type="sarch"] {
 .inputFormLaytout {
     margin: 10px 90px;
 }
+
+.navSearch{
+    margin-left: 200px;
+}
+
+.navSearch input{
+    height: 30px;
+    color:#555555;
+}

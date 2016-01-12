@@ -62,7 +62,7 @@ public class User {
 		System.out.println("SEARCH");
 		System.out.println(key1);
 		DBHelper dbHelper = new DBHelper();
-		String sql = String.format("SELECT * FROM User WHERE UserName LIKE '%s%%'", key1);
+		String sql = String.format("SELECT * FROM User WHERE UserName LIKE '%s%%' OR MailAddress LIKE '%s%%'", key1,key1);
 
 		System.out.println(sql);
 		dbHelper.openDB();
