@@ -2,6 +2,7 @@ package cyworld.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URLDecoder;
 
 import javax.servlet.ServletException; 
 import javax.servlet.annotation.WebServlet;
@@ -27,12 +28,13 @@ public class CardaddServlet extends HttpServlet {
 		//部屋情報があるか確認、なければログアウト
 		if(room!=null){
 			//jsから送られてきたデータを取得
-			String carddata = request.getParameter("carddata");
-			System.out.println(carddata);
+			String carddata = URLDecoder.decode(request.getParameter("carddata"),"utf-8");
+			System.out.println("テスト出力です");
+			System.out.println(carddata+"を取得しました");
 			//Ticketテーブルに行を追加
 			TicketBean.ticketAdd(carddata, room.getRoomID());
 			//jsへ返信
-			String responseJson = "{\"responseMessage\" : \""+carddata+"を追加しました\"}";
+			String responseJson = "{\"responseMessage\" : \""+carddata+"\"}";
 			PrintWriter out = response.getWriter();
 			out.print(responseJson);
 		}else{

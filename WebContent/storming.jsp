@@ -19,7 +19,7 @@
         <script src="https://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>
         <script src="js/materialize/materialize.min.js" type="text/javascript"></script>
         <script src="js/materialize/init.js" type="text/javascript"></script>
-        <script src="js/cyworldjs/storming.js" type="text/javascript"></script>
+        <script src="js/cyworldjs/storming.js" charset="UTF-8" type="text/javascript"></script>
         <script src="js/cyworldjs/jquery.json.js" type="text/javascript"></script>
         <nav>
             <div class="nav-wrapper white" style="border-bottom: solid 3px; border-color: gray;">
@@ -37,7 +37,7 @@
                 </ul>
             </div>
         </nav>
-        <!-- template -->
+        <!-- overlay -->
         <div id="bg-overlay"></div>
         <!--input-->
         <div class="z-depth-3 cardLayout" id="card-input" >
@@ -51,7 +51,7 @@
             </div>
         </div>
         <!--tmp-->
-        <div class="z-depth-3 card-panel white small" id="card-tmp">
+        <div class="z-depth-3 card-panel white small col s3" id="card-tmp">
             <div class="card-content gray-text">
                 <p></p>
             </div>
