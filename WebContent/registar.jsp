@@ -50,22 +50,22 @@
 			<div class="inputFormLayout">
 				<!--User Name  -->
 				<div class="input-field col s12">
-					<input class="validate" id="name" name="username" type="text" /> <label
+					<input class="validate" id="name" name="username" type="text" value="Cyg"/> <label
 						for="name">UserName</label>
 				</div>
 				<!-- Email addless -->
 				<div class="input-field col s12">
-					<input class="validate" id="email" name=email type="email" /> <label
+					<input class="validate" id="email" name=email type="email" value="Cyg@com"/> <label
 						for="email">Email Address</label>
 				</div>
 				<!-- Passwd -->
 				<div class="input-field col s12">
-					<input class="validate" id="passwd" name="passwd" type="password" />
+					<input class="validate" id="passwd" name="passwd" type="password" value="cyg"/>
 					<label for="passwd">Password</label>
 				</div>
 				<!-- RePasswd -->
 				<div class="input-field col s12">
-					<input class="validate" id="repasswd" name="repasswd"
+					<input class="validate" id="repasswd" value="cyg" name="repasswd"
 						type="password" /> <label for="repasswd">Conpirm your
 						Password</label>
 				</div>

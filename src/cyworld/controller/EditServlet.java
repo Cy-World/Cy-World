@@ -31,6 +31,7 @@ public class EditServlet extends HttpServlet {
 		String passwd = user.getPasswd();
 		String id = user.getUserID();
 		user.updateUser(address, passwd, name, id, authAddress);
+		response.setContentType("text/html;charset=utf-8");
 		request.getRequestDispatcher("/myPage.jsp").forward(request, response);
 	}
 

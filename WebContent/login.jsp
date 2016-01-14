@@ -54,12 +54,12 @@
             <!--User Name  -->
             <div class="inputFormLaytout">
                 <div class="input-field ">
-                    <input class="validate" id="mail" name="address" type="email"/>
+                    <input class="validate" id="mail" name="address" type="email" value="x13g000@com"/>
                     <label for="mail">Email Address</label>
                 </div>
                 <!-- Password -->
                 <div class="input-field">
-                    <input class="validate" id="passwd" name="passwd" type="password"/>
+                    <input class="validate" id="passwd" name="passwd" type="password" value="cyworld"/>
                     <label for="passwd">Password</label>
                 </div>
             </div>

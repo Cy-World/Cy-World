@@ -37,6 +37,7 @@ public class UpLoadServlet extends HttpServlet {
 		HttpSession httpSession = request.getSession();
 		User user = (User) httpSession.getAttribute("loginUser");
 		upLoad(httpSession, request, user);
+		response.setContentType("text/html;charset=utf-8");
 		request.getRequestDispatcher("/myPage.jsp").forward(request, response);
 
 	}

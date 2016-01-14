@@ -14,6 +14,7 @@
         <link href="css/materialize.min.css" media="screen,projection" rel="stylesheet" type="text/css"/>
         <!-- CustomImport -->
         <link href="css/storming.css" rel="stylesheet" type="text/css"/>
+        <link href="css/top.css" media="screen,projection" rel="stylesheet" type="text/css"/>
     </head>
     <body class="grey lighten-4">
         <!--Import jQuery before materialize.js-->
@@ -23,24 +24,25 @@
         <script charset="UTF-8" src="js/cyworldjs/storming.js" type="text/javascript"></script>
         <script src="js/cyworldjs/jquery.json.js" type="text/javascript"></script>
         <nav>
-            <div class="nav-wrapper white" style="border-bottom: solid 3px; border-color: gray;">
+            <div class="nav-wrapper white minWidth"
+                style="border-bottom: solid 3px; border-color: gray;">
                 <a class="brand-logo left" href="index.jsp" style="margin-left: 50px">
-                    <span style="color: blue; font-weight: bold">Cy</span>
-                    <span style="color: grey; font-weight: bold">-World</span>
+                    <span style="color: blue; font-weight: bold">Cy</span> <span
+                    style="color: grey; font-weight: bold">-World</span>
                 </a>
                 <ul class="right" id="nav-mobile" style="margin-right: 20px">
-                    <li>
-                        <a class="grey-text text-darken-2" href="LogoutServlet">Logout</a>
+                    <li><a class="grey-text text-darken-2" href="LogoutServlet">Logout</a>
+
                     </li>
-                    <li>
-                        <a class="grey-text text-darken-2" href="myPage.jsp">MyPage</a>
+                    <li><a class="grey-text text-darken-2" href="myPage.jsp">MyPage</a>
                     </li>
                 </ul>
                 <form action="search.jsp" class="left navSearch" method="post">
-				<input name="keyworld" placeholder="Search user" type="sarch"/>
-			</form>
+                    <input name="keyworld" placeholder="Search user" type="sarch"/>
+                </form>
             </div>
         </nav>
+
         <!-- overlay -->
         <div id="bg-overlay"></div>
         <!--input-->
