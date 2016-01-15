@@ -62,14 +62,11 @@
 	<%
 		//HttpSession httpSession = request.getSession();
 		User user = (User) session.getAttribute("userInfo");
-		String path = getServletContext().getRealPath("img/profilePool");
-		File jpgFile = new File(path + "/" + user.getUserID() + ".jpg");
-		File pngFile = new File(path + "/" + user.getUserID() + ".png");
 		String imgPath = "0000.jpg";
-		if (jpgFile.exists())
-			imgPath = user.getUserID() + ".jpg";
-		if (pngFile.exists())
-			imgPath = user.getUserID() + ".png";
+		String path = getServletContext().getRealPath("img/profilePool");
+		File imgFile = new File(path + "/" + user.getUserID() + "/" + user.getImgPath());
+		if (imgFile.exists())
+			imgPath = user.getUserID() + "/" + user.getImgPath();
 		List<RoomBean> roomList = RoomBean.getProfRoomList(user.getUserID());
 		String spritAddress[] = user.getAddress().toString().split("@", 0);
 	%>

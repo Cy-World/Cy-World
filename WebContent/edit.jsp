@@ -42,24 +42,43 @@
 				</li>
 			</ul>
 			<form action="search.jsp" class="left navSearch" method="post">
-				<input name="keyworld" placeholder="Search user" type="sarch"/>
+				<input name="keyworld" placeholder="Search user" type="sarch" />
 			</form>
 		</div>
 	</nav>
 	<%
-		HttpSession httpSession = request.getSession();
-		User user = (User) httpSession.getAttribute("loginUser");
-		String path = getServletContext().getRealPath("img/profilePool");
-		File jpgFile = new File(path + "/" + user.getUserID() + ".jpg");
-		File pngFile = new File(path + "/" + user.getUserID() + ".png");
+		User user = (User) session.getAttribute("loginUser");
 		String imgPath = "0000.jpg";
-		if (jpgFile.exists())
-			imgPath = user.getUserID() + ".jpg";
-		if (pngFile.exists())
-			imgPath = user.getUserID() + ".png";
+		String path = getServletContext().getRealPath("img/profilePool");
+		File imgFile = new File(path + "/" + user.getUserID() + "/" + user.getImgPath());
+		if (imgFile.exists())
+			imgPath = user.getUserID() + "/"+user.getImgPath();
 	%>
 	<!-- MainContents -->
 	<div class="contents">
+		<!-- Imgae UpLoad -->
+		<form action="UpLoadServlet" class="z-depth-3 cardLayout"
+			enctype="multipart/form-data" method="post" accept-charset="UTF-8">
+			<h4 class="titleLayout">Avatar</h4>
+			<div class="inputFormLayout">
+				<img class="avatar" height="100" src="img/profilePool/<%=imgPath%>"
+					width="100" />
+				<!-- Image -->
+				<div class="file-field input-field">
+					<div class="btn">
+						<span>File</span> <input multiple type="file" name="imgPath" />
+					</div>
+					<div class="file-path-wrapper">
+						<input class="file-path validate"
+							placeholder="Upload one or more files" type="text" />
+					</div>
+				</div>
+			</div>
+			<button class="waves-effect waves-light btn-large buttonLayout"
+				name="action" type="submit" />
+			UpLoad <i class="material-icons left">room</i>
+			</button>
+		</form>
 		<!-- Input forms -->
 		<form action="EditServlet" class="z-depth-3 cardLayout" method="post">
 			<h4 class="titleLayout">Edit Profile</h4>
@@ -78,8 +97,8 @@
 				</div>
 				<!-- Passwd -->
 				<div class="input-field col s12">
-					<input class="validate" value="<%=user.getPasswd() %>>" id="passwd" name="passwd" type="password" />
-					<label for="passwd">Password</label>
+					<input class="validate" value="<%=user.getPasswd()%>>" id="passwd"
+						name="passwd" type="password" /> <label for="passwd">Password</label>
 				</div>
 				<!-- RePasswd -->
 				<div class="input-field col s12">
@@ -95,28 +114,7 @@
 		</form>
 
 
-		<!-- Imgae UpLoad -->
-		<form action="UpLoadServlet" class="z-depth-3 cardLayout"
-			enctype="multipart/form-data" method="post">
-			<div class="inputFormLayout">
-				<img class="avatar" height="230" src="img/profilePool/<%=imgPath%>"
-					width="230" />
-				<!-- Image -->
-				<div class="file-field input-field">
-					<div class="btn">
-						<span>File</span> <input multiple type="file" name="imgPath" />
-					</div>
-					<div class="file-path-wrapper">
-						<input class="file-path validate"
-							placeholder="Upload one or more files" type="text" />
-					</div>
-				</div>
-			</div>
-			<button class="waves-effect waves-light btn-large buttonLayout"
-				name="action" type="submit" />
-			UpLoad <i class="material-icons left">room</i>
-			</button>
-		</form>
+
 	</div>
 
 	<!-- fotter -->

@@ -69,15 +69,12 @@
                 <ul class="collection z-depth-3" style="width: 800px;">
                     <%
 				for (User u : list) {
-					String path = getServletContext().getRealPath("img/profilePool");
-					File jpgFile = new File(path + "/" + u.getUserID() + ".jpg");
-					File pngFile = new File(path + "/" + u.getUserID() + ".png");
 					String imgPath = "0000.jpg";
+					String path = getServletContext().getRealPath("img/profilePool");
+					File imgFile = new File(path + "/" + u.getUserID() + "/"+u.getImgPath());
 					System.out.println(imgPath);
-					if (jpgFile.exists())
-						imgPath = u.getUserID() + ".jpg";
-					if (pngFile.exists())
-						imgPath = u.getUserID() + ".png";
+					if (imgFile.exists())
+						imgPath = u.getUserID() + "/"+u.getImgPath();
 					String spritAddress[] = u.getAddress().toString().split("@", 0);
 					System.out.println(imgPath);
 			%>

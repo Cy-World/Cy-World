@@ -62,7 +62,8 @@ public class User {
 		System.out.println("SEARCH");
 		System.out.println(key1);
 		DBHelper dbHelper = new DBHelper();
-		String sql = String.format("SELECT * FROM User WHERE UserName LIKE '%s%%' OR MailAddress LIKE '%s%%'", key1,key1);
+		String sql = String.format("SELECT * FROM User WHERE UserName LIKE '%s%%' OR MailAddress LIKE '%s%%'", key1,
+				key1);
 
 		System.out.println(sql);
 		dbHelper.openDB();
@@ -128,7 +129,8 @@ public class User {
 	public boolean loginAuth(String address, String passwd) {
 		DBHelper dbHelper = new DBHelper();
 		dbHelper.openDB();
-		if (dbHelper.existsSQL("User",String.format("User.Password = '%s' and User.MailAddress = '%s'", passwd, address))) {
+		if (dbHelper.existsSQL("User",
+				String.format("User.Password = '%s' and User.MailAddress = '%s'", passwd, address))) {
 			dbHelper.closeDB();
 			if (!setUserData(address)) {
 				return false;
@@ -145,7 +147,6 @@ public class User {
 		this.address = address;
 		this.passwd = passwd;
 		this.name = name;
-		this.imgPath = address;
 		String sql = String.format(
 				"UPDATE User SET Password='%s',MailAddress='%s',UserName='%s',ImgPath='%s' WHERE MailAddress='%s';",
 				passwd, address, name, id, auth);
@@ -189,6 +190,16 @@ public class User {
 		dbHelper.closeDB();
 		System.out.println("closeDB");
 		return true;
+	}
+
+	public void updateImagePath(String fileName, String id) {
+		DBHelper dbHelper = new DBHelper();
+		dbHelper.openDB();
+		String sql = String.format("UPDATE User SET ImgPath = '%s' WHERE UserID = '%s'", fileName, id);
+		dbHelper.updateSQL(sql);
+		imgPath = fileName;
+		dbHelper.closeDB();
+		
 	}
 
 	// TEST RUN

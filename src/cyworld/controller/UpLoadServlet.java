@@ -32,7 +32,6 @@ public class UpLoadServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
 		request.setCharacterEncoding("UTF-8");
 		HttpSession httpSession = request.getSession();
 		User user = (User) httpSession.getAttribute("loginUser");
@@ -54,9 +53,10 @@ public class UpLoadServlet extends HttpServlet {
 		DiskFileItemFactory factory = new DiskFileItemFactory();
 		ServletFileUpload upload = new ServletFileUpload(factory);
 		// 基準値
-		//factory.setSizeThreshold(1024);
-		//upload.setSizeMax(-1);
-		upload.setHeaderEncoding("Windows-31J");
+		// factory.setSizeThreshold(1024);
+		// upload.setSizeMax(-1);
+		// upload.setHeaderEncoding("Windows-31J");
+		upload.setHeaderEncoding("UTF-8");
 		try {
 			List<FileItem> list = upload.parseRequest(request);
 			Iterator<FileItem> iterator = list.iterator();
@@ -64,21 +64,35 @@ public class UpLoadServlet extends HttpServlet {
 				FileItem item = (FileItem) iterator.next();
 				if (!(item.isFormField())) {
 					String fileName = item.getName();
+					System.out.println("ImageName:" + fileName);
+					// null check
 					if ((fileName != null) && (!fileName.equals(""))) {
+						// cut ext
 						String[] fileExt = fileName.split("\\.");
 						if (!("png".equals(fileExt[1]) || "jpg".equals(fileExt[1]))) {
+							System.out.println("対応されていないファイルです");
 							break;
 						}
 
-						fileName = user.getUserID();
-						File jpgFile = new File(path + "/" + fileName + ".jpg");
-						File pngFile = new File(path + "/" + fileName + ".png");
-						if (jpgFile.exists())
-							jpgFile.delete();
-						if (pngFile.exists())
-							pngFile.delete();
-						System.out.println(path + "-->" + fileName + "." + fileExt[1]);
-						item.write(new File(path + "/" + fileName + "." + fileExt[1]));
+						int len = fileName.length();
+						byte[] bytes = fileName.getBytes();
+						if (len != bytes.length)
+							fileName = "jpFiles." + fileExt[1];
+
+						// delete file
+						File imgFile = new File(path + "/" + user.getUserID() + "/" + fileName);
+						if (imgFile.exists())
+							imgFile.delete();
+						// mkdir
+						File imgDir = new File(path + "/" + user.getUserID());
+						if (!imgDir.exists())
+							imgDir.mkdirs();
+						// upLoad
+						System.out.println("wite file:" + path + "/" + user.getUserID() + "/" + fileName);
+						item.write(new File(path + "/" + user.getUserID() + "/" + fileName));
+						String sql = "";
+						user.updateImagePath(fileName, user.getUserID());
+
 					}
 				}
 			}
