@@ -83,10 +83,16 @@ public class UpLoadServlet extends HttpServlet {
 						File imgFile = new File(path + "/" + user.getUserID() + "/" + fileName);
 						if (imgFile.exists())
 							imgFile.delete();
+
 						// mkdir
 						File imgDir = new File(path + "/" + user.getUserID());
 						if (!imgDir.exists())
 							imgDir.mkdirs();
+						String files[] = imgDir.list();
+						if (0 < files.length)
+							for (String delFile : files) {
+								new File(path + "/" + user.getUserID() + "/" + delFile).delete();
+							}
 						// upLoad
 						System.out.println("wite file:" + path + "/" + user.getUserID() + "/" + fileName);
 						item.write(new File(path + "/" + user.getUserID() + "/" + fileName));
