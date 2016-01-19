@@ -1,40 +1,57 @@
 body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
 }
+
 main {
-    flex: 1 0 auto;
+	flex: 1 0 auto;
 }
+
 input[type="sarch"] {
-    color: black;
+	color: black;
 }
+
 .contents {
-    margin: 10px auto;
-    max-width: 800px;
-    ]
+	margin: 10px auto;
+	max-width: 800px;
+	]
 }
+
 .topButton {
-    margin: 20px;
+	margin: 20px;
 }
+
 .minWidth {
-    min-width: 800px;
+	min-width: 800px;
 }
+
 .cardLayout {
-    margin: 50px 100px;
-    padding-top: 10px;
-    background: white;
-    width: 600px;
+	margin: 50px 100px;
+	padding-top: 10px;
+	background: white;
+	width: 600px;
 }
+
 .inputFormLaytout {
-    margin: 10px 90px;
+	margin: 10px 90px;
 }
 
-.navSearch{
-    margin-left: 200px;
+.navSearch {
+	margin-left: 200px;
 }
 
-.navSearch input{
-    height: 30px;
-    color:#555555;
+.navSearch input {
+	height: 30px;
+	color: #555555;
 }
+
+.navImg {
+	margin-left: 10px;
+}
+
+
+
+
+
+

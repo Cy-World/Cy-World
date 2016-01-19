@@ -1,3 +1,4 @@
+<%@page import="cyworld.model.GetImage"%>
 <%@page import="java.io.File"%>
 <%@page import="cyworld.model.User"%>
 <%@page contentType="text/html;charset=utf-8" language="java"%>
@@ -25,20 +26,32 @@
 </head>
 
 <body class="grey lighten-4">
-
-	<!-- GlobalNavi -->
+	<%
+		User user = (User) session.getAttribute("loginUser");
+		String path = getServletContext().getRealPath("img/profilePool");
+		String imgPath = new GetImage().getImage(user, path);
+	%>
+	<!-- Dropdown Structure -->
+	<ul id="dropdown1" class="dropdown-content">
+		<li><a href="myPage.jsp">MyPage</a></li>
+		<li><a href="edit.jsp">Setting</a></li>
+		<li><a href="LogoutServlet">Logout</a></li>
+	</ul>
+	<!-- Gnav -->
 	<nav>
-		<div class="nav-wrapper white"
+		<div class="nav-wrapper white minWidth"
 			style="border-bottom: solid 3px; border-color: gray;">
 			<a class="brand-logo left" href="index.jsp" style="margin-left: 50px">
 				<span style="color: blue; font-weight: bold">Cy</span> <span
 				style="color: grey; font-weight: bold">-World</span>
 			</a>
 			<ul class="right" id="nav-mobile" style="margin-right: 20px">
-				<li><a class="grey-text text-darken-2" href="LogoutServlet">Logout</a>
-
-				</li>
-				<li><a class="grey-text text-darken-2" href="myPage.jsp">MyPage</a>
+				<li><a class="dropdown-button grey-text text-darken-2"
+					href="#!" data-activates="dropdown1">
+					<%=user.getName()%>
+					<img class="navImg" alt="avatar" src="img/profilePool/<%=imgPath%>" width="30" height="30" />
+					<i class="material-icons right">arrow_drop_down</i>
+					</a>
 				</li>
 			</ul>
 			<form action="search.jsp" class="left navSearch" method="post">
@@ -46,14 +59,6 @@
 			</form>
 		</div>
 	</nav>
-	<%
-		User user = (User) session.getAttribute("loginUser");
-		String imgPath = "0000.jpg";
-		String path = getServletContext().getRealPath("img/profilePool");
-		File imgFile = new File(path + "/" + user.getUserID() + "/" + user.getImgPath());
-		if (imgFile.exists())
-			imgPath = user.getUserID() + "/"+user.getImgPath();
-	%>
 	<!-- MainContents -->
 	<div class="contents">
 		<!-- Imgae UpLoad -->

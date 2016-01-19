@@ -2,6 +2,7 @@
 <%@page contentType="text/html;charset=utf-8" language="java"%>
 -->
 <!DOCTYPE html>
+<%@page import="cyworld.model.GetImage"%>
 <%@page import="java.util.List"%>
 <%@page import="cyworld.model.RoomBean"%>
 <%@page import="sun.net.www.content.image.png"%>
@@ -36,6 +37,22 @@
 </head>
 
 <body class="grey lighten-4">
+	<%
+		//GET IMAGE
+		User user = (User) session.getAttribute("loginUser");
+		String path = getServletContext().getRealPath("img/profilePool");
+		String imgPath = new GetImage().getImage(user, path);
+		//ROOM LIST
+		List<RoomBean> roomList = RoomBean.getRoomList(user.getUserID());
+		String spritAddress[] = user.getAddress().toString().split("@", 0);
+		System.out.println("MYPAGE ///////////////////////////////");
+	%>
+	<!-- Dropdown Structure -->
+	<ul id="dropdown1" class="dropdown-content">
+		<li><a href="myPage.jsp">MyPage</a></li>
+		<li><a href="edit.jsp">Setting</a></li>
+		<li><a href="LogoutServlet">Logout</a></li>
+	</ul>
 	<!-- Gnav -->
 	<nav>
 		<div class="nav-wrapper white minWidth"
@@ -45,10 +62,12 @@
 				style="color: grey; font-weight: bold">-World</span>
 			</a>
 			<ul class="right" id="nav-mobile" style="margin-right: 20px">
-				<li><a class="grey-text text-darken-2" href="LogoutServlet">Logout</a>
-
-				</li>
-				<li><a class="grey-text text-darken-2" href="myPage.jsp">MyPage</a>
+				<li><a class="dropdown-button grey-text text-darken-2"
+					href="#!" data-activates="dropdown1">
+					<%=user.getName()%>
+					<img class="navImg" alt="avatar" src="img/profilePool/<%=imgPath%>" width="30" height="30" />
+					<i class="material-icons right">arrow_drop_down</i>
+					</a>
 				</li>
 			</ul>
 			<form action="search.jsp" class="left navSearch" method="post">
@@ -58,19 +77,7 @@
 	</nav>
 
 	<!-- Contents -->
-	<%
-		//HttpSession httpSession = request.getSession();
-		//request.setCharacterEncoding("UTF-8");
-		User user = (User) session.getAttribute("loginUser");
-		String imgPath = "0000.jpg";
-		String path = getServletContext().getRealPath("img/profilePool");
-		File imgFile = new File(path + "/" + user.getUserID() + "/" + user.getImgPath());
-		if (imgFile.exists())
-			imgPath = user.getUserID() + "/" + user.getImgPath();
-		List<RoomBean> roomList = RoomBean.getRoomList(user.getUserID());
-		String spritAddress[] = user.getAddress().toString().split("@", 0);
-		System.out.println("MYPAGE ///////////////////////////////");
-	%>
+
 	<div class="contents">
 		<h3>My Page</h3>
 		<div class="z-depth-3 myPageCard row">

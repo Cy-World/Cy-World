@@ -2,6 +2,7 @@
 <%@page contentType="text/html;charset=utf-8" language="java"%>
 -->
 <!DOCTYPE html>
+<%@page import="cyworld.model.GetImage"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@page import="cyworld.model.RoomBean"%>
@@ -10,33 +11,51 @@
 <%@page import="cyworld.model.User"%>
 <html>
 
-	<head>
-	<meta charset="UTF-8">
-	<title>MyPage|Cy-World</title>
-	<!-- FrameWorkImport -->
-	<link href="http://fonts.googleapis.com/icon?family=Material+Icons"
-		rel="stylesheet">
-	<link href="css/materialize.setting.css" rel="stylesheet"
-		type="text/css" />
-	<link href="css/materialize.min.css" media="screen,projection"
-		rel="stylesheet" type="text/css" />
-	<link href='https://fonts.googleapis.com/css?family=Open+Sans'
-		rel='stylesheet' type='text/css'>
-	<!-- CustomImport -->
-	<link href="css/myPage.css" rel="stylesheet" type="text/css" />
-	<link href="css/inputCard.css" rel="stylesheet" type="text/css" />
-	<link href="css/top.css" rel="stylesheet" type="text/css" />
-	<script src="https://code.jquery.com/jquery-2.1.1.min.js"
-		type="text/javascript"></script>
-	<script src="js/materialize/materialize.min.js" type="text/javascript"></script>
-	<script src="js/materialize/init.js"></script>
-	<script src="js/materialize/test.js" type="text/javascript"></script>
-	<script src="js/cyworldjs/footerFixed.js"></script>
-	<script src="js/cyworldjs/profile.js"></script>
+<head>
+<meta charset="UTF-8">
+<title>MyPage|Cy-World</title>
+<!-- FrameWorkImport -->
+<link href="http://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+<link href="css/materialize.setting.css" rel="stylesheet"
+	type="text/css" />
+<link href="css/materialize.min.css" media="screen,projection"
+	rel="stylesheet" type="text/css" />
+<link href='https://fonts.googleapis.com/css?family=Open+Sans'
+	rel='stylesheet' type='text/css'>
+<!-- CustomImport -->
+<link href="css/myPage.css" rel="stylesheet" type="text/css" />
+<link href="css/inputCard.css" rel="stylesheet" type="text/css" />
+<link href="css/top.css" rel="stylesheet" type="text/css" />
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"
+	type="text/javascript"></script>
+<script src="js/materialize/materialize.min.js" type="text/javascript"></script>
+<script src="js/materialize/init.js"></script>
+<script src="js/materialize/test.js" type="text/javascript"></script>
+<script src="js/cyworldjs/footerFixed.js"></script>
+<script src="js/cyworldjs/profile.js"></script>
 
-	</head>
+</head>
 
 <body class="grey lighten-4">
+	<%
+		//HttpSession httpSession = request.getSession();
+		User user = (User) session.getAttribute("userInfo");
+		User loginUser = (User) session.getAttribute("loginUser");
+		String path = getServletContext().getRealPath("img/profilePool");
+		String loginImgPath = new GetImage().getImage(loginUser, path);
+		String imgPath = new GetImage().getImage(user, path);
+		//GET ROOM LIST
+
+		List<RoomBean> roomList = RoomBean.getProfRoomList(user.getUserID());
+		String spritAddress[] = user.getAddress().toString().split("@", 0);
+	%>
+	<!-- Dropdown Structure -->
+	<ul id="dropdown1" class="dropdown-content">
+		<li><a href="myPage.jsp">MyPage</a></li>
+		<li><a href="edit.jsp">Setting</a></li>
+		<li><a href="LogoutServlet">Logout</a></li>
+	</ul>
 	<!-- Gnav -->
 	<nav>
 		<div class="nav-wrapper white minWidth"
@@ -46,38 +65,30 @@
 				style="color: grey; font-weight: bold">-World</span>
 			</a>
 			<ul class="right" id="nav-mobile" style="margin-right: 20px">
-				<li><a class="grey-text text-darken-2" href="LogoutServlet">Logout</a>
-
-				</li>
-				<li><a class="grey-text text-darken-2" href="myPage.jsp">MyPage</a>
-				</li>
+				<li><a class="dropdown-button grey-text text-darken-2"
+					href="#!" data-activates="dropdown1"> <%=loginUser.getName()%>
+						<img class="navImg" alt="avatar"
+						src="img/profilePool/<%=loginImgPath%>" width="30" height="30" />
+						<i class="material-icons right">arrow_drop_down</i>
+				</a></li>
 			</ul>
 			<form action="search.jsp" class="left navSearch" method="post">
-				<input name="keyworld" placeholder="Search user" type="sarch"/>
+				<input name="keyworld" placeholder="Search user" type="sarch" />
 			</form>
 		</div>
 	</nav>
 
 	<!-- Contents -->
-	<%
-		//HttpSession httpSession = request.getSession();
-		User user = (User) session.getAttribute("userInfo");
-		String imgPath = "0000.jpg";
-		String path = getServletContext().getRealPath("img/profilePool");
-		File imgFile = new File(path + "/" + user.getUserID() + "/" + user.getImgPath());
-		if (imgFile.exists())
-			imgPath = user.getUserID() + "/" + user.getImgPath();
-		List<RoomBean> roomList = RoomBean.getProfRoomList(user.getUserID());
-		String spritAddress[] = user.getAddress().toString().split("@", 0);
-	%>
+
 	<div class="contents">
 		<h3>User Profile</h3>
 		<div class="z-depth-3 myPageCard row">
 			<!-- Profile Container -->
 			<div class="col s4">
-				<img class="profAvatar" height="230" src="img/profilePool/<%=imgPath%>"
-					width="230" /> <br /> <span class="nameFont"><%=user.getName()%></span>
-				<br /> <span class="addressFont"><%=spritAddress[0]%></span> <br />
+				<img class="profAvatar" height="230"
+					src="img/profilePool/<%=imgPath%>" width="230" /> <br /> <span
+					class="nameFont"><%=user.getName()%></span> <br /> <span
+					class="addressFont"><%=spritAddress[0]%></span> <br />
 			</div>
 			<!-- Rooom Container -->
 			<div class="col s8">
@@ -90,13 +101,15 @@
 						%>
 						<li class="collection-item dismissable">
 							<div>
-								<%=list.getRoomName()%> <a class="secondary-content users" href="JoinRoomServlet?roomid=<%=list.getRoomID()%>"><i
+								<%=list.getRoomName()%>
+								<a class="secondary-content users"
+									href="JoinRoomServlet?roomid=<%=list.getRoomID()%>"><i
 									class="material-icons">input</i></a>
 							</div>
 						</li>
 						<%
 							}
-							}else {
+							} else {
 								out.print("<tr><td>Not Room<br /></td></tr>");
 							}
 						%>

@@ -19,7 +19,12 @@
 <script src="js/materialize/init.js"></script>
 </head>
 <body class="grey lighten-4">
-
+	<!-- Dropdown Structure -->
+	<ul id="dropdown1" class="dropdown-content">
+		<li><a href="myPage.jsp">MyPage</a></li>
+		<li><a href="edit.jsp">Setting</a></li>
+		<li><a href="LogoutServlet">Logout</a></li>
+	</ul>
 	<!-- GlobalNavi -->
 	<nav>
 		<div class="nav-wrapper white"
@@ -28,6 +33,7 @@
 				<span style="color: blue; font-weight: bold">Cy</span> <span
 				style="color: grey; font-weight: bold">-World</span>
 			</a>
+
 			<ul class="right" id="nav-mobile" style="margin-right: 20px">
 
 				<%
@@ -40,15 +46,17 @@
 				</li>
 				<%
 					} else {
+						String navPath = getServletContext().getRealPath("img/profilePool");
+						String imgPath = new GetImage().getImage(user, navPath);
 				%>
-				<li><a class="grey-text text-darken-2" href="LogoutServlet">Logout</a>
-
-				</li>
-				<li><a class="grey-text text-darken-2" href="myPage.jsp">MyPage</a>
-				</li>
+				<li><a class="dropdown-button grey-text text-darken-2"
+					href="#!" data-activates="dropdown1"> <%=user.getName()%> <img
+						class="navImg" alt="avatar" src="img/profilePool/<%=imgPath%>"
+						width="30" height="30" /> <i class="material-icons right">arrow_drop_down</i>
+				</a></li>
 			</ul>
 			<form action="search.jsp" class="left navSearch" method="post">
-				<input name="keyworld" placeholder="Search user" type="sarch"/>
+				<input name="keyworld" placeholder="Search user" type="sarch" />
 			</form>
 			<%
 				}
@@ -78,7 +86,8 @@
 		%>
 		<a
 			class="col m3 waves-effect waves-light btn-large topButton z-depth-2"
-			href="login.jsp"> <i class="material-icons left">cloud</i>Global Room
+			href="login.jsp"> <i class="material-icons left">cloud</i>Global
+			Room
 		</a> <a
 			class="col m3 waves-effect waves-light btn-large topButton z-depth-2"
 			href="login.jsp"> <i class="material-icons left">settings</i>Create
