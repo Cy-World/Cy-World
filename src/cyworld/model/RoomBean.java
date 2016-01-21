@@ -53,23 +53,25 @@ public class RoomBean {
 		this.roomName = name;
 		this.comment = comment;
 		this.flag = roomConf;
-	}	// setRoomBean
+	} // setRoomBean
+
 	public RoomBean(String roomID) {
 		this.roomID = roomID;
 		DBHelper dbHelper = new DBHelper();
 		dbHelper.openDB();
-		ResultSet rs = dbHelper.selectSQL("SELECT * FROM Room WHERE Room.RoomID='"+roomID+"'");
+		ResultSet rs = dbHelper.selectSQL("SELECT * FROM Room WHERE Room.RoomID='" + roomID + "'");
 		try {
 			rs.next();
-			this.roomName=rs.getString("RoomName");
-			this.comment=rs.getString("Comment");
-			this.flag=Byte.parseByte(rs.getString("Flag"));
+			this.roomName = rs.getString("RoomName");
+			this.comment = rs.getString("Comment");
+			this.flag = Byte.parseByte(rs.getString("Flag"));
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		dbHelper.closeDB();
 	}
-	//getPrf Roomlist
+
+	// getPrf Roomlist
 	public static List<RoomBean> getProfRoomList(String LoginUser) {
 		ArrayList<RoomBean> roomData = new ArrayList<>();
 		// String sql2 = "SELECT * FROM Room WHERE exists " + "(SELECT RoomID
@@ -79,7 +81,7 @@ public class RoomBean {
 		String sql = String.format(
 				"SELECT  Room.RoomID,Room.RoomName,Room.Comment,Room.Flag FROM Room,JoinInfo WHERE Room.RoomID=JoinInfo.RoomID AND JoinInfo.UserID = '%s' AND Room.Flag = 0;",
 				LoginUser);
-		System.out.println("SQL : "+sql);
+		System.out.println("SQL : " + sql);
 		DBHelper helper = new DBHelper();
 		helper.openDB();
 
@@ -98,7 +100,6 @@ public class RoomBean {
 		helper.closeDB();
 		return roomData;
 	}
-
 
 	// Get RoomList
 	public static List<RoomBean> getRoomList(String LoginUser) {
@@ -110,7 +111,7 @@ public class RoomBean {
 		String sql = String.format(
 				"SELECT  Room.RoomID,Room.RoomName,Room.Comment,Room.Flag FROM Room,JoinInfo WHERE Room.RoomID=JoinInfo.RoomID AND JoinInfo.UserID = '%s';",
 				LoginUser);
-		System.out.println("SQL : "+sql);
+		System.out.println("SQL : " + sql);
 		DBHelper helper = new DBHelper();
 		helper.openDB();
 
@@ -128,6 +129,30 @@ public class RoomBean {
 		}
 		helper.closeDB();
 		return roomData;
+	}
+
+	// なぜか動く
+	public boolean chekRoom(String userID) {
+		// this.roomID;
+		String sql = String.format(
+				"SELECT * FROM User,JoinInfo WHERE User.UserID=JoinInfo.UserID AND JoinInfo.RoomID = '%s' AND User.UserID = %s",
+				this.roomID, userID);
+		DBHelper dbHelper = new DBHelper();
+		dbHelper.openDB();
+		System.out.println(sql);
+		ResultSet rs = dbHelper.selectSQL(sql);
+		try {
+			if (rs.next()) {
+				return true;
+			} else {
+				return false;
+			}
+		} catch (SQLException e) {
+		} finally {
+			dbHelper.closeDB();
+		}
+		dbHelper.closeDB();
+		return false;
 	}
 
 	public String getRoomID() {
