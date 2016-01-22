@@ -155,6 +155,16 @@ public class RoomBean {
 		return false;
 	}
 
+	public boolean InsertRoom(String userID) {
+		String sql = String.format("INSERT INTO JoinInfo VALUES(0,'%s','%s')", userID, this.roomID);
+		DBHelper dbHelper = new DBHelper();
+		dbHelper.openDB();
+		dbHelper.insertSQL(sql);
+		dbHelper.closeDB();
+		return true;
+
+	}
+
 	public String getRoomID() {
 		return roomID;
 	}

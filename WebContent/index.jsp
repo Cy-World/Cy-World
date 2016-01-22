@@ -92,11 +92,14 @@
 			class="col m3 waves-effect waves-light btn-large topButton z-depth-2"
 			href="login.jsp"> <i class="material-icons left">settings</i>Create
 			Room
-		</a> <a
+		</a>
+		<!-- 
+		 <a
 			class="col m3 waves-effect waves-light btn-large topButton z-depth-2"
 			href="login.jsp"> <i class="material-icons left">input</i>Entering
 			Room
 		</a>
+		 -->
 		<%
 			} else {
 		%>

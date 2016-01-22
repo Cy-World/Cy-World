@@ -8,36 +8,34 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import cyworld.model.DBHelper;
 import cyworld.model.RoomBean;
 import cyworld.model.User;
 
 /**
- * Servlet implementation class JoinRoomServlet
+ * Servlet implementation class InsertRoomServlet
  */
-@WebServlet("/JoinRoomServlet")
-public class JoinRoomServlet extends HttpServlet {
+@WebServlet("/InsertRoomServlet")
+public class InsertRoomServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+
+	public InsertRoomServlet() {
+		super();
+	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
-		session.setAttribute("joinRoom", new RoomBean(request.getParameter("roomid")));
-		session.setAttribute("roomid", request.getParameter("roomid"));
 		User user = new User();
+		String roomid =(String) session.getAttribute("roomid");
 		user = (User) session.getAttribute("loginUser");
-		if (new RoomBean(request.getParameter("roomid")).chekRoom(user.getUserID())) {
-			System.out.println("部屋に参加しています！！");
+		if (new RoomBean(roomid).InsertRoom(user.getUserID())) {
 			request.getRequestDispatcher("StormingServlet").include(request, response);
 			request.getRequestDispatcher("storming.jsp").forward(request, response);
-		} else {
-			request.getRequestDispatcher("joinRoom.jsp").forward(request, response);
-			System.out.println("部屋に参加していません！！");
 		}
-		// request.getRequestDispatcher("StormingServlet").include(request,
-		// response);
-		// request.getRequestDispatcher("storming.jsp").forward(request,
-		// response);
+		else{
+			request.getRequestDispatcher("index.jsp").forward(request, response);
+		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
