@@ -43,29 +43,29 @@
 
 	<!-- MainContents -->
 	<div class="contents">
-			<!-- Input forms -->
+		<!-- Input forms -->
 		<form action="RegisterServlet" class="z-depth-3 cardLayout"
 			method="post">
 			<h4 class="titleLayout">Registar</h4>
 			<div class="inputFormLayout">
 				<!--User Name  -->
 				<div class="input-field col s12">
-					<input class="validate" id="name" name="username" type="text" value="Cyg"/> <label
-						for="name">UserName</label>
+					<input class="validate" id="name" name="username" type="text" value="Cygure"/> <label
+						for="name" >UserName</label>
 				</div>
 				<!-- Email addless -->
 				<div class="input-field col s12">
-					<input class="validate" id="email" name=email type="email" value="Cyg@com"/> <label
-						for="email">Email Address</label>
+					<input class="validate" id="email" name=email type="email" value="x13g111@chiba-fjb.ac.jp"/> <label
+						for="email" >Email Address</label>
 				</div>
 				<!-- Passwd -->
 				<div class="input-field col s12">
-					<input class="validate" id="passwd" name="passwd" type="password" value="cyg"/>
+					<input class="validate" id="passwd" name="passwd" type="password" value="x13g111"/>
 					<label for="passwd">Password</label>
 				</div>
 				<!-- RePasswd -->
 				<div class="input-field col s12">
-					<input class="validate" id="repasswd" value="cyg" name="repasswd"
+					<input class="validate" id="repasswd" name="repasswd"
 						type="password" /> <label for="repasswd">Conpirm your
 						Password</label>
 				</div>
@@ -94,7 +94,8 @@
 							style="margin: 5px"> <i class="material-icons left">input</i>Twitter
 						</a></li>
 						<li><a class="waves-effect waves-light btn"
-							style="margin: 5px"> <i class="material-icons left">input</i>GitHub
+							href="https://github.com/Cy-World" style="margin: 5px"> <i
+								class="material-icons left">input</i>GitHub
 						</a></li>
 
 					</ul>

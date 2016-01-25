@@ -63,12 +63,10 @@
 			</a>
 			<ul class="right" id="nav-mobile" style="margin-right: 20px">
 				<li><a class="dropdown-button grey-text text-darken-2"
-					href="#!" data-activates="dropdown1">
-					<%=user.getName()%>
-					<img class="navImg" alt="avatar" src="img/profilePool/<%=imgPath%>" width="30" height="30" />
-					<i class="material-icons right">arrow_drop_down</i>
-					</a>
-				</li>
+					href="#!" data-activates="dropdown1"> <%=user.getName()%> <img
+						class="navImg" alt="avatar" src="img/profilePool/<%=imgPath%>"
+						width="30" height="30" /> <i class="material-icons right">arrow_drop_down</i>
+				</a></li>
 			</ul>
 			<form action="search.jsp" class="left navSearch" method="post">
 				<input name="keyworld" placeholder="Search user" type="sarch" />
@@ -137,7 +135,8 @@
 							style="margin: 5px"> <i class="material-icons left">input</i>Twitter
 						</a></li>
 						<li><a class="waves-effect waves-light btn"
-							style="margin: 5px"> <i class="material-icons left">input</i>GitHub
+							href="https://github.com/Cy-World" style="margin: 5px"> <i
+								class="material-icons left">input</i>GitHub
 						</a></li>
 
 					</ul>

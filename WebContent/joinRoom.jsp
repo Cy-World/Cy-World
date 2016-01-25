@@ -67,7 +67,7 @@
 	<!-- MainContents -->
 	<div class="contents">
 		<h3>You don't participate in room</h3>
-		Would you like to join this group?
+		<h4>Would you like to join this room?</h4>
 	</div>
 	<a
 		class="col m3 waves-effect waves-light btn-large topButton z-depth-2"
@@ -76,8 +76,7 @@
 	</a>
 	<a
 		class="col m3 waves-effect waves-light btn-large topButton z-depth-2"
-		href="myPage.jsp"> <i class="material-icons left">cloud</i>Back
-		Maypege
+		href="myPage.jsp"> <i class="material-icons left">cloud</i>MyPage
 	</a>
 
 	<!-- footer-->
@@ -97,7 +96,8 @@
 							style="margin: 5px"> <i class="material-icons left">input</i>Twitter
 						</a></li>
 						<li><a class="waves-effect waves-light btn"
-							style="margin: 5px"> <i class="material-icons left">input</i>GitHub
+							href="https://github.com/Cy-World" style="margin: 5px"> <i
+								class="material-icons left">input</i>GitHub
 						</a></li>
 
 					</ul>

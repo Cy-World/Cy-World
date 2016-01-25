@@ -119,7 +119,8 @@
 							style="margin: 5px"> <i class="material-icons left">input</i>Twitter
 						</a></li>
 						<li><a class="waves-effect waves-light btn"
-							style="margin: 5px"> <i class="material-icons left">input</i>GitHub
+							href="https://github.com/Cy-World" style="margin: 5px"> <i
+								class="material-icons left">input</i>GitHub
 						</a></li>
 
 					</ul>

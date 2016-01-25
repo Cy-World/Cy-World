@@ -74,9 +74,8 @@
 			<!--User Name  -->
 			<div class="inputFormLayout">
 				<div class="input-field col s12">
-					<input class="validate" id="roomName" name="roomName"
-						value="美味しいカレーの具材" type="text" required /> <label for="roomName">Room
-						Name</label>
+					<input class="validate" id="roomName" name="roomName" type="text"
+						required /> <label for="roomName">Room Name</label>
 				</div>
 				<!-- Comment -->
 				<div class="input-field col s12">
@@ -117,7 +116,8 @@
 							style="margin: 5px"> <i class="material-icons left">input</i>Twitter
 						</a></li>
 						<li><a class="waves-effect waves-light btn"
-							style="margin: 5px"> <i class="material-icons left">input</i>GitHub
+							href="https://github.com/Cy-World" style="margin: 5px"> <i
+								class="material-icons left">input</i>GitHub
 						</a></li>
 
 					</ul>

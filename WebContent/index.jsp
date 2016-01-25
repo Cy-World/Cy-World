@@ -110,11 +110,14 @@
 			class="col m3 waves-effect waves-light btn-large topButton z-depth-2"
 			href="createRoom.jsp"> <i class="material-icons left">settings</i>Create
 			Room
-		</a> <a
+		</a>
+		<!-- 
+		<a
 			class="col m3 waves-effect waves-light btn-large topButton z-depth-2"
 			href="storming.jsp"> <i class="material-icons left">input</i>Entering
 			Room
 		</a>
+		 -->
 		<%
 			}
 		%>
@@ -136,8 +139,9 @@
 							href="https://twitter.com/Cy_World2015?lang=ja"> <i
 								class="material-icons left">input</i>Twitter
 						</a></li>
-						<li><a class="waves-effect waves-light btn footerButton">
-								<i class="material-icons left">input</i>GitHub
+						<li><a class="waves-effect waves-light btn footerButton"
+							href="https://github.com/Cy-World"> <i
+								class="material-icons left">input</i>GitHub
 						</a></li>
 					</ul>
 				</div>
