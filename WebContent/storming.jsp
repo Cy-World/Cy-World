@@ -23,6 +23,8 @@
         <script src="js/materialize/init.js" type="text/javascript"></script>
         <script charset="UTF-8" src="js/cyworldjs/storming.js" type="text/javascript"></script>
         <script src="js/cyworldjs/jquery.json.js" type="text/javascript"></script>
+        <script src="js/cyworldjs/footerFixed.js" type="text/javascript"></script>
+        
         <nav>
             <div class="nav-wrapper white minWidth"
                 style="border-bottom: solid 3px; border-color: gray;">

@@ -76,7 +76,7 @@
 	</a>
 	<a
 		class="col m3 waves-effect waves-light btn-large topButton z-depth-2"
-		href="myPAge.jsp"> <i class="material-icons left">cloud</i>Back
+		href="myPage.jsp"> <i class="material-icons left">cloud</i>Back
 		Maypege
 	</a>
 
